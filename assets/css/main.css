@@ -10,7 +10,8 @@
  * 3. Layout (estructura principal)
  * 4. Components (elementos reutilizables)
  * 5. Pages (estilos específicos de páginas)
- * 6. Responsive (media queries)
+ * 6. Auth (login, forgot password, register)
+ * 7. Responsive (media queries)
  */
 
 /* Design Tokens */
@@ -27,6 +28,9 @@
 
 /* Page-Specific Styles */
 @import url('pages.css');
+
+/* Auth Pages */
+@import url('auth.css');
 
 /* Responsive Breakpoints */
 @import url('responsive.css');

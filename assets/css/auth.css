@@ -1,0 +1,349 @@
+/**
+ * YPServicesERP - Auth Pages Styles
+ * Login, Forgot Password, Register
+ * @version 1.0.0
+ */
+
+/* ========================================
+   AUTH CONTAINER
+======================================== */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-body);
+    padding: 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--bg-card);
+    border-radius: var(--radius-2xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* ========================================
+   AUTH HEADER
+======================================== */
+.auth-header {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 2rem;
+    text-align: center;
+}
+
+.auth-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.auth-logo .logo-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.3rem;
+}
+
+.auth-logo .logo-text {
+    font-size: 1.25rem;
+}
+
+.auth-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.auth-icon i {
+    font-size: 1.75rem;
+    color: var(--primary-light);
+}
+
+.auth-icon.success {
+    background: rgba(16, 185, 129, 0.2);
+}
+
+.auth-icon.success i {
+    color: var(--success);
+}
+
+.auth-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.auth-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* ========================================
+   AUTH BODY
+======================================== */
+.auth-body {
+    padding: 2rem;
+}
+
+.auth-footer {
+    padding: 1.25rem 2rem;
+    background: var(--bg-input);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.auth-footer a:hover {
+    color: var(--primary-dark);
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* ========================================
+   PASSWORD INPUT
+======================================== */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+}
+
+/* ========================================
+   REMEMBER & FORGOT
+======================================== */
+.remember-forgot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-check-custom {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-check-custom input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.form-check-custom label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.forgot-link {
+    font-size: 0.875rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    color: var(--primary-dark);
+}
+
+/* ========================================
+   AUTH BUTTONS
+======================================== */
+.btn-auth {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   THEME TOGGLE (Auth pages)
+======================================== */
+.theme-toggle-auth {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    z-index: 100;
+}
+
+.theme-toggle-auth:hover {
+    background: var(--bg-card-hover);
+    color: var(--primary);
+}
+
+/* ========================================
+   ALERTS
+======================================== */
+.alert-auth {
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.alert-auth.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+}
+
+.alert-auth.success {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.alert-auth.show {
+    display: flex;
+}
+
+/* ========================================
+   MISC
+======================================== */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.info-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   STEPS INDICATOR
+======================================== */
+.steps-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.step-dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 4px;
+}
+
+.step-dot.completed {
+    background: var(--success);
+}
+
+/* ========================================
+   VIEW STATES
+======================================== */
+.view-step {
+    display: none;
+}
+
+.view-step.active {
+    display: block;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 575.98px) {
+    .auth-header {
+        padding: 1.5rem;
+    }
+    
+    .auth-body {
+        padding: 1.5rem;
+    }
+    
+    .auth-footer {
+        padding: 1rem 1.5rem;
+    }
+    
+    .auth-card {
+        border-radius: var(--radius-xl);
+    }
+}
