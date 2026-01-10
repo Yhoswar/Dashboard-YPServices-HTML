@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -7,20 +8,22 @@
     <meta name="description" content="YPServicesERP - Iniciar Sesión">
     <meta name="author" content="YP Services">
     <title>Iniciar Sesión - YPServicesERP</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
+
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Theme Toggle -->
     <button class="theme-toggle-auth" id="themeToggle" title="Cambiar tema">
@@ -38,7 +41,7 @@
                 <h1 class="auth-title">Bienvenido de nuevo</h1>
                 <p class="auth-subtitle">Ingresa tus credenciales para continuar</p>
             </div>
-            
+
             <!-- Body -->
             <div class="auth-body">
                 <!-- Alert de error -->
@@ -46,23 +49,25 @@
                     <i class="bi bi-exclamation-circle"></i>
                     <span id="loginAlertText">Credenciales incorrectas</span>
                 </div>
-                
+
                 <form id="loginForm">
                     <div class="mb-3">
                         <label class="form-label-custom">Correo electrónico</label>
-                        <input type="email" class="form-control form-control-custom" id="email" placeholder="correo@ejemplo.com" required>
+                        <input type="email" class="form-control form-control-custom" id="email"
+                            placeholder="correo@ejemplo.com" required>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label class="form-label-custom">Contraseña</label>
                         <div class="password-wrapper">
-                            <input type="password" class="form-control form-control-custom" id="password" placeholder="••••••••" required style="padding-right: 45px;">
+                            <input type="password" class="form-control form-control-custom" id="password"
+                                placeholder="••••••••" required style="padding-right: 45px;">
                             <button type="button" class="password-toggle" id="togglePassword">
                                 <i class="bi bi-eye"></i>
                             </button>
                         </div>
                     </div>
-                    
+
                     <div class="remember-forgot">
                         <div class="form-check-custom">
                             <input type="checkbox" id="remember">
@@ -70,14 +75,14 @@
                         </div>
                         <a href="forgot-password.html" class="forgot-link">¿Olvidaste tu contraseña?</a>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-custom-primary btn-auth">
                         <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
                     </button>
                 </form>
-                
+
                 <div class="auth-divider">o continúa con</div>
-                
+
                 <div class="d-flex gap-2">
                     <button class="btn btn-custom-secondary flex-fill">
                         <i class="bi bi-google me-2"></i>Google
@@ -87,10 +92,10 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- Footer -->
             <div class="auth-footer">
-                <span class="text-muted">¿No tienes una cuenta?</span>
+                <span>¿No tienes una cuenta?</span>
                 <a href="#">Regístrate aquí</a>
             </div>
         </div>
@@ -99,13 +104,13 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/theme.js"></script>
-    
+
     <script>
         // Toggle password visibility
-        document.getElementById('togglePassword').addEventListener('click', function() {
+        document.getElementById('togglePassword').addEventListener('click', function () {
             const password = document.getElementById('password');
             const icon = this.querySelector('i');
-            
+
             if (password.type === 'password') {
                 password.type = 'text';
                 icon.classList.remove('bi-eye');
@@ -116,21 +121,21 @@
                 icon.classList.add('bi-eye');
             }
         });
-        
+
         // Form submission (demo)
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+
             // Demo: admin@ypservices.com / admin123
             if (email === 'admin@ypservices.com' && password === 'admin123') {
                 window.location.href = 'index.html';
             } else {
                 const alert = document.getElementById('loginAlert');
                 alert.classList.add('show');
-                
+
                 setTimeout(() => {
                     alert.classList.remove('show');
                 }, 4000);
@@ -138,4 +143,5 @@
         });
     </script>
 </body>
+
 </html>

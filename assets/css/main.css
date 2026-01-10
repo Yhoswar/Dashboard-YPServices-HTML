@@ -32,5 +32,8 @@
 /* Auth Pages */
 @import url('auth.css');
 
+/* Tasks Module */
+@import url('tasks.css');
+
 /* Responsive Breakpoints */
 @import url('responsive.css');

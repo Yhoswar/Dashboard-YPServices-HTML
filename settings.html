@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -7,20 +8,22 @@
     <meta name="description" content="YPServicesERP - Configuración del Sistema">
     <meta name="author" content="YP Services">
     <title>Configuración - YPServicesERP</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
+
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Overlay -->
@@ -31,7 +34,7 @@
             <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
                 <i class="bi bi-chevron-left"></i>
             </button>
-            
+
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo">
                     <div class="logo-icon">YP</div>
@@ -54,6 +57,11 @@
                     <a href="projects.html" class="nav-item" data-title="Proyectos">
                         <i class="bi bi-kanban-fill"></i>
                         <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
                     </a>
                     <a href="invoices.html" class="nav-item" data-title="Facturación">
                         <i class="bi bi-receipt"></i>
@@ -150,19 +158,39 @@
                         <!-- General -->
                         <div class="settings-panel active" id="settings-general">
                             <div class="content-card">
-                                <div class="card-header"><h5 class="card-title">Configuración General</h5></div>
+                                <div class="card-header">
+                                    <h5 class="card-title">Configuración General</h5>
+                                </div>
                                 <div class="card-body">
-                                    <div class="setting-item d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
-                                        <div><h6 class="mb-1">Modo Oscuro</h6><small class="">Activa el tema oscuro</small></div>
-                                        <div class="form-check form-switch form-switch-custom"><input class="form-check-input" type="checkbox" id="darkModeToggle"></div>
+                                    <div
+                                        class="setting-item d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+                                        <div>
+                                            <h6 class="mb-1">Modo Oscuro</h6><small class="">Activa el tema
+                                                oscuro</small>
+                                        </div>
+                                        <div class="form-check form-switch form-switch-custom"><input
+                                                class="form-check-input" type="checkbox" id="darkModeToggle"></div>
                                     </div>
-                                    <div class="setting-item d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
-                                        <div><h6 class="mb-1">Idioma</h6><small class="">Idioma de la interfaz</small></div>
-                                        <select class="form-select-custom" style="width:auto;min-width:160px;"><option selected>Español</option><option>English</option></select>
+                                    <div
+                                        class="setting-item d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+                                        <div>
+                                            <h6 class="mb-1">Idioma</h6><small class="">Idioma de la interfaz</small>
+                                        </div>
+                                        <select class="form-select-custom" style="width:auto;min-width:160px;">
+                                            <option selected>Español</option>
+                                            <option>English</option>
+                                        </select>
                                     </div>
-                                    <div class="setting-item d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
-                                        <div><h6 class="mb-1">Moneda</h6><small class="">Formato de moneda</small></div>
-                                        <select class="form-select-custom" style="width:auto;min-width:160px;"><option selected>USD ($)</option><option>EUR (€)</option><option>MXN ($)</option></select>
+                                    <div
+                                        class="setting-item d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+                                        <div>
+                                            <h6 class="mb-1">Moneda</h6><small class="">Formato de moneda</small>
+                                        </div>
+                                        <select class="form-select-custom" style="width:auto;min-width:160px;">
+                                            <option selected>USD ($)</option>
+                                            <option>EUR (€)</option>
+                                            <option>MXN ($)</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -171,18 +199,32 @@
                         <!-- Profile -->
                         <div class="settings-panel" id="settings-profile">
                             <div class="content-card">
-                                <div class="card-header"><h5 class="card-title">Mi Perfil</h5></div>
+                                <div class="card-header">
+                                    <h5 class="card-title">Mi Perfil</h5>
+                                </div>
                                 <div class="card-body">
                                     <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="user-avatar" style="width:72px;height:72px;font-size:1.5rem;">AD</div>
+                                        <div class="user-avatar" style="width:72px;height:72px;font-size:1.5rem;">AD
+                                        </div>
                                         <button class="btn btn-custom-secondary btn-sm">Cambiar foto</button>
                                     </div>
                                     <div class="row g-3">
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Nombre</label><input type="text" class="form-control form-control-custom" value="Admin"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Apellido</label><input type="text" class="form-control form-control-custom" value="User"></div>
-                                        <div class="col-12"><label class="form-label-custom">Email</label><input type="email" class="form-control form-control-custom" value="admin@ypservices.com"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Teléfono</label><input type="tel" class="form-control form-control-custom" value="+1 234 567 890"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Cargo</label><input type="text" class="form-control form-control-custom" value="CEO / Desarrollador"></div>
+                                        <div class="col-12 col-sm-6"><label
+                                                class="form-label-custom">Nombre</label><input type="text"
+                                                class="form-control form-control-custom" value="Admin"></div>
+                                        <div class="col-12 col-sm-6"><label
+                                                class="form-label-custom">Apellido</label><input type="text"
+                                                class="form-control form-control-custom" value="User"></div>
+                                        <div class="col-12"><label class="form-label-custom">Email</label><input
+                                                type="email" class="form-control form-control-custom"
+                                                value="admin@ypservices.com"></div>
+                                        <div class="col-12 col-sm-6"><label
+                                                class="form-label-custom">Teléfono</label><input type="tel"
+                                                class="form-control form-control-custom" value="+1 234 567 890"></div>
+                                        <div class="col-12 col-sm-6"><label
+                                                class="form-label-custom">Cargo</label><input type="text"
+                                                class="form-control form-control-custom" value="CEO / Desarrollador">
+                                        </div>
                                     </div>
                                     <button class="btn btn-custom-primary mt-4">Guardar Cambios</button>
                                 </div>
@@ -192,13 +234,23 @@
                         <!-- Company -->
                         <div class="settings-panel" id="settings-company">
                             <div class="content-card">
-                                <div class="card-header"><h5 class="card-title">Datos de la Empresa</h5></div>
+                                <div class="card-header">
+                                    <h5 class="card-title">Datos de la Empresa</h5>
+                                </div>
                                 <div class="card-body">
                                     <div class="row g-3">
-                                        <div class="col-12"><label class="form-label-custom">Nombre</label><input type="text" class="form-control form-control-custom" value="YP Services"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">RFC / NIT</label><input type="text" class="form-control form-control-custom" value="YPS123456ABC"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Teléfono</label><input type="tel" class="form-control form-control-custom" value="+1 234 567 890"></div>
-                                        <div class="col-12"><label class="form-label-custom">Dirección</label><textarea class="form-control form-control-custom" rows="2">123 Business Street</textarea></div>
+                                        <div class="col-12"><label class="form-label-custom">Nombre</label><input
+                                                type="text" class="form-control form-control-custom"
+                                                value="YP Services"></div>
+                                        <div class="col-12 col-sm-6"><label class="form-label-custom">RFC /
+                                                NIT</label><input type="text" class="form-control form-control-custom"
+                                                value="YPS123456ABC"></div>
+                                        <div class="col-12 col-sm-6"><label
+                                                class="form-label-custom">Teléfono</label><input type="tel"
+                                                class="form-control form-control-custom" value="+1 234 567 890"></div>
+                                        <div class="col-12"><label class="form-label-custom">Dirección</label><textarea
+                                                class="form-control form-control-custom"
+                                                rows="2">123 Business Street</textarea></div>
                                     </div>
                                     <button class="btn btn-custom-primary mt-4">Guardar Cambios</button>
                                 </div>
@@ -208,18 +260,30 @@
                         <!-- Security -->
                         <div class="settings-panel" id="settings-security">
                             <div class="content-card">
-                                <div class="card-header"><h5 class="card-title">Seguridad</h5></div>
+                                <div class="card-header">
+                                    <h5 class="card-title">Seguridad</h5>
+                                </div>
                                 <div class="card-body">
                                     <div class="row g-3 mb-4">
-                                        <div class="col-12"><label class="form-label-custom">Contraseña Actual</label><input type="password" class="form-control form-control-custom" placeholder="••••••••"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Nueva Contraseña</label><input type="password" class="form-control form-control-custom" placeholder="••••••••"></div>
-                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Confirmar</label><input type="password" class="form-control form-control-custom" placeholder="••••••••"></div>
+                                        <div class="col-12"><label class="form-label-custom">Contraseña
+                                                Actual</label><input type="password"
+                                                class="form-control form-control-custom" placeholder="••••••••"></div>
+                                        <div class="col-12 col-sm-6"><label class="form-label-custom">Nueva
+                                                Contraseña</label><input type="password"
+                                                class="form-control form-control-custom" placeholder="••••••••"></div>
+                                        <div class="col-12 col-sm-6"><label
+                                                class="form-label-custom">Confirmar</label><input type="password"
+                                                class="form-control form-control-custom" placeholder="••••••••"></div>
                                     </div>
                                     <button class="btn btn-custom-primary">Cambiar Contraseña</button>
                                     <hr class="my-4">
                                     <div class="setting-item d-flex align-items-center justify-content-between pt-0">
-                                        <div><h6 class="mb-1">Autenticación 2FA</h6><small class="">Seguridad adicional</small></div>
-                                        <div class="form-check form-switch form-switch-custom"><input class="form-check-input" type="checkbox"></div>
+                                        <div>
+                                            <h6 class="mb-1">Autenticación 2FA</h6><small class="">Seguridad
+                                                adicional</small>
+                                        </div>
+                                        <div class="form-check form-switch form-switch-custom"><input
+                                                class="form-check-input" type="checkbox"></div>
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +299,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- YPServicesERP Scripts -->
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
@@ -243,4 +307,5 @@
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>

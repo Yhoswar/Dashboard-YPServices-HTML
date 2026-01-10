@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -7,20 +8,22 @@
     <meta name="description" content="YPServicesERP - Reportes y Análisis">
     <meta name="author" content="YP Services">
     <title>Reportes - YPServicesERP</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
+
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Overlay -->
@@ -31,7 +34,7 @@
             <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
                 <i class="bi bi-chevron-left"></i>
             </button>
-            
+
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo">
                     <div class="logo-icon">YP</div>
@@ -54,6 +57,11 @@
                     <a href="projects.html" class="nav-item" data-title="Proyectos">
                         <i class="bi bi-kanban-fill"></i>
                         <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
                     </a>
                     <a href="invoices.html" class="nav-item" data-title="Facturación">
                         <i class="bi bi-receipt"></i>
@@ -126,28 +134,36 @@
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon primary"><i class="bi bi-graph-up-arrow"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-graph-up-arrow"></i></div>
+                            </div>
                             <div class="kpi-label">Ingresos Brutos</div>
                             <div class="kpi-value">$67,850</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon info"><i class="bi bi-building"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon info"><i class="bi bi-building"></i></div>
+                            </div>
                             <div class="kpi-label">Inversión Proyectos</div>
                             <div class="kpi-value">$12,400</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon warning"><i class="bi bi-people-fill"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-people-fill"></i></div>
+                            </div>
                             <div class="kpi-label">Pagos a Equipo</div>
                             <div class="kpi-value">$18,500</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon success"><i class="bi bi-percent"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-percent"></i></div>
+                            </div>
                             <div class="kpi-label">Margen Real</div>
                             <div class="kpi-value">54%</div>
                         </div>
@@ -225,7 +241,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <!-- YPServicesERP Scripts -->
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
@@ -233,4 +249,5 @@
     <script src="assets/js/charts.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>

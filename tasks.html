@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Gestión de Tareas">
+    <meta name="author" content="YP Services">
+    <title>Tareas - YPServicesERP</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet">
+    
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item active" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Tareas</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Tareas</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="search-box d-none d-lg-block">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Buscar tarea...">
+                        </div>
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon info"><i class="bi bi-list-check"></i></div>
+                            </div>
+                            <div class="kpi-label">Total Tareas</div>
+                            <div class="kpi-value">24</div>
+                            <div class="kpi-sublabel">En todos los proyectos</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-clock-fill"></i></div>
+                            </div>
+                            <div class="kpi-label">Pendientes</div>
+                            <div class="kpi-value">8</div>
+                            <div class="kpi-sublabel">Por iniciar</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-arrow-repeat"></i></div>
+                            </div>
+                            <div class="kpi-label">En Progreso</div>
+                            <div class="kpi-value">11</div>
+                            <div class="kpi-sublabel">Activas ahora</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-check-circle-fill"></i></div>
+                            </div>
+                            <div class="kpi-label">Completadas</div>
+                            <div class="kpi-value">5</div>
+                            <div class="kpi-sublabel">Esta semana</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & View Toggle -->
+                <div class="content-card mb-4">
+                    <div class="card-body py-3">
+                        <div class="row g-2 align-items-center">
+                            <!-- Search -->
+                            <div class="col-12 col-md-3">
+                                <div class="position-relative">
+                                    <i class="bi bi-search position-absolute" style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                                    <input type="text" class="filter-input w-100" placeholder="Buscar tarea..." style="padding-left:2.5rem;">
+                                </div>
+                            </div>
+                            
+                            <!-- Filter: Proyecto -->
+                            <div class="col-6 col-md-2">
+                                <select class="filter-select w-100" id="filterProject">
+                                    <option value="">Proyecto</option>
+                                    <option>E-commerce TechStore</option>
+                                    <option>App Móvil FinanceTrack</option>
+                                    <option>Rediseño Web Corporativo</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Filter: Cliente -->
+                            <div class="col-6 col-md-2">
+                                <select class="filter-select w-100" id="filterClient">
+                                    <option value="">Cliente</option>
+                                    <option>Juan Domínguez</option>
+                                    <option>María González</option>
+                                    <option>Carlos Pérez</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Filter: Empleado -->
+                            <div class="col-6 col-md-2">
+                                <select class="filter-select w-100" id="filterEmployee">
+                                    <option value="">Asignado</option>
+                                    <option>Admin User</option>
+                                    <option>José Ramírez</option>
+                                    <option>Ana López</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Filter: Estado -->
+                            <div class="col-6 col-md-2">
+                                <select class="filter-select w-100" id="filterStatus">
+                                    <option value="">Estado</option>
+                                    <option>Pendiente</option>
+                                    <option>En Progreso</option>
+                                    <option>Completada</option>
+                                </select>
+                            </div>
+                            
+                            <!-- New Task Button -->
+                            <div class="col-12 col-md-1">
+                                <button class="btn btn-custom-primary w-100" onclick="Tasks.openNewTask()" title="Nueva Tarea">
+                                    <i class="bi bi-plus-lg"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Row: Date Filters & View Toggle -->
+                        <div class="row g-2 align-items-center mt-2">
+                            <div class="col-6 col-md-2">
+                                <input type="date" class="filter-input w-100" id="filterDateFrom" title="Desde">
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <input type="date" class="filter-input w-100" id="filterDateTo" title="Hasta">
+                            </div>
+                            <div class="col-12 col-md-auto ms-md-auto">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-custom-secondary active" id="viewList" title="Vista Lista">
+                                        <i class="bi bi-list-ul"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-custom-secondary" id="viewCalendar" title="Vista Calendario">
+                                        <i class="bi bi-calendar3"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task List View -->
+                <div class="content-card" id="taskListView">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-check2-square"></i> Lista de Tareas</h5>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="text-secondary small">24 tareas</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table-custom">
+                            <thead>
+                                <tr>
+                                    <th style="width:40px;"></th>
+                                    <th>Tarea</th>
+                                    <th class="d-none d-lg-table-cell">Proyecto</th>
+                                    <th class="d-none d-md-table-cell">Asignados</th>
+                                    <th class="d-none d-sm-table-cell">Entrega</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Task 1: Completed -->
+                                <tr class="task-row completed">
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input task-checkbox" type="checkbox" checked>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="task-info">
+                                            <span class="task-title completed">Diseño de mockups página principal</span>
+                                            <div class="task-meta d-flex align-items-center gap-2 mt-1">
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 4/4</span>
+                                                <span class="task-attachments"><i class="bi bi-paperclip"></i> 2</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="project-badge ecommerce">E-commerce TechStore</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="assignees">
+                                            <div class="assignee-avatar" title="Admin User">AD</div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="date-badge completed"><i class="bi bi-check"></i> 05 Ene</span>
+                                    </td>
+                                    <td><span class="status-badge completed">Completada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" onclick="Tasks.openTaskDetail(1)" title="Ver"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(1)" title="Editar"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(1)" title="Duplicar"><i class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Diseño de mockups')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Task 2: In Progress -->
+                                <tr class="task-row">
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input task-checkbox" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="task-info">
+                                            <span class="task-title">Desarrollo del carrito de compras</span>
+                                            <div class="task-meta d-flex align-items-center gap-2 mt-1">
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 2/5</span>
+                                                <span class="task-attachments"><i class="bi bi-paperclip"></i> 1</span>
+                                                <span class="task-priority high"><i class="bi bi-flag-fill"></i></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="project-badge ecommerce">E-commerce TechStore</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="assignees">
+                                            <div class="assignee-avatar" title="Admin User">AD</div>
+                                            <div class="assignee-avatar" title="José Ramírez">JR</div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="date-badge warning"><i class="bi bi-calendar"></i> 12 Ene</span>
+                                    </td>
+                                    <td><span class="status-badge progress">En Progreso</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" onclick="Tasks.openTaskDetail(2)" title="Ver"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(2)" title="Editar"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(2)" title="Duplicar"><i class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Desarrollo del carrito')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Task 3: In Progress -->
+                                <tr class="task-row">
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input task-checkbox" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="task-info">
+                                            <span class="task-title">Integración pasarela de pagos</span>
+                                            <div class="task-meta d-flex align-items-center gap-2 mt-1">
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 0/3</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="project-badge ecommerce">E-commerce TechStore</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="assignees">
+                                            <div class="assignee-avatar" title="José Ramírez">JR</div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="date-badge"><i class="bi bi-calendar"></i> 18 Ene</span>
+                                    </td>
+                                    <td><span class="status-badge progress">En Progreso</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" onclick="Tasks.openTaskDetail(3)" title="Ver"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(3)" title="Editar"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(3)" title="Duplicar"><i class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Integración pasarela')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Task 4: Pending with overdue -->
+                                <tr class="task-row">
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input task-checkbox" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="task-info">
+                                            <span class="task-title">Diseño UI pantallas de autenticación</span>
+                                            <div class="task-meta d-flex align-items-center gap-2 mt-1">
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 1/3</span>
+                                                <span class="task-attachments"><i class="bi bi-paperclip"></i> 5</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="project-badge app">App Móvil FinanceTrack</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="assignees">
+                                            <div class="assignee-avatar" title="Ana López">AL</div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="date-badge overdue"><i class="bi bi-exclamation-circle"></i> 08 Ene</span>
+                                    </td>
+                                    <td><span class="status-badge pending">Pendiente</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" onclick="Tasks.openTaskDetail(4)" title="Ver"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(4)" title="Editar"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(4)" title="Duplicar"><i class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Diseño UI pantallas')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Task 5: Pending -->
+                                <tr class="task-row">
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input task-checkbox" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="task-info">
+                                            <span class="task-title">Configuración de base de datos</span>
+                                            <div class="task-meta d-flex align-items-center gap-2 mt-1">
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 0/2</span>
+                                                <span class="task-priority medium"><i class="bi bi-flag-fill"></i></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="project-badge app">App Móvil FinanceTrack</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="assignees">
+                                            <div class="assignee-avatar" title="Admin User">AD</div>
+                                            <div class="assignee-avatar" title="José Ramírez">JR</div>
+                                            <div class="assignee-avatar more">+1</div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="date-badge"><i class="bi bi-calendar"></i> 20 Ene</span>
+                                    </td>
+                                    <td><span class="status-badge pending">Pendiente</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" onclick="Tasks.openTaskDetail(5)" title="Ver"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(5)" title="Editar"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(5)" title="Duplicar"><i class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Config. base de datos')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Task 6: In Progress -->
+                                <tr class="task-row">
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input task-checkbox" type="checkbox">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="task-info">
+                                            <span class="task-title">Wireframes nueva arquitectura</span>
+                                            <div class="task-meta d-flex align-items-center gap-2 mt-1">
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 3/6</span>
+                                                <span class="task-attachments"><i class="bi bi-paperclip"></i> 8</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="project-badge web">Rediseño Web Corporativo</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="assignees">
+                                            <div class="assignee-avatar" title="Ana López">AL</div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="date-badge"><i class="bi bi-calendar"></i> 25 Ene</span>
+                                    </td>
+                                    <td><span class="status-badge progress">En Progreso</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" onclick="Tasks.openTaskDetail(6)" title="Ver"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(6)" title="Editar"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(6)" title="Duplicar"><i class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Wireframes nueva arquitectura')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                        <small class="text-secondary">Mostrando 1-6 de 24 tareas</small>
+                        <nav>
+                            <ul class="pagination pagination-custom mb-0">
+                                <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Calendar View -->
+                <div class="content-card d-none" id="taskCalendarView">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-calendar3"></i> Calendario de Tareas</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Nueva/Editar Tarea -->
+    <div class="modal fade modal-custom" id="taskModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="taskModalTitle">Nueva Tarea</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label-custom">Título de la Tarea <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-custom" id="taskTitle" placeholder="Ej: Diseñar página de inicio" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label-custom">Descripción / Observaciones</label>
+                                <textarea class="form-control form-control-custom" id="taskDescription" rows="3" placeholder="Describe los detalles de la tarea..."></textarea>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label-custom">Proyecto <span class="text-danger">*</span></label>
+                                <select class="form-select form-select-custom" id="taskProject" required>
+                                    <option value="">Seleccionar proyecto</option>
+                                    <option value="1" data-client="Juan Domínguez">E-commerce TechStore</option>
+                                    <option value="2" data-client="María González">App Móvil FinanceTrack</option>
+                                    <option value="3" data-client="Luis Martínez">Rediseño Web Corporativo</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label-custom">Cliente</label>
+                                <input type="text" class="form-control form-control-custom" id="taskClient" placeholder="Se autocompleta con el proyecto" readonly>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label-custom">Asignar a <span class="text-danger">*</span></label>
+                                <div class="assignee-selector">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="assign1" value="1">
+                                        <label class="form-check-label" for="assign1">
+                                            <span class="assignee-chip"><span class="chip-avatar">AD</span> Admin User</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="assign2" value="2">
+                                        <label class="form-check-label" for="assign2">
+                                            <span class="assignee-chip"><span class="chip-avatar">JR</span> José Ramírez</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="assign3" value="3">
+                                        <label class="form-check-label" for="assign3">
+                                            <span class="assignee-chip"><span class="chip-avatar">AL</span> Ana López</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <label class="form-label-custom">Fecha Inicio</label>
+                                <input type="date" class="form-control form-control-custom" id="taskStartDate">
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <label class="form-label-custom">Fecha Entrega <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control form-control-custom" id="taskDueDate" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label-custom">Estado</label>
+                                <select class="form-select form-select-custom" id="taskStatus">
+                                    <option value="pending" selected>Pendiente</option>
+                                    <option value="progress">En Progreso</option>
+                                    <option value="completed">Completada</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label-custom">Subtareas / Checklist</label>
+                                <div class="subtasks-container" id="subtasksContainer">
+                                    <div class="subtask-item">
+                                        <input type="text" class="form-control form-control-custom" placeholder="Agregar subtarea...">
+                                        <button type="button" class="btn-add-subtask" onclick="Tasks.addSubtask()"><i class="bi bi-plus-lg"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label-custom">Archivos Adjuntos</label>
+                                <div class="file-upload-area" id="fileUploadArea">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                    <span>Arrastra archivos aquí o <strong>haz clic para seleccionar</strong></span>
+                                    <input type="file" id="taskFiles" multiple hidden>
+                                </div>
+                                <div class="uploaded-files" id="uploadedFiles"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="Tasks.saveTask()">
+                        <i class="bi bi-check-lg me-1"></i> Guardar Tarea
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Ver Detalle de Tarea -->
+    <div class="modal fade modal-custom" id="taskDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input task-checkbox-lg" type="checkbox" id="detailTaskCheck">
+                        </div>
+                        <div>
+                            <h5 class="modal-title mb-0" id="detailTaskTitle">Desarrollo del carrito de compras</h5>
+                            <small class="text-secondary" id="detailTaskProject">E-commerce TechStore • Juan Domínguez</small>
+                        </div>
+                    </div>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="task-detail-section">
+                                <h6 class="section-title"><i class="bi bi-text-left"></i> Descripción</h6>
+                                <p class="task-description" id="detailTaskDescription">
+                                    Desarrollar el módulo completo del carrito de compras incluyendo:
+                                    agregar/quitar productos, actualizar cantidades, calcular totales y subtotales,
+                                    aplicar cupones de descuento y preparar datos para el checkout.
+                                </p>
+                            </div>
+                            <div class="task-detail-section">
+                                <h6 class="section-title"><i class="bi bi-check2-square"></i> Subtareas <span class="badge bg-primary ms-2">2/5</span></h6>
+                                <div class="subtasks-list">
+                                    <div class="subtask-check completed">
+                                        <input type="checkbox" checked>
+                                        <span>Diseñar componente del carrito</span>
+                                    </div>
+                                    <div class="subtask-check completed">
+                                        <input type="checkbox" checked>
+                                        <span>Implementar agregar/quitar productos</span>
+                                    </div>
+                                    <div class="subtask-check">
+                                        <input type="checkbox">
+                                        <span>Sistema de cupones de descuento</span>
+                                    </div>
+                                    <div class="subtask-check">
+                                        <input type="checkbox">
+                                        <span>Cálculo de impuestos y envío</span>
+                                    </div>
+                                    <div class="subtask-check">
+                                        <input type="checkbox">
+                                        <span>Integración con checkout</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task-detail-section">
+                                <h6 class="section-title"><i class="bi bi-paperclip"></i> Archivos Adjuntos</h6>
+                                <div class="attachments-grid">
+                                    <div class="attachment-item">
+                                        <div class="attachment-icon"><i class="bi bi-file-earmark-image"></i></div>
+                                        <div class="attachment-info">
+                                            <span class="attachment-name">mockup-carrito.png</span>
+                                            <span class="attachment-size">2.4 MB</span>
+                                        </div>
+                                        <button class="attachment-download"><i class="bi bi-download"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task-detail-section">
+                                <h6 class="section-title"><i class="bi bi-chat-left-text"></i> Actividad</h6>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-avatar">JR</div>
+                                        <div class="activity-content">
+                                            <div class="activity-header">
+                                                <strong>José Ramírez</strong>
+                                                <span class="activity-time">Hace 2 horas</span>
+                                            </div>
+                                            <p class="activity-text">Ya terminé la parte de agregar productos al carrito. Falta la integración con los cupones.</p>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-avatar">AD</div>
+                                        <div class="activity-content">
+                                            <div class="activity-header">
+                                                <strong>Admin User</strong>
+                                                <span class="activity-time">Hace 5 horas</span>
+                                            </div>
+                                            <p class="activity-text">Perfecto, recuerda que el cliente pidió que los cupones también puedan ser porcentaje o monto fijo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-comment">
+                                    <div class="comment-avatar">AD</div>
+                                    <div class="comment-input-wrapper">
+                                        <input type="text" class="form-control form-control-custom" placeholder="Escribe un comentario...">
+                                        <button class="btn btn-custom-primary btn-sm"><i class="bi bi-send"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="task-meta-card">
+                                <div class="meta-item">
+                                    <span class="meta-label">Estado</span>
+                                    <span class="status-badge progress">En Progreso</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Asignados</span>
+                                    <div class="assignees-list">
+                                        <div class="assignee-row">
+                                            <div class="assignee-avatar small">AD</div>
+                                            <span>Admin User</span>
+                                        </div>
+                                        <div class="assignee-row">
+                                            <div class="assignee-avatar small">JR</div>
+                                            <span>José Ramírez</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Fecha Inicio</span>
+                                    <span><i class="bi bi-calendar me-1"></i> 05 Enero 2026</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Fecha Entrega</span>
+                                    <span class="text-warning"><i class="bi bi-calendar-event me-1"></i> 12 Enero 2026</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Creada por</span>
+                                    <span>Admin User</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Última actualización</span>
+                                    <span>Hace 2 horas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-custom-secondary" onclick="Tasks.openEditTask(2)">
+                        <i class="bi bi-pencil me-1"></i> Editar
+                    </button>
+                    <button type="button" class="btn btn-custom-primary" onclick="Tasks.markAsComplete()">
+                        <i class="bi bi-check-lg me-1"></i> Marcar Completada
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirmar Eliminación -->
+    <div class="modal fade modal-custom" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                    <h5 class="mb-2">¿Estás seguro?</h5>
+                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">esta tarea</strong>. Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="Tasks.confirmDelete()">
+                        <i class="bi bi-trash me-1"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/tasks.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
