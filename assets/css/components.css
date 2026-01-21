@@ -235,6 +235,50 @@
     color: var(--primary-light);
 }
 
+/* Mini Badges for BI Card */
+.bi-metric-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bi-mini-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 50px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.bi-mini-badge i {
+    font-size: 0.7rem;
+}
+
+.bi-mini-badge.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.bi-mini-badge.danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.bi-mini-badge.primary {
+    background: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+}
+
+.bi-mini-badge.info {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
 /* ========================================
    TABLES
 ======================================== */
