@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -8,22 +7,20 @@
     <meta name="description" content="YPServicesERP - Movimientos Financieros">
     <meta name="author" content="YP Services">
     <title>Movimientos - YPServicesERP</title>
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-
+    
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
 </head>
-
 <body>
     <div class="app-container">
         <!-- Sidebar Overlay -->
@@ -34,7 +31,7 @@
             <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
                 <i class="bi bi-chevron-left"></i>
             </button>
-
+            
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo">
                     <div class="logo-icon">YP</div>
@@ -130,43 +127,48 @@
 
             <!-- Page Content -->
             <div class="page-content">
-                <!-- KPIs -->
+                <!-- KPIs - Flujo de Caja -->
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-arrow-down-circle-fill"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 8%</span>
+                            </div>
+                            <div class="kpi-label">Ingresos del Mes</div>
+                            <div class="kpi-value">$24,500</div>
+                            <div class="kpi-sublabel">Facturas cobradas</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
                                 <div class="kpi-icon danger"><i class="bi bi-arrow-up-circle-fill"></i></div>
-                                <span class="kpi-trend trend-up"><i class="bi bi-arrow-up"></i> 12%</span>
+                                <span class="kpi-trend down"><i class="bi bi-arrow-up"></i> 12%</span>
                             </div>
                             <div class="kpi-label">Egresos del Mes</div>
                             <div class="kpi-value">$18,500</div>
+                            <div class="kpi-sublabel">Pagos y gastos</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
-                                <div class="kpi-icon primary"><i class="bi bi-people-fill"></i></div>
+                                <div class="kpi-icon primary"><i class="bi bi-wallet2"></i></div>
                             </div>
-                            <div class="kpi-label">Pagos a Equipo</div>
-                            <div class="kpi-value">$12,400</div>
+                            <div class="kpi-label">Balance Neto</div>
+                            <div class="kpi-value text-success">+$6,000</div>
+                            <div class="kpi-sublabel">Ingresos - Egresos</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
-                                <div class="kpi-icon warning"><i class="bi bi-tools"></i></div>
+                                <div class="kpi-icon info"><i class="bi bi-arrow-left-right"></i></div>
                             </div>
-                            <div class="kpi-label">Servicios/Tools</div>
-                            <div class="kpi-value">$3,200</div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="kpi-card">
-                            <div class="kpi-header">
-                                <div class="kpi-icon info"><i class="bi bi-receipt"></i></div>
-                            </div>
-                            <div class="kpi-label">Otros Gastos</div>
-                            <div class="kpi-value">$2,900</div>
+                            <div class="kpi-label">Movimientos</div>
+                            <div class="kpi-value">32</div>
+                            <div class="kpi-sublabel">Este mes</div>
                         </div>
                     </div>
                 </div>
@@ -175,29 +177,37 @@
                 <div class="content-card mb-4">
                     <div class="card-header">
                         <h5 class="card-title"><i class="bi bi-funnel"></i> Filtros</h5>
-                        <button class="btn btn-custom-primary" data-bs-toggle="modal"
-                            data-bs-target="#newMovementModal">
+                        <button class="btn btn-custom-primary" data-bs-toggle="modal" data-bs-target="#newMovementModal">
                             <i class="bi bi-plus-lg me-1"></i>
                             <span class="d-none d-sm-inline">Nuevo Movimiento</span>
                             <span class="d-sm-none">Nuevo</span>
                         </button>
                     </div>
                     <div class="card-body">
-                        <div class="row g-3">
-                            <div class="col-md-6 col-lg-3">
-                                <label class="filter-label">Tipo</label>
-                                <select class="filter-select" id="filterType">
-                                    <option value="">Todos los tipos</option>
-                                    <option value="pago_equipo">Pago a Equipo</option>
-                                    <option value="servicio">Servicio/Herramienta</option>
-                                    <option value="proyecto">Gasto de Proyecto</option>
-                                    <option value="otro">Otros</option>
+                        <div class="row g-3 align-items-end">
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <label class="filter-label d-block mb-1">Flujo</label>
+                                <select class="filter-select w-100" id="filterFlow">
+                                    <option value="">Todos</option>
+                                    <option value="ingreso">Ingresos</option>
+                                    <option value="egreso">Egresos</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 col-lg-3">
-                                <label class="filter-label">Empleado</label>
-                                <select class="filter-select" id="filterEmployee">
-                                    <option value="">Todos los empleados</option>
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <label class="filter-label d-block mb-1">Categoría</label>
+                                <select class="filter-select w-100" id="filterCategory">
+                                    <option value="">Todas</option>
+                                    <option value="factura">Factura Cobrada</option>
+                                    <option value="pago_equipo">Pago a Equipo</option>
+                                    <option value="servicio">Servicio/Tool</option>
+                                    <option value="proyecto">Gasto Proyecto</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <label class="filter-label d-block mb-1">Empleado</label>
+                                <select class="filter-select w-100" id="filterEmployee">
+                                    <option value="">Todos</option>
                                     <option value="1">María García</option>
                                     <option value="2">Carlos López</option>
                                     <option value="3">Ana Martínez</option>
@@ -205,19 +215,19 @@
                                     <option value="5">Laura Sánchez</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 col-lg-3">
-                                <label class="filter-label">Proyecto</label>
-                                <select class="filter-select" id="filterProject">
-                                    <option value="">Todos los proyectos</option>
+                            <div class="col-6 col-md-6 col-lg-3">
+                                <label class="filter-label d-block mb-1">Proyecto</label>
+                                <select class="filter-select w-100" id="filterProject">
+                                    <option value="">Todos</option>
                                     <option value="1">E-commerce TechStore</option>
                                     <option value="2">App Gestión Inventario</option>
                                     <option value="3">Landing Page Promo</option>
                                     <option value="4">Sistema CRM</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 col-lg-3">
-                                <label class="filter-label">Período</label>
-                                <select class="filter-select" id="filterPeriod">
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <label class="filter-label d-block mb-1">Período</label>
+                                <select class="filter-select w-100" id="filterPeriod">
                                     <option value="this_month">Este mes</option>
                                     <option value="last_month">Mes anterior</option>
                                     <option value="last_3_months">Últimos 3 meses</option>
@@ -233,7 +243,7 @@
                 <div class="content-card">
                     <div class="card-header">
                         <h5 class="card-title"><i class="bi bi-cash-stack"></i> Listado de Movimientos</h5>
-                        <span class="text-muted small">24 movimientos encontrados</span>
+                        <span class="text-muted small">32 movimientos encontrados</span>
                     </div>
                     <div class="table-responsive">
                         <table class="table-custom" id="movementsTable">
@@ -241,13 +251,80 @@
                                 <tr>
                                     <th>Fecha</th>
                                     <th>Descripción</th>
-                                    <th class="d-none d-md-table-cell">Tipo</th>
+                                    <th class="d-none d-md-table-cell">Categoría</th>
                                     <th class="d-none d-lg-table-cell">Relacionado</th>
                                     <th>Monto</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- INGRESO - Factura cobrada -->
+                                <tr>
+                                    <td>
+                                        <span class="fw-medium">15 Ene 2026</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="movement-icon income">
+                                                <i class="bi bi-receipt-cutoff"></i>
+                                            </div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Pago Factura #INV-2026-048</span>
+                                                <span class="text-muted small d-md-none">Factura Cobrada</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="type-badge income">Factura Cobrada</span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <a href="projects.html?id=1" class="text-primary">E-commerce TechStore</a>
+                                    </td>
+                                    <td>
+                                        <span class="amount-income">+$3,500</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(1)">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- INGRESO - Factura cobrada -->
+                                <tr>
+                                    <td>
+                                        <span class="fw-medium">12 Ene 2026</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="movement-icon income">
+                                                <i class="bi bi-receipt-cutoff"></i>
+                                            </div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Pago Factura #INV-2026-045</span>
+                                                <span class="text-muted small d-md-none">Factura Cobrada</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="type-badge income">Factura Cobrada</span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <a href="projects.html?id=2" class="text-primary">App Móvil FinanceTrack</a>
+                                    </td>
+                                    <td>
+                                        <span class="amount-income">+$7,500</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(2)">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- EGRESO - Pago a equipo (automático) -->
                                 <tr>
                                     <td>
                                         <span class="fw-medium">11 Ene 2026</span>
@@ -274,21 +351,13 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(1)">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(3)">
                                                 <i class="bi bi-eye"></i>
-                                            </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(1)">
-                                                <i class="bi bi-pencil"></i>
-                                            </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(1)">
-                                                <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- EGRESO - Pago a equipo (automático) -->
                                 <tr>
                                     <td>
                                         <span class="fw-medium">10 Ene 2026</span>
@@ -315,21 +384,13 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(2)">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(4)">
                                                 <i class="bi bi-eye"></i>
-                                            </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(2)">
-                                                <i class="bi bi-pencil"></i>
-                                            </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(2)">
-                                                <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- EGRESO - Servicio -->
                                 <tr>
                                     <td>
                                         <span class="fw-medium">08 Ene 2026</span>
@@ -341,12 +402,12 @@
                                             </div>
                                             <div>
                                                 <span class="fw-semibold d-block">Suscripción AWS - Enero</span>
-                                                <span class="text-muted small d-md-none">Servicio</span>
+                                                <span class="text-muted small d-md-none">Servicio/Tool</span>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="d-none d-md-table-cell">
-                                        <span class="type-badge service">Servicio</span>
+                                        <span class="type-badge service">Servicio/Tool</span>
                                     </td>
                                     <td class="d-none d-lg-table-cell">
                                         <a href="projects.html?id=1" class="text-primary">E-commerce TechStore</a>
@@ -356,21 +417,19 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(3)">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(5)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(3)">
+                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar" onclick="Movements.openEdit(5)">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(3)">
+                                            <button class="action-btn" title="Eliminar" onclick="Movements.openDelete(5)">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- EGRESO - Gasto proyecto -->
                                 <tr>
                                     <td>
                                         <span class="fw-medium">05 Ene 2026</span>
@@ -397,21 +456,19 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(4)">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(6)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(4)">
+                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar" onclick="Movements.openEdit(6)">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(4)">
+                                            <button class="action-btn" title="Eliminar" onclick="Movements.openDelete(6)">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- EGRESO - Servicio -->
                                 <tr>
                                     <td>
                                         <span class="fw-medium">03 Ene 2026</span>
@@ -423,12 +480,12 @@
                                             </div>
                                             <div>
                                                 <span class="fw-semibold d-block">Suscripción Figma Team</span>
-                                                <span class="text-muted small d-md-none">Servicio</span>
+                                                <span class="text-muted small d-md-none">Servicio/Tool</span>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="d-none d-md-table-cell">
-                                        <span class="type-badge service">Servicio</span>
+                                        <span class="type-badge service">Servicio/Tool</span>
                                     </td>
                                     <td class="d-none d-lg-table-cell">
                                         <span class="text-muted">General</span>
@@ -438,21 +495,52 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(5)">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(7)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(5)">
+                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar" onclick="Movements.openEdit(7)">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(5)">
+                                            <button class="action-btn" title="Eliminar" onclick="Movements.openDelete(7)">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- INGRESO - Abono -->
+                                <tr>
+                                    <td>
+                                        <span class="fw-medium">02 Ene 2026</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="movement-icon income">
+                                                <i class="bi bi-receipt-cutoff"></i>
+                                            </div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Abono proyecto Landing Page</span>
+                                                <span class="text-muted small d-md-none">Factura Cobrada</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="type-badge income">Factura Cobrada</span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <a href="projects.html?id=3" class="text-primary">Landing Page Promo</a>
+                                    </td>
+                                    <td>
+                                        <span class="amount-income">+$2,000</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(8)">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- EGRESO - Otro -->
                                 <tr>
                                     <td>
                                         <span class="fw-medium">01 Ene 2026</span>
@@ -460,7 +548,7 @@
                                     <td>
                                         <div class="d-flex align-items-center gap-2">
                                             <div class="movement-icon other">
-                                                <i class="bi bi-three-dots"></i>
+                                                <i class="bi bi-globe"></i>
                                             </div>
                                             <div>
                                                 <span class="fw-semibold d-block">Dominio anual ypservices.com</span>
@@ -479,57 +567,13 @@
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(6)">
+                                            <button class="action-btn" title="Ver detalle" onclick="Movements.openDetail(9)">
                                                 <i class="bi bi-eye"></i>
                                             </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(6)">
+                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar" onclick="Movements.openEdit(9)">
                                                 <i class="bi bi-pencil"></i>
                                             </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(6)">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fw-medium">28 Dic 2025</span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="movement-icon payment">
-                                                <i class="bi bi-person-fill"></i>
-                                            </div>
-                                            <div>
-                                                <span class="fw-semibold d-block">Bono fin de año - Ana Martínez</span>
-                                                <span class="text-muted small d-md-none">Pago a Equipo</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="d-none d-md-table-cell">
-                                        <span class="type-badge payment">Pago a Equipo</span>
-                                    </td>
-                                    <td class="d-none d-lg-table-cell">
-                                        <span class="text-muted">—</span>
-                                    </td>
-                                    <td>
-                                        <span class="amount-expense">-$500</span>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex gap-1">
-                                            <button class="action-btn" title="Ver detalle"
-                                                onclick="Movements.openDetail(7)">
-                                                <i class="bi bi-eye"></i>
-                                            </button>
-                                            <button class="action-btn d-none d-sm-inline-flex" title="Editar"
-                                                onclick="Movements.openEdit(7)">
-                                                <i class="bi bi-pencil"></i>
-                                            </button>
-                                            <button class="action-btn" title="Eliminar"
-                                                onclick="Movements.openDelete(7)">
+                                            <button class="action-btn" title="Eliminar" onclick="Movements.openDelete(9)">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -539,19 +583,16 @@
                         </table>
                     </div>
                     <!-- Pagination -->
-                    <div
-                        class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
-                        <small class="text-secondary">Mostrando 1-7 de 24 movimientos</small>
+                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                        <small class="text-secondary">Mostrando 1-9 de 32 movimientos</small>
                         <nav>
                             <ul class="pagination pagination-custom mb-0">
-                                <li class="page-item disabled"><a class="page-link" href="#"><i
-                                            class="bi bi-chevron-left"></i></a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class="bi bi-chevron-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -560,7 +601,7 @@
         </main>
     </div>
 
-    <!-- Modal: Nuevo Movimiento -->
+    <!-- Modal: Nuevo/Editar Movimiento -->
     <div class="modal fade modal-custom" id="newMovementModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -577,51 +618,42 @@
                         <div class="row g-3">
                             <!-- Tipo de Movimiento -->
                             <div class="col-12">
-                                <label class="form-label-custom">Tipo de Movimiento <span
-                                        class="text-danger">*</span></label>
+                                <label class="form-label-custom">Tipo de Movimiento <span class="text-danger">*</span></label>
                                 <select class="form-select form-select-custom" id="movementType" required>
                                     <option value="">Seleccionar tipo</option>
-                                    <option value="pago_equipo">Pago a Equipo</option>
-                                    <option value="servicio">Servicio/Herramienta</option>
-                                    <option value="proyecto">Gasto de Proyecto</option>
-                                    <option value="otro">Otro</option>
+                                    <optgroup label="Egresos">
+                                        <option value="servicio">Servicio/Herramienta</option>
+                                        <option value="proyecto">Gasto de Proyecto</option>
+                                        <option value="otro_egreso">Otro Egreso</option>
+                                    </optgroup>
+                                    <optgroup label="Ingresos">
+                                        <option value="otro_ingreso">Otro Ingreso</option>
+                                    </optgroup>
                                 </select>
+                                <small class="text-muted">Los pagos a equipo y facturas cobradas se registran automáticamente</small>
                             </div>
-
-                            <!-- Empleado (condicional) -->
-                            <div class="col-12" id="employeeField" style="display: none;">
-                                <label class="form-label-custom">Empleado <span class="text-danger">*</span></label>
-                                <select class="form-select form-select-custom" id="movementEmployee">
-                                    <option value="">Seleccionar empleado</option>
-                                    <option value="1">María García</option>
-                                    <option value="2">Carlos López</option>
-                                    <option value="3">Ana Martínez</option>
-                                    <option value="4">José Ramírez</option>
-                                    <option value="5">Laura Sánchez</option>
-                                </select>
-                            </div>
-
+                            
                             <!-- Descripción -->
                             <div class="col-12">
                                 <label class="form-label-custom">Descripción <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control form-control-custom" id="movementDescription"
-                                    placeholder="Ej: Pago quincenal, Suscripción AWS..." required>
+                                <input type="text" class="form-control form-control-custom" id="movementDescription" 
+                                       placeholder="Ej: Suscripción AWS, Licencia plugin..." required>
                             </div>
-
-                            <!-- Monto y Fecha en la misma fila -->
+                            
+                            <!-- Monto y Fecha -->
                             <div class="col-6">
                                 <label class="form-label-custom">Monto <span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-text input-group-text-custom">$</span>
-                                    <input type="number" class="form-control form-control-custom" id="movementAmount"
-                                        placeholder="0.00" step="0.01" min="0" required>
+                                    <input type="number" class="form-control form-control-custom" id="movementAmount" 
+                                           placeholder="0.00" step="0.01" min="0" required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label class="form-label-custom">Fecha <span class="text-danger">*</span></label>
                                 <input type="date" class="form-control form-control-custom" id="movementDate" required>
                             </div>
-
+                            
                             <!-- Proyecto Relacionado -->
                             <div class="col-12">
                                 <label class="form-label-custom">Proyecto Relacionado</label>
@@ -633,12 +665,12 @@
                                     <option value="4">Sistema CRM</option>
                                 </select>
                             </div>
-
+                            
                             <!-- Notas -->
                             <div class="col-12">
                                 <label class="form-label-custom">Notas</label>
-                                <textarea class="form-control form-control-custom" id="movementNotes" rows="2"
-                                    placeholder="Notas adicionales (opcional)"></textarea>
+                                <textarea class="form-control form-control-custom" id="movementNotes" rows="2" 
+                                          placeholder="Notas adicionales (opcional)"></textarea>
                             </div>
                         </div>
                     </form>
@@ -666,59 +698,57 @@
                 <div class="modal-body">
                     <div class="view-header">
                         <div class="d-flex align-items-center gap-3">
-                            <div class="movement-icon-lg payment">
-                                <i class="bi bi-person-fill"></i>
+                            <div class="movement-icon-lg income" id="detailIcon">
+                                <i class="bi bi-receipt-cutoff"></i>
                             </div>
                             <div>
-                                <h5 class="mb-1" id="detailDescription">Pago quincenal - María García</h5>
-                                <span class="type-badge payment" id="detailType">Pago a Equipo</span>
+                                <h5 class="mb-1" id="detailDescription">Pago Factura #INV-2026-048</h5>
+                                <span class="type-badge income" id="detailType">Factura Cobrada</span>
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="view-detail">
                         <div class="row">
                             <div class="col-5 view-label">Monto</div>
-                            <div class="col-7 fw-bold text-danger" id="detailAmount">-$1,800.00</div>
+                            <div class="col-7 fw-bold text-success" id="detailAmount">+$3,500.00</div>
                         </div>
                     </div>
                     <div class="view-detail">
                         <div class="row">
                             <div class="col-5 view-label">Fecha</div>
-                            <div class="col-7" id="detailDate">11 de Enero, 2026</div>
+                            <div class="col-7" id="detailDate">15 de Enero, 2026</div>
                         </div>
                     </div>
-                    <div class="view-detail">
+                    <div class="view-detail" id="detailEmployeeRow" style="display: none;">
                         <div class="row">
                             <div class="col-5 view-label">Empleado</div>
-                            <div class="col-7" id="detailEmployee">María García</div>
+                            <div class="col-7" id="detailEmployee">—</div>
                         </div>
                     </div>
                     <div class="view-detail">
                         <div class="row">
                             <div class="col-5 view-label">Proyecto</div>
-                            <div class="col-7" id="detailProject">—</div>
+                            <div class="col-7" id="detailProject">E-commerce TechStore</div>
                         </div>
                     </div>
                     <div class="view-detail">
                         <div class="row">
                             <div class="col-5 view-label">Notas</div>
-                            <div class="col-7 text-muted" id="detailNotes">Pago correspondiente a primera quincena de
-                                enero 2026</div>
+                            <div class="col-7 text-muted" id="detailNotes">—</div>
                         </div>
                     </div>
                     <div class="view-detail">
                         <div class="row">
-                            <div class="col-5 view-label">Registrado por</div>
-                            <div class="col-7" id="detailCreatedBy">Admin User</div>
+                            <div class="col-5 view-label">Origen</div>
+                            <div class="col-7" id="detailOrigin">
+                                <span class="badge bg-info bg-opacity-10 text-info">Automático - Facturación</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom-primary" onclick="Movements.openEdit(1)">
-                        <i class="bi bi-pencil me-1"></i> Editar
-                    </button>
                 </div>
             </div>
         </div>
@@ -756,5 +786,4 @@
     <script src="assets/js/app.js"></script>
     <script src="assets/js/movements.js"></script>
 </body>
-
 </html>

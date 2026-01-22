@@ -1,0 +1,161 @@
+/**
+ * YPServicesERP - Reports Module Styles
+ * Estilos específicos para el módulo de reportes y análisis
+ * @version 2.0.0
+ */
+
+/* ========================================
+   CHART CONTAINERS
+======================================== */
+.chart-container {
+    position: relative;
+    height: 280px;
+}
+
+.chart-container-doughnut {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+}
+
+@media (max-width: 1199.98px) {
+    .chart-container-doughnut {
+        max-width: 220px;
+        height: 220px;
+    }
+}
+
+/* ========================================
+   CATEGORY INDICATORS
+======================================== */
+.category-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   MINI PROGRESS BAR
+======================================== */
+.progress-mini {
+    width: 60px;
+    height: 6px;
+    background: var(--bg-input);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-mini-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* ========================================
+   TREND BADGES
+======================================== */
+.trend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.trend-badge.up {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.trend-badge.down {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.trend-badge.neutral {
+    background: rgba(100, 116, 139, 0.1);
+    color: var(--text-secondary);
+}
+
+/* ========================================
+   TABLE FOOTER
+======================================== */
+.table-footer-total td {
+    background: var(--bg-input);
+    border-top: 2px solid var(--border-color);
+}
+
+/* ========================================
+   BI CARD IMPROVEMENTS
+======================================== */
+.bi-card .bi-metric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0;
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: 0.75rem;
+}
+
+.bi-card .bi-metric-label {
+    font-size: 0.7rem;
+}
+
+.bi-card .bi-metric-value {
+    font-size: 1.1rem;
+}
+
+.bi-card .bi-metric-value.text-success {
+    color: #10b981 !important;
+}
+
+/* ========================================
+   DARK MODE ADJUSTMENTS
+======================================== */
+[data-theme="dark"] .trend-badge.up {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+[data-theme="dark"] .trend-badge.down {
+    background: rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="dark"] .trend-badge.neutral {
+    background: rgba(100, 116, 139, 0.2);
+}
+
+[data-theme="dark"] .progress-mini {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 767.98px) {
+    .chart-container {
+        height: 220px;
+    }
+
+    .chart-container-doughnut {
+        max-width: 180px;
+        height: 180px;
+    }
+
+    .progress-mini {
+        width: 40px;
+    }
+
+    .bi-card .bi-metric {
+        padding: 0.5rem;
+    }
+
+    .bi-card .bi-metric-value {
+        font-size: 0.95rem;
+    }
+}

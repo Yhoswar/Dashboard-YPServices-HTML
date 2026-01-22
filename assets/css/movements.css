@@ -1,7 +1,7 @@
 /**
  * YPServicesERP - Movements Module Styles
  * Estilos específicos para el módulo de movimientos financieros
- * @version 1.0.0
+ * @version 2.0.0 - Añadido soporte para Ingresos
  */
 
 /* ========================================
@@ -18,27 +18,39 @@
     font-size: 0.95rem;
 }
 
+/* Income - Ingresos (verde) */
+.movement-icon.income {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+/* Payment - Pagos a equipo (morado) */
 .movement-icon.payment {
     background: rgba(99, 102, 241, 0.1);
     color: var(--primary);
 }
 
+/* Service - Servicios/Tools (amarillo) */
 .movement-icon.service {
     background: rgba(245, 158, 11, 0.1);
     color: var(--warning);
 }
 
+/* Project - Gastos de proyecto (azul) */
 .movement-icon.project {
     background: rgba(59, 130, 246, 0.1);
     color: var(--info);
 }
 
+/* Other - Otros (gris) */
 .movement-icon.other {
     background: rgba(100, 116, 139, 0.1);
     color: var(--text-secondary);
 }
 
-/* Large icon for detail modal */
+/* ========================================
+   LARGE ICONS (Detail Modal)
+======================================== */
 .movement-icon-lg {
     width: 56px;
     height: 56px;
@@ -48,6 +60,11 @@
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+}
+
+.movement-icon-lg.income {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
 }
 
 .movement-icon-lg.payment {
@@ -82,6 +99,11 @@
     font-size: 0.7rem;
     font-weight: 600;
     white-space: nowrap;
+}
+
+.type-badge.income {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
 }
 
 .type-badge.payment {
@@ -140,6 +162,31 @@
 }
 
 /* ========================================
+   VIEW DETAIL STYLES
+======================================== */
+.view-header {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.view-detail {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.view-detail:last-child {
+    border-bottom: none;
+}
+
+.view-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ========================================
    RESPONSIVE
 ======================================== */
 @media (max-width: 767.98px) {
@@ -149,9 +196,16 @@
         min-width: 32px;
         font-size: 0.85rem;
     }
-
+    
     .type-badge {
         font-size: 0.65rem;
         padding: 0.25rem 0.5rem;
+    }
+    
+    .movement-icon-lg {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 1.25rem;
     }
 }

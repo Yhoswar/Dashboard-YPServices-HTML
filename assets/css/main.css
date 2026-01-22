@@ -42,3 +42,6 @@
 
 /* Responsive Breakpoints */
 @import url('responsive.css');
+
+/* Reports Module */
+@import url('reports.css');

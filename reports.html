@@ -17,11 +17,11 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/reports.css" rel="stylesheet">
 </head>
 
 <body>
@@ -110,22 +110,25 @@
                         <div>
                             <h1 class="page-title">Reportes</h1>
                             <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
-                                <a href="index.html">YPServicesERP</a>
+                                <a href="index.html">Dashboard</a>
                                 <i class="bi bi-chevron-right small"></i>
                                 <span>Reportes</span>
                             </nav>
                         </div>
                     </div>
                     <div class="d-flex align-items-center gap-2">
-                        <div class="search-box d-none d-lg-block">
-                            <i class="bi bi-search"></i>
-                            <input type="text" placeholder="Buscar...">
-                        </div>
-                        <button class="header-btn d-none d-md-flex">
-                            <i class="bi bi-bell"></i>
-                            <span class="notification-dot"></span>
+                        <!-- Period Filter -->
+                        <select class="filter-select" id="reportPeriod" style="width: auto; min-width: 130px;">
+                            <option value="this_month">Este mes</option>
+                            <option value="last_month">Mes anterior</option>
+                            <option value="quarter">Trimestre</option>
+                            <option value="year" selected>Este año</option>
+                        </select>
+                        <button class="btn btn-custom-secondary d-none d-sm-flex align-items-center gap-2" onclick="Reports.exportPDF()">
+                            <i class="bi bi-file-earmark-pdf"></i>
+                            <span class="d-none d-md-inline">Exportar</span>
                         </button>
-                        <button class="header-btn" id="themeToggle">
+                        <button class="header-btn" id="themeToggle" title="Cambiar tema">
                             <i class="bi bi-moon-fill"></i>
                         </button>
                     </div>
@@ -139,37 +142,43 @@
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
-                                <div class="kpi-icon primary"><i class="bi bi-graph-up-arrow"></i></div>
+                                <div class="kpi-icon success"><i class="bi bi-graph-up-arrow"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 15%</span>
                             </div>
-                            <div class="kpi-label">Ingresos Brutos</div>
+                            <div class="kpi-label">Ingresos Totales</div>
                             <div class="kpi-value">$67,850</div>
+                            <div class="kpi-sublabel">Facturas cobradas</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
-                                <div class="kpi-icon info"><i class="bi bi-building"></i></div>
+                                <div class="kpi-icon danger"><i class="bi bi-graph-down-arrow"></i></div>
+                                <span class="kpi-trend down"><i class="bi bi-arrow-up"></i> 8%</span>
                             </div>
-                            <div class="kpi-label">Inversión Proyectos</div>
-                            <div class="kpi-value">$12,400</div>
+                            <div class="kpi-label">Egresos Totales</div>
+                            <div class="kpi-value">$30,900</div>
+                            <div class="kpi-sublabel">Todos los gastos</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
-                                <div class="kpi-icon warning"><i class="bi bi-people-fill"></i></div>
+                                <div class="kpi-icon primary"><i class="bi bi-wallet2"></i></div>
                             </div>
-                            <div class="kpi-label">Pagos a Equipo</div>
-                            <div class="kpi-value">$18,500</div>
+                            <div class="kpi-label">Ganancia Neta</div>
+                            <div class="kpi-value text-success">$36,950</div>
+                            <div class="kpi-sublabel">Ingresos - Egresos</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
                             <div class="kpi-header">
-                                <div class="kpi-icon success"><i class="bi bi-percent"></i></div>
+                                <div class="kpi-icon info"><i class="bi bi-percent"></i></div>
                             </div>
-                            <div class="kpi-label">Margen Real</div>
-                            <div class="kpi-value">54%</div>
+                            <div class="kpi-label">Margen de Ganancia</div>
+                            <div class="kpi-value">54.5%</div>
+                            <div class="kpi-sublabel">Rentabilidad</div>
                         </div>
                     </div>
                 </div>
@@ -178,65 +187,209 @@
                 <div class="bi-card mb-4">
                     <div class="row align-items-center">
                         <div class="col-lg-8 mb-3 mb-lg-0">
-                            <div class="bi-title"><i class="bi bi-lightbulb me-2"></i>Business Intelligence</div>
-                            <div class="bi-subtitle mb-3">Control financiero en tiempo real - Enero 2026</div>
-                            <div class="d-flex flex-wrap gap-4 align-items-center">
-                                <div class="bi-metric-inline">
-                                    <span class="bi-mini-badge success"><i class="bi bi-arrow-down-circle-fill"></i>
-                                        INGRESOS</span>
-                                    <span class="bi-metric-value">$67,850</span>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <div class="bi-title">Business Intelligence</div>
+                                <span class="badge bg-success bg-opacity-20 text-success small text-white">Actualizado</span>
+                            </div>
+                            <div class="bi-subtitle mb-3">Resumen financiero - Año 2026</div>
+                            <div class="row g-3">
+                                <div class="col-6 col-md-3">
+                                    <div class="bi-metric">
+                                        <span class="bi-metric-label">Ingresos</span>
+                                        <span class="bi-metric-value text-success">$67,850</span>
+                                    </div>
                                 </div>
-                                <div class="bi-metric-inline">
-                                    <span class="bi-mini-badge danger"><i class="bi bi-arrow-up-circle-fill"></i>
-                                        EGRESOS</span>
-                                    <span class="bi-metric-value">$30,900</span>
+                                <div class="col-6 col-md-3">
+                                    <div class="bi-metric">
+                                        <span class="bi-metric-label">Pagos Equipo</span>
+                                        <span class="bi-metric-value">$18,500</span>
+                                    </div>
                                 </div>
-                                <div class="bi-metric-inline">
-                                    <span class="bi-mini-badge primary"><i class="bi bi-wallet2"></i> GANANCIA
-                                        NETA</span>
-                                    <span class="bi-metric-value">$36,950</span>
+                                <div class="col-6 col-md-3">
+                                    <div class="bi-metric">
+                                        <span class="bi-metric-label">Servicios</span>
+                                        <span class="bi-metric-value">$8,400</span>
+                                    </div>
                                 </div>
-                                <div class="bi-metric-inline">
-                                    <span class="bi-mini-badge info"><i class="bi bi-arrow-left-right"></i>
-                                        MOVIMIENTOS</span>
-                                    <span class="bi-metric-value">48</span>
+                                <div class="col-6 col-md-3">
+                                    <div class="bi-metric">
+                                        <span class="bi-metric-label">Otros Gastos</span>
+                                        <span class="bi-metric-value">$4,000</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="bi-status">
-                                <div class="bi-status-label">Margen Operativo</div>
+                                <div class="bi-status-label">Estado del Negocio</div>
                                 <div class="bi-status-value">54%</div>
-                                <div class="bi-status-text">Meta: 50%</div>
+                                <div class="bi-status-text">Margen de Ganancia</div>
                                 <div class="bi-status-badge">RENTABLE</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Charts -->
-                <div class="row g-3">
-                    <div class="col-12 col-lg-6">
-                        <div class="content-card">
+                <!-- Charts Row 1 -->
+                <div class="row g-3 mb-4">
+                    <!-- Ingresos vs Egresos (6 meses) -->
+                    <div class="col-12 col-xl-8">
+                        <div class="content-card h-100">
                             <div class="card-header">
-                                <h5 class="card-title"><i class="bi bi-bar-chart-line-fill"></i> Rentabilidad</h5>
+                                <h5 class="card-title"><i class="bi bi-bar-chart-fill"></i> Ingresos vs Egresos</h5>
+                                <span class="text-muted small">Últimos 6 meses</span>
                             </div>
                             <div class="card-body">
-                                <div class="chart-container"><canvas id="profitabilityChart"></canvas></div>
+                                <div class="chart-container">
+                                    <canvas id="incomeExpenseChart"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="content-card">
+                    <!-- Distribución de Gastos (Doughnut) -->
+                    <div class="col-12 col-xl-4">
+                        <div class="content-card h-100">
                             <div class="card-header">
-                                <h5 class="card-title"><i class="bi bi-graph-up"></i> Evolución</h5>
+                                <h5 class="card-title"><i class="bi bi-pie-chart-fill"></i> Distribución de Gastos</h5>
                             </div>
-                            <div class="card-body">
-                                <div class="chart-container"><canvas id="evolutionChart"></canvas></div>
+                            <div class="card-body d-flex align-items-center justify-content-center">
+                                <div class="chart-container-doughnut">
+                                    <canvas id="expenseDistributionChart"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Charts Row 2 -->
+                <div class="row g-3 mb-4">
+                    <!-- Rentabilidad por Proyecto -->
+                    <div class="col-12 col-lg-6">
+                        <div class="content-card h-100">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-trophy-fill"></i> Rentabilidad por Proyecto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="projectProfitChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Desglose de Egresos (Tabla) -->
+                    <div class="col-12 col-lg-6">
+                        <div class="content-card h-100">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-list-columns-reverse"></i> Desglose de Egresos</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table-custom mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Categoría</th>
+                                                <th>Monto</th>
+                                                <th>% Total</th>
+                                                <th class="d-none d-md-table-cell">Tendencia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="category-dot" style="background: var(--primary);"></div>
+                                                        <span>Pagos a Equipo</span>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">$18,500</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-mini">
+                                                            <div class="progress-mini-bar" style="width: 60%; background: var(--primary);"></div>
+                                                        </div>
+                                                        <span class="small">60%</span>
+                                                    </div>
+                                                </td>
+                                                <td class="d-none d-md-table-cell">
+                                                    <span class="trend-badge down"><i class="bi bi-arrow-down"></i> 5%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="category-dot" style="background: var(--warning);"></div>
+                                                        <span>Servicios/Tools</span>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">$8,400</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-mini">
+                                                            <div class="progress-mini-bar" style="width: 27%; background: var(--warning);"></div>
+                                                        </div>
+                                                        <span class="small">27%</span>
+                                                    </div>
+                                                </td>
+                                                <td class="d-none d-md-table-cell">
+                                                    <span class="trend-badge up"><i class="bi bi-arrow-up"></i> 12%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="category-dot" style="background: var(--info);"></div>
+                                                        <span>Gastos de Proyecto</span>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">$2,500</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-mini">
+                                                            <div class="progress-mini-bar" style="width: 8%; background: var(--info);"></div>
+                                                        </div>
+                                                        <span class="small">8%</span>
+                                                    </div>
+                                                </td>
+                                                <td class="d-none d-md-table-cell">
+                                                    <span class="trend-badge neutral"><i class="bi bi-dash"></i> 0%</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="category-dot" style="background: var(--secondary);"></div>
+                                                        <span>Otros</span>
+                                                    </div>
+                                                </td>
+                                                <td class="fw-semibold">$1,500</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-mini">
+                                                            <div class="progress-mini-bar" style="width: 5%; background: var(--secondary);"></div>
+                                                        </div>
+                                                        <span class="small">5%</span>
+                                                    </div>
+                                                </td>
+                                                <td class="d-none d-md-table-cell">
+                                                    <span class="trend-badge down"><i class="bi bi-arrow-down"></i> 3%</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="table-footer-total">
+                                                <td class="fw-bold ps-3">Total Egresos</td>
+                                                <td class="fw-bold">$30,900</td>
+                                                <td class="fw-bold">100%</td>
+                                                <td class="d-none d-md-table-cell"></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>
     </div>
@@ -252,7 +405,7 @@
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/toast.js"></script>
-    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/reports.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 
