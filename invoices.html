@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -7,20 +8,23 @@
     <meta name="description" content="YPServicesERP - Gestión de Facturación">
     <meta name="author" content="YP Services">
     <title>Facturación - YPServicesERP</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
+
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/invoices.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Overlay -->
@@ -31,7 +35,7 @@
             <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
                 <i class="bi bi-chevron-left"></i>
             </button>
-            
+
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo">
                     <div class="logo-icon">YP</div>
@@ -135,8 +139,10 @@
                 <div class="row g-2 mb-3 align-items-center">
                     <div class="col-12 col-md-auto">
                         <div class="position-relative">
-                            <i class="bi bi-search position-absolute" style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
-                            <input type="text" class="filter-input w-100" style="min-width:200px;" placeholder="Buscar factura...">
+                            <i class="bi bi-search position-absolute"
+                                style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                            <input type="text" class="filter-input w-100" style="min-width:200px;"
+                                placeholder="Buscar factura...">
                         </div>
                     </div>
                     <div class="col-6 col-md-auto">
@@ -148,7 +154,8 @@
                         </select>
                     </div>
                     <div class="col-6 col-md-auto ms-md-auto">
-                        <button class="btn btn-custom-primary w-100" data-bs-toggle="modal" data-bs-target="#invoiceModal">
+                        <button class="btn btn-custom-primary w-100" data-bs-toggle="modal"
+                            data-bs-target="#invoiceModal">
                             <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nueva</span>
                         </button>
                     </div>
@@ -158,28 +165,36 @@
                 <div class="row g-3 mb-4">
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon primary"><i class="bi bi-receipt"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-receipt"></i></div>
+                            </div>
                             <div class="kpi-label">Total Facturado</div>
                             <div class="kpi-value">$67,850</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon success"><i class="bi bi-check-circle-fill"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-check-circle-fill"></i></div>
+                            </div>
                             <div class="kpi-label">Pagadas</div>
                             <div class="kpi-value">$59,500</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon warning"><i class="bi bi-clock-fill"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-clock-fill"></i></div>
+                            </div>
                             <div class="kpi-label">Pendientes</div>
                             <div class="kpi-value">$6,150</div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="kpi-card">
-                            <div class="kpi-header"><div class="kpi-icon danger"><i class="bi bi-exclamation-triangle-fill"></i></div></div>
+                            <div class="kpi-header">
+                                <div class="kpi-icon danger"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                            </div>
                             <div class="kpi-label">Vencidas</div>
                             <div class="kpi-value">$2,200</div>
                         </div>
@@ -210,9 +225,12 @@
                                     <td><span class="status-badge paid">Pagada</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="openViewModal('invoice','INV-2026-0045','Juan Domínguez','E-commerce','$3,500','Pagada')"><i class="bi bi-eye"></i></button>
+                                            <a href="invoice.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
                                             <button class="action-btn"><i class="bi bi-download"></i></button>
-                                            <button class="action-btn delete d-none d-sm-inline-flex" onclick="openDeleteModal('factura','INV-2026-0045')"><i class="bi bi-trash"></i></button>
+                                            <button class="action-btn delete d-none d-sm-inline-flex"
+                                                onclick="openDeleteModal('factura','INV-2026-0045')"><i
+                                                    class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -223,9 +241,12 @@
                                     <td><span class="status-badge pending">Pendiente</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="openViewModal('invoice','INV-2026-0044','María González','App Móvil','$7,500','Pendiente')"><i class="bi bi-eye"></i></button>
+                                            <a href="invoice.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
                                             <button class="action-btn"><i class="bi bi-download"></i></button>
-                                            <button class="action-btn delete d-none d-sm-inline-flex" onclick="openDeleteModal('factura','INV-2026-0044')"><i class="bi bi-trash"></i></button>
+                                            <button class="action-btn delete d-none d-sm-inline-flex"
+                                                onclick="openDeleteModal('factura','INV-2026-0044')"><i
+                                                    class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -236,9 +257,12 @@
                                     <td><span class="status-badge overdue">Vencida</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="openViewModal('invoice','INV-2025-0042','Carlos Pérez','Landing Page','$2,200','Vencida')"><i class="bi bi-eye"></i></button>
+                                            <a href="invoice.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
                                             <button class="action-btn"><i class="bi bi-download"></i></button>
-                                            <button class="action-btn delete d-none d-sm-inline-flex" onclick="openDeleteModal('factura','INV-2025-0042')"><i class="bi bi-trash"></i></button>
+                                            <button class="action-btn delete d-none d-sm-inline-flex"
+                                                onclick="openDeleteModal('factura','INV-2025-0042')"><i
+                                                    class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -256,21 +280,39 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Nueva Factura</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="row g-3">
-                        <div class="col-6"><label class="form-label-custom">N° Factura</label><input type="text" class="form-control form-control-custom" value="INV-2026-0046" readonly style="background:var(--bg-input);"></div>
-                        <div class="col-6"><label class="form-label-custom">Fecha</label><input type="date" class="form-control form-control-custom"></div>
-                        <div class="col-12"><label class="form-label-custom">Cliente <span class="text-danger">*</span></label><select class="form-select form-select-custom"><option>Seleccionar</option><option>Juan Domínguez</option><option>María González</option></select></div>
-                        <div class="col-12"><label class="form-label-custom">Concepto <span class="text-danger">*</span></label><input type="text" class="form-control form-control-custom" placeholder="Descripción"></div>
-                        <div class="col-6"><label class="form-label-custom">Monto <span class="text-danger">*</span></label><div class="input-group"><span class="input-group-text input-group-text-custom">$</span><input type="number" class="form-control form-control-custom" placeholder="0.00"></div></div>
-                        <div class="col-6"><label class="form-label-custom">Vencimiento</label><input type="date" class="form-control form-control-custom"></div>
+                        <div class="col-6"><label class="form-label-custom">N° Factura</label><input type="text"
+                                class="form-control form-control-custom" value="INV-2026-0046" readonly
+                                style="background:var(--bg-input);"></div>
+                        <div class="col-6"><label class="form-label-custom">Fecha</label><input type="date"
+                                class="form-control form-control-custom"></div>
+                        <div class="col-12"><label class="form-label-custom">Cliente <span
+                                    class="text-danger">*</span></label><select class="form-select form-select-custom">
+                                <option>Seleccionar</option>
+                                <option>Juan Domínguez</option>
+                                <option>María González</option>
+                            </select></div>
+                        <div class="col-12"><label class="form-label-custom">Concepto <span
+                                    class="text-danger">*</span></label><input type="text"
+                                class="form-control form-control-custom" placeholder="Descripción"></div>
+                        <div class="col-6"><label class="form-label-custom">Monto <span
+                                    class="text-danger">*</span></label>
+                            <div class="input-group"><span
+                                    class="input-group-text input-group-text-custom">$</span><input type="number"
+                                    class="form-control form-control-custom" placeholder="0.00"></div>
+                        </div>
+                        <div class="col-6"><label class="form-label-custom">Vencimiento</label><input type="date"
+                                class="form-control form-control-custom"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i> Crear</button>
+                    <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i>
+                        Crear</button>
                 </div>
             </div>
         </div>
@@ -282,12 +324,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="viewModalTitle">Detalles</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body" id="viewModalContent"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom-primary" id="viewModalEditBtn" style="display:none;"><i class="bi bi-pencil me-1"></i> Editar</button>
+                    <button type="button" class="btn btn-custom-primary" id="viewModalEditBtn" style="display:none;"><i
+                            class="bi bi-pencil me-1"></i> Editar</button>
                 </div>
             </div>
         </div>
@@ -299,16 +343,19 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirmar</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body text-center py-4">
                     <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
                     <h5 class="mb-2">¿Estás seguro?</h5>
-                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">este elemento</strong>. Esta acción no se puede deshacer.</p>
+                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">este elemento</strong>.
+                        Esta acción no se puede deshacer.</p>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()"><i class="bi bi-trash me-1"></i> Eliminar</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()"><i
+                            class="bi bi-trash me-1"></i> Eliminar</button>
                 </div>
             </div>
         </div>
@@ -319,7 +366,7 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- YPServicesERP Scripts -->
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
@@ -327,4 +374,5 @@
     <script src="assets/js/modals.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>

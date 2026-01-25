@@ -1,0 +1,463 @@
+/**
+ * YPServicesERP - Project Detail Styles
+ * Estilos específicos para la vista de detalle de proyecto
+ * @version 1.0.0
+ */
+
+/* Project Detail Specific Styles */
+.project-header {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.project-icon-large {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.project-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.project-client {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-client a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.project-client a:hover {
+    text-decoration: underline;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.project-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.project-meta-item i {
+    color: var(--primary);
+}
+
+/* Progress Section */
+.progress-section {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.progress-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.progress-value {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.progress-bar-custom {
+    height: 10px;
+    border-radius: 5px;
+    background: var(--border-color);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.5s ease;
+}
+
+/* Stats Row */
+.project-stat {
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.project-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.project-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.project-stat.success .project-stat-value {
+    color: var(--success);
+}
+
+.project-stat.warning .project-stat-value {
+    color: var(--warning);
+}
+
+.project-stat.danger .project-stat-value {
+    color: var(--danger);
+}
+
+.project-stat.primary .project-stat-value {
+    color: var(--primary);
+}
+
+/* Task List in Project */
+.task-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.75rem;
+    transition: all var(--transition-normal);
+}
+
+.task-list-item:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.task-list-item.completed {
+    opacity: 0.7;
+}
+
+.task-list-item.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-top: 2px;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.task-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.task-title a:hover {
+    color: var(--primary);
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.task-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.task-assignee {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-priority {
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.task-priority.high {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.task-priority.medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.task-priority.low {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+/* File List */
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.5rem;
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.file-icon.pdf {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.file-icon.image {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.file-icon.doc {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.file-icon.figma {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.file-info {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+}
+
+.file-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Team Members */
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-normal);
+}
+
+.team-member:hover {
+    background: var(--bg-input);
+}
+
+.team-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.team-role {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Activity/Comments */
+.activity-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-avatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.25rem;
+}
+
+.activity-author {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.activity-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.activity-text.comment {
+    background: var(--bg-input);
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    margin-top: 0.5rem;
+}
+
+/* Tabs Custom */
+.nav-tabs-custom {
+    border-bottom: 2px solid var(--border-color);
+    gap: 0;
+}
+
+.nav-tabs-custom .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all var(--transition-normal);
+}
+
+.nav-tabs-custom .nav-link:hover {
+    color: var(--primary);
+    border-color: transparent;
+}
+
+.nav-tabs-custom .nav-link.active {
+    color: var(--primary);
+    background: transparent;
+    border-bottom-color: var(--primary);
+}
+
+.nav-tabs-custom .nav-link i {
+    margin-right: 0.5rem;
+}
+
+/* Task Counter Badge */
+.tab-counter {
+    background: var(--bg-input);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+.nav-link.active .tab-counter {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+/* Info Card */
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}

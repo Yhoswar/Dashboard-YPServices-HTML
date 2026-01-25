@@ -1,19 +1,9 @@
 /**
  * YPServicesERP - Main Stylesheet
- * Archivo principal que importa todos los módulos CSS
- * @version 1.1.0
+ * Core theme and shared styles only.
+ * Page-specific CSS is loaded individually per HTML file.
+ * @version 2.0.0
  * @author YP Services
- * 
- * Orden de importación:
- * 1. Variables (tokens de diseño)
- * 2. Base (reset y estilos fundamentales)
- * 3. Layout (estructura principal)
- * 4. Components (elementos reutilizables)
- * 5. Pages (estilos específicos de páginas)
- * 6. Auth (login, forgot password, register)
- * 7. Tasks (módulo de tareas)
- * 8. Movements (módulo de movimientos) - NUEVO
- * 9. Responsive (media queries)
  */
 
 /* Design Tokens */
@@ -28,20 +18,8 @@
 /* Reusable Components */
 @import url('components.css');
 
-/* Page-Specific Styles */
+/* Shared Page Styles */
 @import url('pages.css');
-
-/* Auth Pages */
-@import url('auth.css');
-
-/* Tasks Module */
-@import url('tasks.css');
-
-/* Movements Module */
-@import url('movements.css');
 
 /* Responsive Breakpoints */
 @import url('responsive.css');
-
-/* Reports Module */
-@import url('reports.css');

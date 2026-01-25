@@ -1,0 +1,353 @@
+/**
+ * YPServicesERP - Client Detail Styles
+ * Estilos específicos para la vista de detalle de cliente
+ * @version 1.0.0
+ */
+
+/* Client Detail Specific Styles */
+.client-header {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.client-avatar-large {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.client-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.client-company {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.client-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.client-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.client-meta-item i {
+    color: var(--primary);
+}
+
+.client-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Stats Cards */
+.stat-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+.stat-card.success .stat-value {
+    color: var(--success);
+}
+
+.stat-card.warning .stat-value {
+    color: var(--warning);
+}
+
+.stat-card.primary .stat-value {
+    color: var(--primary);
+}
+
+/* Tabs Custom */
+.nav-tabs-custom {
+    border-bottom: 2px solid var(--border-color);
+    gap: 0;
+}
+
+.nav-tabs-custom .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all var(--transition-normal);
+}
+
+.nav-tabs-custom .nav-link:hover {
+    color: var(--primary);
+    border-color: transparent;
+}
+
+.nav-tabs-custom .nav-link.active {
+    color: var(--primary);
+    background: transparent;
+    border-bottom-color: var(--primary);
+}
+
+.nav-tabs-custom .nav-link i {
+    margin-right: 0.5rem;
+}
+
+/* Project Mini Card */
+.project-mini-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    transition: all var(--transition-normal);
+}
+
+.project-mini-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.project-mini-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.project-mini-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.project-mini-dates {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Invoice Row */
+.invoice-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.75rem;
+    transition: all var(--transition-normal);
+}
+
+.invoice-row:hover {
+    border-color: var(--primary);
+}
+
+.invoice-number {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.invoice-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.invoice-amount {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.25rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -1.5rem;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
+    z-index: 1;
+}
+
+.timeline-dot.success {
+    border-color: var(--success);
+    background: var(--success);
+}
+
+.timeline-dot.info {
+    border-color: var(--info);
+}
+
+.timeline-dot.warning {
+    border-color: var(--warning);
+}
+
+.timeline-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.timeline-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Notes */
+.note-card {
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.note-author {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.note-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.note-content {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Contact Info Card */
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-info-item:last-child {
+    border-bottom: none;
+}
+
+.contact-info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: rgba(99, 102, 241, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.contact-info-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.contact-info-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.contact-info-value a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.contact-info-value a:hover {
+    text-decoration: underline;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    margin-bottom: 1rem;
+}

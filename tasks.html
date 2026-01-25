@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -7,22 +8,25 @@
     <meta name="description" content="YPServicesERP - Gestión de Tareas">
     <meta name="author" content="YP Services">
     <title>Tareas - YPServicesERP</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    
+
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- FullCalendar -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css" rel="stylesheet">
-    
+
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/tasks.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Overlay -->
@@ -33,7 +37,7 @@
             <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
                 <i class="bi bi-chevron-left"></i>
             </button>
-            
+
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-logo">
                     <div class="logo-icon">YP</div>
@@ -184,11 +188,13 @@
                             <!-- Search -->
                             <div class="col-12 col-md-3">
                                 <div class="position-relative">
-                                    <i class="bi bi-search position-absolute" style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
-                                    <input type="text" class="filter-input w-100" placeholder="Buscar tarea..." style="padding-left:2.5rem;">
+                                    <i class="bi bi-search position-absolute"
+                                        style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                                    <input type="text" class="filter-input w-100" placeholder="Buscar tarea..."
+                                        style="padding-left:2.5rem;">
                                 </div>
                             </div>
-                            
+
                             <!-- Filter: Proyecto -->
                             <div class="col-6 col-md-2">
                                 <select class="filter-select w-100" id="filterProject">
@@ -198,7 +204,7 @@
                                     <option>Rediseño Web Corporativo</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Filter: Cliente -->
                             <div class="col-6 col-md-2">
                                 <select class="filter-select w-100" id="filterClient">
@@ -208,7 +214,7 @@
                                     <option>Carlos Pérez</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Filter: Empleado -->
                             <div class="col-6 col-md-2">
                                 <select class="filter-select w-100" id="filterEmployee">
@@ -218,7 +224,7 @@
                                     <option>Ana López</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Filter: Estado -->
                             <div class="col-6 col-md-2">
                                 <select class="filter-select w-100" id="filterStatus">
@@ -228,15 +234,16 @@
                                     <option>Completada</option>
                                 </select>
                             </div>
-                            
+
                             <!-- New Task Button -->
                             <div class="col-12 col-md-1">
-                                <button class="btn btn-custom-primary w-100" onclick="Tasks.openNewTask()" title="Nueva Tarea">
+                                <button class="btn btn-custom-primary w-100" onclick="Tasks.openNewTask()"
+                                    title="Nueva Tarea">
                                     <i class="bi bi-plus-lg"></i>
                                 </button>
                             </div>
                         </div>
-                        
+
                         <!-- Second Row: Date Filters & View Toggle -->
                         <div class="row g-2 align-items-center mt-2">
                             <div class="col-6 col-md-2">
@@ -247,10 +254,12 @@
                             </div>
                             <div class="col-12 col-md-auto ms-md-auto">
                                 <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-custom-secondary active" id="viewList" title="Vista Lista">
+                                    <button type="button" class="btn btn-custom-secondary active" id="viewList"
+                                        title="Vista Lista">
                                         <i class="bi bi-list-ul"></i>
                                     </button>
-                                    <button type="button" class="btn btn-custom-secondary" id="viewCalendar" title="Vista Calendario">
+                                    <button type="button" class="btn btn-custom-secondary" id="viewCalendar"
+                                        title="Vista Calendario">
                                         <i class="bi bi-calendar3"></i>
                                     </button>
                                 </div>
@@ -292,7 +301,8 @@
                                         <div class="task-info">
                                             <span class="task-title completed">Diseño de mockups página principal</span>
                                             <div class="task-meta d-flex align-items-center gap-2 mt-1">
-                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 4/4</span>
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i>
+                                                    4/4</span>
                                                 <span class="task-attachments"><i class="bi bi-paperclip"></i> 2</span>
                                             </div>
                                         </div>
@@ -311,14 +321,20 @@
                                     <td><span class="status-badge completed">Completada</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="Tasks.openTaskDetail(1)" title="Ver"><i class="bi bi-eye"></i></button>
-                                            <button class="action-btn" onclick="Tasks.openEditTask(1)" title="Editar"><i class="bi bi-pencil"></i></button>
-                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(1)" title="Duplicar"><i class="bi bi-copy"></i></button>
-                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Diseño de mockups')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                            <a href="task.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(1)" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex"
+                                                onclick="Tasks.duplicateTask(1)" title="Duplicar"><i
+                                                    class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex"
+                                                onclick="Tasks.openDeleteModal('tarea','Diseño de mockups')"
+                                                title="Eliminar"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                                 <!-- Task 2: In Progress -->
                                 <tr class="task-row">
                                     <td>
@@ -330,7 +346,8 @@
                                         <div class="task-info">
                                             <span class="task-title">Desarrollo del carrito de compras</span>
                                             <div class="task-meta d-flex align-items-center gap-2 mt-1">
-                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 2/5</span>
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i>
+                                                    2/5</span>
                                                 <span class="task-attachments"><i class="bi bi-paperclip"></i> 1</span>
                                                 <span class="task-priority high"><i class="bi bi-flag-fill"></i></span>
                                             </div>
@@ -351,14 +368,20 @@
                                     <td><span class="status-badge progress">En Progreso</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="Tasks.openTaskDetail(2)" title="Ver"><i class="bi bi-eye"></i></button>
-                                            <button class="action-btn" onclick="Tasks.openEditTask(2)" title="Editar"><i class="bi bi-pencil"></i></button>
-                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(2)" title="Duplicar"><i class="bi bi-copy"></i></button>
-                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Desarrollo del carrito')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                            <a href="task.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(2)" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex"
+                                                onclick="Tasks.duplicateTask(2)" title="Duplicar"><i
+                                                    class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex"
+                                                onclick="Tasks.openDeleteModal('tarea','Desarrollo del carrito')"
+                                                title="Eliminar"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                                 <!-- Task 3: In Progress -->
                                 <tr class="task-row">
                                     <td>
@@ -370,7 +393,8 @@
                                         <div class="task-info">
                                             <span class="task-title">Integración pasarela de pagos</span>
                                             <div class="task-meta d-flex align-items-center gap-2 mt-1">
-                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 0/3</span>
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i>
+                                                    0/3</span>
                                             </div>
                                         </div>
                                     </td>
@@ -388,14 +412,20 @@
                                     <td><span class="status-badge progress">En Progreso</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="Tasks.openTaskDetail(3)" title="Ver"><i class="bi bi-eye"></i></button>
-                                            <button class="action-btn" onclick="Tasks.openEditTask(3)" title="Editar"><i class="bi bi-pencil"></i></button>
-                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(3)" title="Duplicar"><i class="bi bi-copy"></i></button>
-                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Integración pasarela')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                            <a href="task.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(3)" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex"
+                                                onclick="Tasks.duplicateTask(3)" title="Duplicar"><i
+                                                    class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex"
+                                                onclick="Tasks.openDeleteModal('tarea','Integración pasarela')"
+                                                title="Eliminar"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                                 <!-- Task 4: Pending with overdue -->
                                 <tr class="task-row">
                                     <td>
@@ -407,7 +437,8 @@
                                         <div class="task-info">
                                             <span class="task-title">Diseño UI pantallas de autenticación</span>
                                             <div class="task-meta d-flex align-items-center gap-2 mt-1">
-                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 1/3</span>
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i>
+                                                    1/3</span>
                                                 <span class="task-attachments"><i class="bi bi-paperclip"></i> 5</span>
                                             </div>
                                         </div>
@@ -421,19 +452,26 @@
                                         </div>
                                     </td>
                                     <td class="d-none d-sm-table-cell">
-                                        <span class="date-badge overdue"><i class="bi bi-exclamation-circle"></i> 08 Ene</span>
+                                        <span class="date-badge overdue"><i class="bi bi-exclamation-circle"></i> 08
+                                            Ene</span>
                                     </td>
                                     <td><span class="status-badge pending">Pendiente</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="Tasks.openTaskDetail(4)" title="Ver"><i class="bi bi-eye"></i></button>
-                                            <button class="action-btn" onclick="Tasks.openEditTask(4)" title="Editar"><i class="bi bi-pencil"></i></button>
-                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(4)" title="Duplicar"><i class="bi bi-copy"></i></button>
-                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Diseño UI pantallas')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                            <a href="task.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(4)" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex"
+                                                onclick="Tasks.duplicateTask(4)" title="Duplicar"><i
+                                                    class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex"
+                                                onclick="Tasks.openDeleteModal('tarea','Diseño UI pantallas')"
+                                                title="Eliminar"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                                 <!-- Task 5: Pending -->
                                 <tr class="task-row">
                                     <td>
@@ -445,8 +483,10 @@
                                         <div class="task-info">
                                             <span class="task-title">Configuración de base de datos</span>
                                             <div class="task-meta d-flex align-items-center gap-2 mt-1">
-                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 0/2</span>
-                                                <span class="task-priority medium"><i class="bi bi-flag-fill"></i></span>
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i>
+                                                    0/2</span>
+                                                <span class="task-priority medium"><i
+                                                        class="bi bi-flag-fill"></i></span>
                                             </div>
                                         </div>
                                     </td>
@@ -466,14 +506,20 @@
                                     <td><span class="status-badge pending">Pendiente</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="Tasks.openTaskDetail(5)" title="Ver"><i class="bi bi-eye"></i></button>
-                                            <button class="action-btn" onclick="Tasks.openEditTask(5)" title="Editar"><i class="bi bi-pencil"></i></button>
-                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(5)" title="Duplicar"><i class="bi bi-copy"></i></button>
-                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Config. base de datos')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                            <a href="task.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(5)" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex"
+                                                onclick="Tasks.duplicateTask(5)" title="Duplicar"><i
+                                                    class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex"
+                                                onclick="Tasks.openDeleteModal('tarea','Config. base de datos')"
+                                                title="Eliminar"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
+
                                 <!-- Task 6: In Progress -->
                                 <tr class="task-row">
                                     <td>
@@ -485,7 +531,8 @@
                                         <div class="task-info">
                                             <span class="task-title">Wireframes nueva arquitectura</span>
                                             <div class="task-meta d-flex align-items-center gap-2 mt-1">
-                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i> 3/6</span>
+                                                <span class="task-subtasks"><i class="bi bi-check2-square"></i>
+                                                    3/6</span>
                                                 <span class="task-attachments"><i class="bi bi-paperclip"></i> 8</span>
                                             </div>
                                         </div>
@@ -504,28 +551,37 @@
                                     <td><span class="status-badge progress">En Progreso</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <button class="action-btn" onclick="Tasks.openTaskDetail(6)" title="Ver"><i class="bi bi-eye"></i></button>
-                                            <button class="action-btn" onclick="Tasks.openEditTask(6)" title="Editar"><i class="bi bi-pencil"></i></button>
-                                            <button class="action-btn d-none d-sm-inline-flex" onclick="Tasks.duplicateTask(6)" title="Duplicar"><i class="bi bi-copy"></i></button>
-                                            <button class="action-btn delete d-none d-md-inline-flex" onclick="Tasks.openDeleteModal('tarea','Wireframes nueva arquitectura')" title="Eliminar"><i class="bi bi-trash"></i></button>
+                                            <a href="task.html" class="action-btn" title="Ver"><i
+                                                    class="bi bi-eye"></i></a>
+                                            <button class="action-btn" onclick="Tasks.openEditTask(6)" title="Editar"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="action-btn d-none d-sm-inline-flex"
+                                                onclick="Tasks.duplicateTask(6)" title="Duplicar"><i
+                                                    class="bi bi-copy"></i></button>
+                                            <button class="action-btn delete d-none d-md-inline-flex"
+                                                onclick="Tasks.openDeleteModal('tarea','Wireframes nueva arquitectura')"
+                                                title="Eliminar"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    
+
                     <!-- Pagination -->
-                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                    <div
+                        class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
                         <small class="text-secondary">Mostrando 1-6 de 24 tareas</small>
                         <nav>
                             <ul class="pagination pagination-custom mb-0">
-                                <li class="page-item disabled"><a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#"><i
+                                            class="bi bi-chevron-left"></i></a></li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a></li>
+                                <li class="page-item"><a class="page-link" href="#"><i
+                                            class="bi bi-chevron-right"></i></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -550,18 +606,22 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="taskModalTitle">Nueva Tarea</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body">
                     <form id="taskForm">
                         <div class="row g-3">
                             <div class="col-12">
-                                <label class="form-label-custom">Título de la Tarea <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control form-control-custom" id="taskTitle" placeholder="Ej: Diseñar página de inicio" required>
+                                <label class="form-label-custom">Título de la Tarea <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-custom" id="taskTitle"
+                                    placeholder="Ej: Diseñar página de inicio" required>
                             </div>
                             <div class="col-12">
                                 <label class="form-label-custom">Descripción / Observaciones</label>
-                                <textarea class="form-control form-control-custom" id="taskDescription" rows="3" placeholder="Describe los detalles de la tarea..."></textarea>
+                                <textarea class="form-control form-control-custom" id="taskDescription" rows="3"
+                                    placeholder="Describe los detalles de la tarea..."></textarea>
                             </div>
                             <div class="col-12 col-md-6">
                                 <label class="form-label-custom">Proyecto <span class="text-danger">*</span></label>
@@ -574,7 +634,8 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <label class="form-label-custom">Cliente</label>
-                                <input type="text" class="form-control form-control-custom" id="taskClient" placeholder="Se autocompleta con el proyecto" readonly>
+                                <input type="text" class="form-control form-control-custom" id="taskClient"
+                                    placeholder="Se autocompleta con el proyecto" readonly>
                             </div>
                             <div class="col-12">
                                 <label class="form-label-custom">Asignar a <span class="text-danger">*</span></label>
@@ -582,19 +643,22 @@
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="assign1" value="1">
                                         <label class="form-check-label" for="assign1">
-                                            <span class="assignee-chip"><span class="chip-avatar">AD</span> Admin User</span>
+                                            <span class="assignee-chip"><span class="chip-avatar">AD</span> Admin
+                                                User</span>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="assign2" value="2">
                                         <label class="form-check-label" for="assign2">
-                                            <span class="assignee-chip"><span class="chip-avatar">JR</span> José Ramírez</span>
+                                            <span class="assignee-chip"><span class="chip-avatar">JR</span> José
+                                                Ramírez</span>
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="assign3" value="3">
                                         <label class="form-check-label" for="assign3">
-                                            <span class="assignee-chip"><span class="chip-avatar">AL</span> Ana López</span>
+                                            <span class="assignee-chip"><span class="chip-avatar">AL</span> Ana
+                                                López</span>
                                         </label>
                                     </div>
                                 </div>
@@ -604,7 +668,8 @@
                                 <input type="date" class="form-control form-control-custom" id="taskStartDate">
                             </div>
                             <div class="col-6 col-md-3">
-                                <label class="form-label-custom">Fecha Entrega <span class="text-danger">*</span></label>
+                                <label class="form-label-custom">Fecha Entrega <span
+                                        class="text-danger">*</span></label>
                                 <input type="date" class="form-control form-control-custom" id="taskDueDate" required>
                             </div>
                             <div class="col-12 col-md-6">
@@ -619,8 +684,10 @@
                                 <label class="form-label-custom">Subtareas / Checklist</label>
                                 <div class="subtasks-container" id="subtasksContainer">
                                     <div class="subtask-item">
-                                        <input type="text" class="form-control form-control-custom" placeholder="Agregar subtarea...">
-                                        <button type="button" class="btn-add-subtask" onclick="Tasks.addSubtask()"><i class="bi bi-plus-lg"></i></button>
+                                        <input type="text" class="form-control form-control-custom"
+                                            placeholder="Agregar subtarea...">
+                                        <button type="button" class="btn-add-subtask" onclick="Tasks.addSubtask()"><i
+                                                class="bi bi-plus-lg"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -657,10 +724,12 @@
                         </div>
                         <div>
                             <h5 class="modal-title mb-0" id="detailTaskTitle">Desarrollo del carrito de compras</h5>
-                            <small class="text-secondary" id="detailTaskProject">E-commerce TechStore • Juan Domínguez</small>
+                            <small class="text-secondary" id="detailTaskProject">E-commerce TechStore • Juan
+                                Domínguez</small>
                         </div>
                     </div>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -674,7 +743,8 @@
                                 </p>
                             </div>
                             <div class="task-detail-section">
-                                <h6 class="section-title"><i class="bi bi-check2-square"></i> Subtareas <span class="badge bg-primary ms-2">2/5</span></h6>
+                                <h6 class="section-title"><i class="bi bi-check2-square"></i> Subtareas <span
+                                        class="badge bg-primary ms-2">2/5</span></h6>
                                 <div class="subtasks-list">
                                     <div class="subtask-check completed">
                                         <input type="checkbox" checked>
@@ -721,7 +791,8 @@
                                                 <strong>José Ramírez</strong>
                                                 <span class="activity-time">Hace 2 horas</span>
                                             </div>
-                                            <p class="activity-text">Ya terminé la parte de agregar productos al carrito. Falta la integración con los cupones.</p>
+                                            <p class="activity-text">Ya terminé la parte de agregar productos al
+                                                carrito. Falta la integración con los cupones.</p>
                                         </div>
                                     </div>
                                     <div class="activity-item">
@@ -731,15 +802,18 @@
                                                 <strong>Admin User</strong>
                                                 <span class="activity-time">Hace 5 horas</span>
                                             </div>
-                                            <p class="activity-text">Perfecto, recuerda que el cliente pidió que los cupones también puedan ser porcentaje o monto fijo.</p>
+                                            <p class="activity-text">Perfecto, recuerda que el cliente pidió que los
+                                                cupones también puedan ser porcentaje o monto fijo.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="add-comment">
                                     <div class="comment-avatar">AD</div>
                                     <div class="comment-input-wrapper">
-                                        <input type="text" class="form-control form-control-custom" placeholder="Escribe un comentario...">
-                                        <button class="btn btn-custom-primary btn-sm"><i class="bi bi-send"></i></button>
+                                        <input type="text" class="form-control form-control-custom"
+                                            placeholder="Escribe un comentario...">
+                                        <button class="btn btn-custom-primary btn-sm"><i
+                                                class="bi bi-send"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -769,7 +843,8 @@
                                 </div>
                                 <div class="meta-item">
                                     <span class="meta-label">Fecha Entrega</span>
-                                    <span class="text-warning"><i class="bi bi-calendar-event me-1"></i> 12 Enero 2026</span>
+                                    <span class="text-warning"><i class="bi bi-calendar-event me-1"></i> 12 Enero
+                                        2026</span>
                                 </div>
                                 <div class="meta-item">
                                     <span class="meta-label">Creada por</span>
@@ -802,16 +877,19 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Confirmar Eliminación</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
+                            class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body text-center py-4">
                     <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
                     <h5 class="mb-2">¿Estás seguro?</h5>
-                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">esta tarea</strong>. Esta acción no se puede deshacer.</p>
+                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">esta tarea</strong>. Esta
+                        acción no se puede deshacer.</p>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="Tasks.confirmDelete()">
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger"
+                        onclick="Tasks.confirmDelete()">
                         <i class="bi bi-trash me-1"></i> Eliminar
                     </button>
                 </div>
@@ -825,7 +903,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
-    
+
     <!-- YPServicesERP Scripts -->
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
@@ -833,4 +911,5 @@
     <script src="assets/js/tasks.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
+
 </html>

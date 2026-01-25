@@ -1,0 +1,417 @@
+/**
+ * YPServicesERP - Invoices Module Styles
+ * Styles for invoice listing and detail pages
+ * @version 1.0.0
+ */
+
+/* ========================================
+   INVOICE CONTAINER
+======================================== */
+.invoice-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.invoice-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* ========================================
+   INVOICE HEADER
+======================================== */
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.invoice-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.invoice-logo-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+.invoice-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.invoice-logo-text span {
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.invoice-title {
+    text-align: right;
+}
+
+.invoice-title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.invoice-number {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   INVOICE BODY
+======================================== */
+.invoice-body {
+    padding: 2rem;
+}
+
+/* ========================================
+   INVOICE INFO
+======================================== */
+.invoice-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.invoice-info-block {
+    flex: 1;
+    min-width: 200px;
+}
+
+.invoice-info-block h6 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.invoice-info-block p {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.invoice-info-block .company-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   INVOICE META
+======================================== */
+.invoice-meta {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.invoice-meta-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.invoice-meta-item {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.invoice-meta-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+}
+
+.invoice-meta-value {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.invoice-meta-value.status-paid {
+    color: var(--success);
+}
+
+.invoice-meta-value.status-pending {
+    color: var(--warning);
+}
+
+.invoice-meta-value.status-overdue {
+    color: var(--danger);
+}
+
+/* ========================================
+   INVOICE TABLE
+======================================== */
+.invoice-table {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.invoice-table thead th {
+    background: var(--bg-input);
+    padding: 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    border: none;
+}
+
+.invoice-table thead th:first-child {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.invoice-table thead th:last-child {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    text-align: right;
+}
+
+.invoice-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.invoice-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.invoice-table .item-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.invoice-table .item-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.invoice-table .text-end {
+    text-align: right;
+}
+
+.invoice-table .qty {
+    text-align: center;
+}
+
+/* ========================================
+   INVOICE TOTALS
+======================================== */
+.invoice-totals {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.invoice-totals-table {
+    width: 300px;
+}
+
+.invoice-totals-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.invoice-totals-row:last-child {
+    border-bottom: none;
+}
+
+.invoice-totals-row.total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.invoice-totals-label {
+    color: var(--text-muted);
+}
+
+.invoice-totals-value {
+    font-weight: 500;
+}
+
+/* ========================================
+   INVOICE NOTES
+======================================== */
+.invoice-notes {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.invoice-notes h6 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.invoice-notes p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+/* ========================================
+   INVOICE FOOTER
+======================================== */
+.invoice-footer {
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.invoice-footer p {
+    margin-bottom: 0.5rem;
+}
+
+.invoice-footer p:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   PAYMENT INFO
+======================================== */
+.payment-info {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.payment-info h6 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.payment-info h6 i {
+    color: var(--primary);
+}
+
+.payment-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.payment-detail-label {
+    color: var(--text-muted);
+}
+
+.payment-detail-value {
+    font-weight: 500;
+}
+
+/* ========================================
+   INVOICE ACTIONS
+======================================== */
+.invoice-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   STATUS BADGE LARGE
+======================================== */
+.status-badge-large {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.status-badge-large.paid {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.status-badge-large.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.status-badge-large.overdue {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+/* ========================================
+   PRINT STYLES
+======================================== */
+@media print {
+    body {
+        background: white !important;
+    }
+
+    .sidebar,
+    .main-header,
+    .main-footer,
+    .invoice-actions,
+    .btn,
+    .no-print {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .page-content {
+        padding: 0 !important;
+    }
+
+    .invoice-card {
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .invoice-header {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}

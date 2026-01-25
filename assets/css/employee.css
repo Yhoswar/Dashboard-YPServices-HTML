@@ -1,0 +1,372 @@
+/**
+ * YPServicesERP - Employee Profile Styles
+ * Estilos específicos para la vista de perfil de empleado
+ * @version 1.0.0
+ */
+
+/* Employee Profile Specific Styles */
+.employee-header {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.employee-avatar-large {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    position: relative;
+}
+
+.employee-status-dot {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--success);
+    border: 3px solid var(--bg-card);
+}
+
+.employee-status-dot.offline {
+    background: var(--text-muted);
+}
+
+.employee-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.employee-role {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.employee-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.employee-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.employee-meta-item i {
+    color: var(--primary);
+}
+
+/* Stats Cards */
+.stat-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem;
+    font-size: 1.25rem;
+}
+
+.stat-icon.primary {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.stat-icon.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.stat-icon.warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.stat-icon.info {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Tabs */
+.nav-tabs-custom {
+    border-bottom: 2px solid var(--border-color);
+}
+
+.nav-tabs-custom .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.nav-tabs-custom .nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-tabs-custom .nav-link.active {
+    color: var(--primary);
+    background: transparent;
+    border-bottom-color: var(--primary);
+}
+
+.nav-tabs-custom .nav-link i {
+    margin-right: 0.5rem;
+}
+
+.tab-counter {
+    background: var(--bg-input);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+/* Project Card Mini */
+.project-mini-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    margin-bottom: 0.75rem;
+    transition: all var(--transition-normal);
+}
+
+.project-mini-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.project-mini-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.project-mini-info {
+    flex: 1;
+}
+
+.project-mini-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.project-mini-client {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Task Row */
+.task-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 0.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.task-row:hover {
+    border-color: var(--primary);
+}
+
+.task-row-checkbox {
+    width: 18px;
+    height: 18px;
+}
+
+.task-row-info {
+    flex: 1;
+}
+
+.task-row-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.task-row-project {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Payment Row */
+.payment-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.75rem;
+}
+
+.payment-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-details .payment-title {
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+}
+
+.payment-details .payment-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.payment-amount {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--success);
+}
+
+/* Contact Info */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.contact-value {
+    font-weight: 500;
+}
+
+.contact-value a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.contact-value a:hover {
+    text-decoration: underline;
+}
+
+/* Skills */
+.skill-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0.25rem;
+}
+
+/* Performance Chart Placeholder */
+.performance-chart {
+    height: 200px;
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+/* Info Row */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.info-value {
+    font-weight: 500;
+}

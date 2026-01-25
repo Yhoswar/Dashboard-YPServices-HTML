@@ -206,7 +206,7 @@
     border-color: var(--primary);
 }
 
-.form-check-input:checked + .form-check-label .assignee-chip {
+.form-check-input:checked+.form-check-label .assignee-chip {
     background: rgba(99, 102, 241, 0.1);
     border-color: var(--primary);
     color: var(--primary);
@@ -642,15 +642,15 @@
     border-radius: var(--radius-md);
 }
 
-.fc .fc-button-group > .fc-button {
+.fc .fc-button-group>.fc-button {
     border-radius: 0;
 }
 
-.fc .fc-button-group > .fc-button:first-child {
+.fc .fc-button-group>.fc-button:first-child {
     border-radius: var(--radius-md) 0 0 var(--radius-md);
 }
 
-.fc .fc-button-group > .fc-button:last-child {
+.fc .fc-button-group>.fc-button:last-child {
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
@@ -751,17 +751,488 @@
     .assignee-selector {
         flex-direction: column;
     }
-    
+
     .assignee-chip {
         width: 100%;
         justify-content: flex-start;
     }
-    
+
     .file-upload-area {
         padding: 1.5rem;
     }
-    
+
     .file-upload-area i {
         font-size: 1.5rem;
     }
+}
+
+/* ========================================
+   TASK DETAIL PAGE (task.html)
+======================================== */
+
+/* Task Page Header */
+.task-header {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.task-status-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.task-status-icon.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.task-status-icon.progress {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.task-status-icon.completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.task-title-large {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.task-project-link {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.task-project-link a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.task-project-link a:hover {
+    text-decoration: underline;
+}
+
+.task-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.task-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-meta-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.task-meta-value {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+/* Priority Badge */
+.priority-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.priority-badge.high {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.priority-badge.medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.priority-badge.low {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+/* Subtask Detail Styles */
+.subtask-checkbox {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+}
+
+.subtask-text {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.subtask-actions {
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.subtask-item:hover .subtask-actions {
+    opacity: 1;
+}
+
+.subtask-actions button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+.add-subtask-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+/* Progress Ring */
+.subtask-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1rem;
+}
+
+.progress-ring {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.progress-ring svg {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 4;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.progress-ring-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.subtask-progress-info {
+    flex: 1;
+}
+
+.subtask-progress-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.subtask-progress-detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Comments */
+.comment-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.comment-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.comment-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.comment-action {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color var(--transition-normal);
+}
+
+.comment-action:hover {
+    color: var(--primary);
+}
+
+/* Attachment Icon Variants */
+.attachment-icon.image {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.attachment-icon.pdf {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.attachment-icon.doc {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.attachment-icon.code {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.attachment-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Activity Log */
+.activity-log-item {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-log-item:last-child {
+    border-bottom: none;
+}
+
+.activity-log-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.activity-log-icon.created {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.activity-log-icon.updated {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.activity-log-icon.completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.activity-log-icon.comment {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.activity-log-icon.file {
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+.activity-log-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Info Card */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Assignee Card */
+.assignee-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+}
+
+.assignee-name {
+    font-weight: 600;
+}
+
+.assignee-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Due Warning */
+.due-warning {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--danger);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.due-warning.soon {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+/* Custom Tabs */
+.nav-tabs-custom {
+    border-bottom: 2px solid var(--border-color);
+}
+
+.nav-tabs-custom .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.nav-tabs-custom .nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-tabs-custom .nav-link.active {
+    color: var(--primary);
+    background: transparent;
+    border-bottom-color: var(--primary);
+}
+
+.nav-tabs-custom .nav-link i {
+    margin-right: 0.5rem;
+}
+
+.tab-counter {
+    background: var(--bg-input);
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+}
+
+.nav-link.active .tab-counter {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+/* Time Tracking */
+.time-tracker {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    text-align: center;
+}
+
+.time-display {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: monospace;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.time-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.time-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
 }

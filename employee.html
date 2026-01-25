@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Perfil de Empleado">
+    <meta name="author" content="YP Services">
+    <title>Empleado: Ana López - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/employee.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="employees.html" class="nav-item active" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Perfil de Empleado</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">Dashboard</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <a href="employees.html">Empleados</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Ana López</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Back Button -->
+                <a href="employees.html" class="btn btn-custom-secondary mb-4">
+                    <i class="bi bi-arrow-left me-1"></i> Volver a Empleados
+                </a>
+
+                <!-- Employee Header -->
+                <div class="employee-header">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3">
+                                <div class="employee-avatar-large">
+                                    AL
+                                    <span class="employee-status-dot" title="En línea"></span>
+                                </div>
+                                <div>
+                                    <h1 class="employee-name">Ana López</h1>
+                                    <p class="employee-role"><i class="bi bi-brush me-1"></i> UI/UX Designer</p>
+                                    <div class="employee-meta">
+                                        <span class="employee-meta-item">
+                                            <i class="bi bi-envelope"></i> ana.lopez@ypservices.com
+                                        </span>
+                                        <span class="employee-meta-item">
+                                            <i class="bi bi-telephone"></i> +1 234 567 891
+                                        </span>
+                                        <span class="employee-meta-item">
+                                            <i class="bi bi-calendar3"></i> Desde Mar 2023
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-3 mt-lg-0">
+                            <div class="d-flex gap-2 justify-content-lg-end flex-wrap">
+                                <button class="btn btn-custom-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#editEmployeeModal">
+                                    <i class="bi bi-pencil me-1"></i> Editar
+                                </button>
+                                <button class="btn btn-custom-primary" data-bs-toggle="modal"
+                                    data-bs-target="#paymentModal">
+                                    <i class="bi bi-cash me-1"></i> Registrar Pago
+                                </button>
+                                <div class="dropdown">
+                                    <button class="btn btn-custom-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope me-2"></i>Enviar
+                                                Email</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="bi bi-file-earmark-pdf me-2"></i>Exportar PDF</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="bi bi-person-x me-2"></i>Desactivar</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Main Content -->
+                    <div class="col-lg-8">
+                        <!-- Stats Row -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-6 col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon primary">
+                                        <i class="bi bi-kanban"></i>
+                                    </div>
+                                    <div class="stat-value">8</div>
+                                    <div class="stat-label">Proyectos</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon success">
+                                        <i class="bi bi-check2-circle"></i>
+                                    </div>
+                                    <div class="stat-value">47</div>
+                                    <div class="stat-label">Tareas Completadas</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon warning">
+                                        <i class="bi bi-clock"></i>
+                                    </div>
+                                    <div class="stat-value">186h</div>
+                                    <div class="stat-label">Horas Registradas</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="stat-card">
+                                    <div class="stat-icon info">
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <div class="stat-value">4.8</div>
+                                    <div class="stat-label">Rating</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabs -->
+                        <div class="content-card">
+                            <ul class="nav nav-tabs nav-tabs-custom" id="employeeTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="projects-tab" data-bs-toggle="tab"
+                                        data-bs-target="#projects" type="button" role="tab">
+                                        <i class="bi bi-kanban"></i><span class="d-none d-sm-inline">Proyectos</span>
+                                        <span class="tab-counter">5</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tasks-tab" data-bs-toggle="tab" data-bs-target="#tasks"
+                                        type="button" role="tab">
+                                        <i class="bi bi-check2-square"></i><span
+                                            class="d-none d-sm-inline">Tareas</span>
+                                        <span class="tab-counter">12</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="payments-tab" data-bs-toggle="tab"
+                                        data-bs-target="#payments" type="button" role="tab">
+                                        <i class="bi bi-cash-stack"></i><span class="d-none d-sm-inline">Pagos</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="performance-tab" data-bs-toggle="tab"
+                                        data-bs-target="#performance" type="button" role="tab">
+                                        <i class="bi bi-graph-up"></i><span
+                                            class="d-none d-sm-inline">Rendimiento</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content p-3 p-md-4" id="employeeTabsContent">
+                                <!-- Projects Tab -->
+                                <div class="tab-pane fade show active" id="projects" role="tabpanel">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h6 class="mb-0">Proyectos Asignados</h6>
+                                        <select class="form-select form-select-sm" style="width: auto;">
+                                            <option value="">Todos</option>
+                                            <option value="active">Activos</option>
+                                            <option value="completed">Completados</option>
+                                        </select>
+                                    </div>
+
+                                    <a href="project.html?id=1" class="text-decoration-none">
+                                        <div class="project-mini-card">
+                                            <div class="project-mini-icon"
+                                                style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                                                <i class="bi bi-globe"></i>
+                                            </div>
+                                            <div class="project-mini-info">
+                                                <div class="project-mini-name">E-commerce TechStore</div>
+                                                <div class="project-mini-client">Juan Domínguez • 3 tareas asignadas
+                                                </div>
+                                            </div>
+                                            <span class="status-badge progress">En Progreso</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="project.html?id=2" class="text-decoration-none">
+                                        <div class="project-mini-card">
+                                            <div class="project-mini-icon"
+                                                style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
+                                                <i class="bi bi-phone"></i>
+                                            </div>
+                                            <div class="project-mini-info">
+                                                <div class="project-mini-name">App Móvil FinanceTrack</div>
+                                                <div class="project-mini-client">María González • 5 tareas asignadas
+                                                </div>
+                                            </div>
+                                            <span class="status-badge progress">En Progreso</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="project.html?id=3" class="text-decoration-none">
+                                        <div class="project-mini-card">
+                                            <div class="project-mini-icon"
+                                                style="background: linear-gradient(135deg, #10b981, #06b6d4);">
+                                                <i class="bi bi-brush"></i>
+                                            </div>
+                                            <div class="project-mini-info">
+                                                <div class="project-mini-name">Rediseño Web Corporativo</div>
+                                                <div class="project-mini-client">Luis Martínez • 2 tareas asignadas
+                                                </div>
+                                            </div>
+                                            <span class="status-badge pending">Pendiente</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="project.html?id=4" class="text-decoration-none">
+                                        <div class="project-mini-card">
+                                            <div class="project-mini-icon"
+                                                style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+                                                <i class="bi bi-shop"></i>
+                                            </div>
+                                            <div class="project-mini-info">
+                                                <div class="project-mini-name">Landing Page Promocional</div>
+                                                <div class="project-mini-client">Carlos Ruiz • Completado</div>
+                                            </div>
+                                            <span class="status-badge completed">Completado</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="project.html?id=5" class="text-decoration-none">
+                                        <div class="project-mini-card">
+                                            <div class="project-mini-icon"
+                                                style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                                                <i class="bi bi-palette"></i>
+                                            </div>
+                                            <div class="project-mini-info">
+                                                <div class="project-mini-name">Sistema de Diseño Brand X</div>
+                                                <div class="project-mini-client">Ana Martínez • Completado</div>
+                                            </div>
+                                            <span class="status-badge completed">Completado</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- Tasks Tab -->
+                                <div class="tab-pane fade" id="tasks" role="tabpanel">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h6 class="mb-0">Tareas Asignadas</h6>
+                                        <select class="form-select form-select-sm" style="width: auto;">
+                                            <option value="">Todas</option>
+                                            <option value="pending">Pendientes</option>
+                                            <option value="progress">En Progreso</option>
+                                            <option value="completed">Completadas</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="task-row">
+                                        <input type="checkbox" class="form-check-input task-row-checkbox">
+                                        <div class="task-row-info">
+                                            <div class="task-row-title">Diseño UI pantallas de autenticación</div>
+                                            <div class="task-row-project">App Móvil FinanceTrack</div>
+                                        </div>
+                                        <span class="status-badge progress">En Progreso</span>
+                                    </div>
+
+                                    <div class="task-row">
+                                        <input type="checkbox" class="form-check-input task-row-checkbox">
+                                        <div class="task-row-info">
+                                            <div class="task-row-title">Wireframes nueva arquitectura</div>
+                                            <div class="task-row-project">Rediseño Web Corporativo</div>
+                                        </div>
+                                        <span class="status-badge progress">En Progreso</span>
+                                    </div>
+
+                                    <div class="task-row">
+                                        <input type="checkbox" class="form-check-input task-row-checkbox">
+                                        <div class="task-row-info">
+                                            <div class="task-row-title">Mockups página de checkout</div>
+                                            <div class="task-row-project">E-commerce TechStore</div>
+                                        </div>
+                                        <span class="status-badge pending">Pendiente</span>
+                                    </div>
+
+                                    <div class="task-row">
+                                        <input type="checkbox" class="form-check-input task-row-checkbox" checked>
+                                        <div class="task-row-info">
+                                            <div class="task-row-title">Diseño de mockups y wireframes</div>
+                                            <div class="task-row-project">E-commerce TechStore</div>
+                                        </div>
+                                        <span class="status-badge completed">Completada</span>
+                                    </div>
+
+                                    <div class="task-row">
+                                        <input type="checkbox" class="form-check-input task-row-checkbox" checked>
+                                        <div class="task-row-info">
+                                            <div class="task-row-title">Sistema de iconografía</div>
+                                            <div class="task-row-project">App Móvil FinanceTrack</div>
+                                        </div>
+                                        <span class="status-badge completed">Completada</span>
+                                    </div>
+                                </div>
+
+                                <!-- Payments Tab -->
+                                <div class="tab-pane fade" id="payments" role="tabpanel">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h6 class="mb-0">Historial de Pagos</h6>
+                                        <button class="btn btn-sm btn-custom-primary" data-bs-toggle="modal"
+                                            data-bs-target="#paymentModal">
+                                            <i class="bi bi-plus-lg me-1"></i> Nuevo Pago
+                                        </button>
+                                    </div>
+
+                                    <div class="payment-row">
+                                        <div class="payment-info">
+                                            <div class="payment-icon">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-title">Pago quincenal - Enero 2da</div>
+                                                <div class="payment-date">15 Enero 2024 • Transferencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-amount">$1,500.00</div>
+                                    </div>
+
+                                    <div class="payment-row">
+                                        <div class="payment-info">
+                                            <div class="payment-icon">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-title">Pago quincenal - Enero 1ra</div>
+                                                <div class="payment-date">01 Enero 2024 • Transferencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-amount">$1,500.00</div>
+                                    </div>
+
+                                    <div class="payment-row">
+                                        <div class="payment-info">
+                                            <div class="payment-icon">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-title">Bono fin de año</div>
+                                                <div class="payment-date">20 Diciembre 2023 • Transferencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-amount">$2,000.00</div>
+                                    </div>
+
+                                    <div class="payment-row">
+                                        <div class="payment-info">
+                                            <div class="payment-icon">
+                                                <i class="bi bi-check-circle"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-title">Pago quincenal - Diciembre 2da</div>
+                                                <div class="payment-date">15 Diciembre 2023 • Transferencia</div>
+                                            </div>
+                                        </div>
+                                        <div class="payment-amount">$1,500.00</div>
+                                    </div>
+
+                                    <div class="text-center mt-3">
+                                        <button class="btn btn-sm btn-custom-secondary">
+                                            Ver más pagos <i class="bi bi-chevron-down ms-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Performance Tab -->
+                                <div class="tab-pane fade" id="performance" role="tabpanel">
+                                    <h6 class="mb-3">Rendimiento del Mes</h6>
+
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-md-4">
+                                            <div class="stat-card">
+                                                <div class="stat-value text-success">95%</div>
+                                                <div class="stat-label">Tareas a tiempo</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="stat-card">
+                                                <div class="stat-value">42h</div>
+                                                <div class="stat-label">Horas este mes</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="stat-card">
+                                                <div class="stat-value text-primary">12</div>
+                                                <div class="stat-label">Tareas completadas</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="performance-chart mb-4">
+                                        <div class="text-center">
+                                            <i class="bi bi-bar-chart-line fs-1 d-block mb-2"></i>
+                                            <span>Gráfico de rendimiento mensual</span>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="mb-3">Evaluaciones</h6>
+                                    <div class="info-row">
+                                        <span class="info-label">Última evaluación</span>
+                                        <span class="info-value">Diciembre 2023 - Excelente</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">Próxima evaluación</span>
+                                        <span class="info-value">Marzo 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <!-- Contact Info -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-person-lines-fill me-2"></i>Información de
+                                    Contacto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <div class="contact-label">Email</div>
+                                        <div class="contact-value">
+                                            <a href="mailto:ana.lopez@ypservices.com">ana.lopez@ypservices.com</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-telephone"></i>
+                                    </div>
+                                    <div>
+                                        <div class="contact-label">Teléfono</div>
+                                        <div class="contact-value">
+                                            <a href="tel:+1234567891">+1 234 567 891</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-geo-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="contact-label">Ubicación</div>
+                                        <div class="contact-value">Miami, FL</div>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="bi bi-linkedin"></i>
+                                    </div>
+                                    <div>
+                                        <div class="contact-label">LinkedIn</div>
+                                        <div class="contact-value">
+                                            <a href="#" target="_blank">linkedin.com/in/analopez</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Employment Info -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-briefcase me-2"></i>Información Laboral</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="info-row">
+                                    <span class="info-label">Cargo</span>
+                                    <span class="info-value">UI/UX Designer</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Departamento</span>
+                                    <span class="info-value">Diseño</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Tipo</span>
+                                    <span class="info-value">Tiempo Completo</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Fecha Ingreso</span>
+                                    <span class="info-value">15 Mar 2023</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Salario</span>
+                                    <span class="info-value">$3,000/mes</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Estado</span>
+                                    <span class="status-badge active">Activo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="content-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0"><i class="bi bi-tools me-2"></i>Habilidades</h5>
+                                <button class="btn btn-sm btn-link p-0"><i class="bi bi-pencil"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <span class="skill-badge">Figma</span>
+                                <span class="skill-badge">Adobe XD</span>
+                                <span class="skill-badge">Photoshop</span>
+                                <span class="skill-badge">Illustrator</span>
+                                <span class="skill-badge">Sketch</span>
+                                <span class="skill-badge">Prototyping</span>
+                                <span class="skill-badge">User Research</span>
+                                <span class="skill-badge">Wireframing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                <span>© 2026 YPServicesERP. Todos los derechos reservados.</span>
+                <span class="d-none d-sm-inline">v2.0.0</span>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Edit Employee Modal -->
+    <div class="modal fade modal-custom" id="editEmployeeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-pencil me-2"></i>Editar Empleado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Nombre completo</label>
+                            <input type="text" class="form-control form-control-custom" value="Ana López">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Cargo</label>
+                            <input type="text" class="form-control form-control-custom" value="UI/UX Designer">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Email</label>
+                            <input type="email" class="form-control form-control-custom"
+                                value="ana.lopez@ypservices.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Teléfono</label>
+                            <input type="tel" class="form-control form-control-custom" value="+1 234 567 891">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Departamento</label>
+                            <select class="form-select form-control-custom">
+                                <option value="design" selected>Diseño</option>
+                                <option value="development">Desarrollo</option>
+                                <option value="management">Gestión</option>
+                                <option value="marketing">Marketing</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Tipo de Contrato</label>
+                            <select class="form-select form-control-custom">
+                                <option value="full" selected>Tiempo Completo</option>
+                                <option value="part">Medio Tiempo</option>
+                                <option value="contractor">Contratista</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Salario Mensual</label>
+                            <input type="number" class="form-control form-control-custom" value="3000">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Estado</label>
+                            <select class="form-select form-control-custom">
+                                <option value="active" selected>Activo</option>
+                                <option value="inactive">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary">
+                        <i class="bi bi-check-lg me-1"></i> Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal fade modal-custom" id="paymentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-cash me-2"></i>Registrar Pago</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="employee-avatar-large mx-auto mb-2"
+                            style="width: 60px; height: 60px; font-size: 1.25rem;">AL</div>
+                        <h6 class="mb-0">Ana López</h6>
+                        <small class="text-muted">UI/UX Designer</small>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label-custom">Concepto</label>
+                            <select class="form-select form-control-custom">
+                                <option value="salary">Pago quincenal</option>
+                                <option value="bonus">Bono</option>
+                                <option value="commission">Comisión</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Monto</label>
+                            <input type="number" class="form-control form-control-custom" value="1500"
+                                placeholder="0.00">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Fecha</label>
+                            <input type="date" class="form-control form-control-custom">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Método de Pago</label>
+                            <select class="form-select form-control-custom">
+                                <option value="transfer">Transferencia Bancaria</option>
+                                <option value="check">Cheque</option>
+                                <option value="cash">Efectivo</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Notas (opcional)</label>
+                            <textarea class="form-control form-control-custom" rows="2"
+                                placeholder="Notas adicionales..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary">
+                        <i class="bi bi-check-lg me-1"></i> Registrar Pago
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+</body>
+
+</html>

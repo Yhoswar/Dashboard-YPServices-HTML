@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Detalle de Tarea">
+    <meta name="author" content="YP Services">
+    <title>Tarea: Desarrollo del carrito de compras - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/tasks.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item active" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Detalle de Tarea</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">Dashboard</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <a href="projects.html">Proyectos</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <a href="project.html?id=1">E-commerce TechStore</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Tarea</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Back Button -->
+                <a href="project.html?id=1" class="btn btn-custom-secondary mb-4">
+                    <i class="bi bi-arrow-left me-1"></i> Volver al Proyecto
+                </a>
+
+                <!-- Task Header -->
+                <div class="task-header">
+                    <div class="row align-items-start">
+                        <div class="col-lg-8">
+                            <div class="d-flex gap-3">
+                                <div class="task-status-icon progress">
+                                    <i class="bi bi-arrow-repeat"></i>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
+                                        <h1 class="task-title-large mb-0">Desarrollo del carrito de compras</h1>
+                                    </div>
+                                    <p class="task-project-link mb-0">
+                                        <i class="bi bi-kanban me-1"></i> Proyecto:
+                                        <a href="project.html?id=1">E-commerce TechStore</a>
+                                        <span class="mx-2">•</span>
+                                        <i class="bi bi-person me-1"></i> Cliente:
+                                        <a href="client.html?id=1">Juan Domínguez</a>
+                                    </p>
+
+                                    <div class="task-meta-row">
+                                        <div class="task-meta-item">
+                                            <span class="task-meta-label">Estado:</span>
+                                            <span class="status-badge progress">En Progreso</span>
+                                        </div>
+                                        <div class="task-meta-item">
+                                            <span class="task-meta-label">Prioridad:</span>
+                                            <span class="priority-badge high">Alta</span>
+                                        </div>
+                                        <div class="task-meta-item">
+                                            <span class="task-meta-label">Creada:</span>
+                                            <span class="task-meta-value">15 Ene 2024</span>
+                                        </div>
+                                        <div class="task-meta-item">
+                                            <span class="task-meta-label">Vence:</span>
+                                            <span class="task-meta-value text-danger">25 Ene 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-3 mt-lg-0">
+                            <div class="d-flex gap-2 justify-content-lg-end flex-wrap">
+                                <button class="btn btn-custom-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#editTaskModal">
+                                    <i class="bi bi-pencil me-1"></i> Editar
+                                </button>
+                                <button class="btn btn-custom-success" onclick="markAsComplete()">
+                                    <i class="bi bi-check-lg me-1"></i> Completar
+                                </button>
+                                <div class="dropdown">
+                                    <button class="btn btn-custom-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="bi bi-files me-2"></i>Duplicar</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="bi bi-arrow-right me-2"></i>Mover a otro proyecto</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="bi bi-trash me-2"></i>Eliminar</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Main Content -->
+                    <div class="col-lg-8">
+                        <!-- Due Warning -->
+                        <div class="due-warning soon mb-4">
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                            <span>Esta tarea vence en 3 días (25 Enero 2024)</span>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="content-card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0"><i class="bi bi-text-left me-2"></i>Descripción</h5>
+                                <button class="btn btn-sm btn-link p-0"><i class="bi bi-pencil"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <div class="task-description">
+                                    Desarrollar el módulo completo del carrito de compras incluyendo:
+                                    <ul class="mt-2 mb-0">
+                                        <li>Agregar y quitar productos del carrito</li>
+                                        <li>Actualizar cantidades de productos</li>
+                                        <li>Calcular totales y subtotales automáticamente</li>
+                                        <li>Aplicar cupones de descuento</li>
+                                        <li>Persistir el carrito en la sesión del usuario</li>
+                                        <li>Mostrar resumen en tiempo real</li>
+                                        <li>Preparar los datos para el módulo de checkout</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabs -->
+                        <div class="content-card">
+                            <ul class="nav nav-tabs nav-tabs-custom" id="taskTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="subtasks-tab" data-bs-toggle="tab"
+                                        data-bs-target="#subtasks" type="button" role="tab">
+                                        <i class="bi bi-list-check"></i><span
+                                            class="d-none d-sm-inline">Subtareas</span>
+                                        <span class="tab-counter">6</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="comments-tab" data-bs-toggle="tab"
+                                        data-bs-target="#comments" type="button" role="tab">
+                                        <i class="bi bi-chat-left-text"></i><span
+                                            class="d-none d-sm-inline">Comentarios</span>
+                                        <span class="tab-counter">4</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="attachments-tab" data-bs-toggle="tab"
+                                        data-bs-target="#attachments" type="button" role="tab">
+                                        <i class="bi bi-paperclip"></i><span class="d-none d-sm-inline">Archivos</span>
+                                        <span class="tab-counter">3</span>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="activity-tab" data-bs-toggle="tab"
+                                        data-bs-target="#activity" type="button" role="tab">
+                                        <i class="bi bi-clock-history"></i><span
+                                            class="d-none d-sm-inline">Actividad</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content p-3 p-md-4" id="taskTabsContent">
+                                <!-- Subtasks Tab -->
+                                <div class="tab-pane fade show active" id="subtasks" role="tabpanel">
+                                    <!-- Progress -->
+                                    <div class="subtask-progress">
+                                        <div class="progress-ring">
+                                            <svg width="50" height="50">
+                                                <circle class="progress-ring-bg" cx="25" cy="25" r="20"></circle>
+                                                <circle class="progress-ring-fill" cx="25" cy="25" r="20"
+                                                    stroke-dasharray="125.6" stroke-dashoffset="41.9"></circle>
+                                            </svg>
+                                            <span class="progress-ring-text">67%</span>
+                                        </div>
+                                        <div class="subtask-progress-info">
+                                            <div class="subtask-progress-label">Progreso de Subtareas</div>
+                                            <div class="subtask-progress-detail">4 de 6 subtareas completadas</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Subtask List -->
+                                    <div class="subtask-item completed">
+                                        <input type="checkbox" class="form-check-input subtask-checkbox" checked>
+                                        <span class="subtask-text">Diseñar la estructura de datos del carrito</span>
+                                        <div class="subtask-actions">
+                                            <button class="btn btn-sm btn-link text-muted"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-link text-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="subtask-item completed">
+                                        <input type="checkbox" class="form-check-input subtask-checkbox" checked>
+                                        <span class="subtask-text">Crear componente de producto en carrito</span>
+                                        <div class="subtask-actions">
+                                            <button class="btn btn-sm btn-link text-muted"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-link text-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="subtask-item completed">
+                                        <input type="checkbox" class="form-check-input subtask-checkbox" checked>
+                                        <span class="subtask-text">Implementar funciones de agregar/quitar
+                                            productos</span>
+                                        <div class="subtask-actions">
+                                            <button class="btn btn-sm btn-link text-muted"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-link text-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="subtask-item completed">
+                                        <input type="checkbox" class="form-check-input subtask-checkbox" checked>
+                                        <span class="subtask-text">Calcular totales y subtotales</span>
+                                        <div class="subtask-actions">
+                                            <button class="btn btn-sm btn-link text-muted"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-link text-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="subtask-item">
+                                        <input type="checkbox" class="form-check-input subtask-checkbox">
+                                        <span class="subtask-text">Implementar sistema de cupones de descuento</span>
+                                        <div class="subtask-actions">
+                                            <button class="btn btn-sm btn-link text-muted"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-link text-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="subtask-item">
+                                        <input type="checkbox" class="form-check-input subtask-checkbox">
+                                        <span class="subtask-text">Persistir carrito en sesión/localStorage</span>
+                                        <div class="subtask-actions">
+                                            <button class="btn btn-sm btn-link text-muted"><i
+                                                    class="bi bi-pencil"></i></button>
+                                            <button class="btn btn-sm btn-link text-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Add Subtask -->
+                                    <div class="add-subtask-input">
+                                        <input type="text" class="form-control form-control-custom"
+                                            placeholder="Añadir nueva subtarea...">
+                                        <button class="btn btn-custom-primary">
+                                            <i class="bi bi-plus-lg"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Comments Tab -->
+                                <div class="tab-pane fade" id="comments" role="tabpanel">
+                                    <!-- New Comment -->
+                                    <div class="d-flex gap-3 mb-4">
+                                        <div class="comment-avatar">AD</div>
+                                        <div class="flex-grow-1">
+                                            <textarea class="form-control form-control-custom" rows="3"
+                                                placeholder="Escribe un comentario..."></textarea>
+                                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                                <button class="btn btn-sm btn-custom-secondary">
+                                                    <i class="bi bi-paperclip me-1"></i> Adjuntar
+                                                </button>
+                                                <button class="btn btn-sm btn-custom-primary">
+                                                    <i class="bi bi-send me-1"></i> Comentar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Comments List -->
+                                    <div class="comment-item">
+                                        <div class="comment-avatar">AD</div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <span class="comment-author">Admin User</span>
+                                                <span class="comment-time">Hace 2 horas</span>
+                                            </div>
+                                            <p class="comment-text mb-0">
+                                                He completado la implementación del cálculo de totales. Ahora falta
+                                                integrar
+                                                el sistema de cupones que el cliente solicitó en la última reunión.
+                                            </p>
+                                            <div class="comment-actions">
+                                                <button class="comment-action"><i class="bi bi-reply me-1"></i>
+                                                    Responder</button>
+                                                <button class="comment-action"><i class="bi bi-pencil me-1"></i>
+                                                    Editar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment-item">
+                                        <div class="comment-avatar"
+                                            style="background: linear-gradient(135deg, #f59e0b, #ef4444);">JR</div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <span class="comment-author">José Ramírez</span>
+                                                <span class="comment-time">Ayer</span>
+                                            </div>
+                                            <p class="comment-text mb-0">
+                                                ¿Usamos porcentaje o monto fijo para los cupones? El cliente no
+                                                especificó
+                                                en los requerimientos. Sugiero implementar ambos tipos.
+                                            </p>
+                                            <div class="comment-actions">
+                                                <button class="comment-action"><i class="bi bi-reply me-1"></i>
+                                                    Responder</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment-item">
+                                        <div class="comment-avatar">AD</div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <span class="comment-author">Admin User</span>
+                                                <span class="comment-time">Hace 2 días</span>
+                                            </div>
+                                            <p class="comment-text mb-0">
+                                                Buena idea José. Implementemos ambos: cupones de porcentaje (ej: 10%
+                                                OFF)
+                                                y cupones de monto fijo (ej: $50 de descuento). También agreguemos
+                                                validación
+                                                de fecha de expiración.
+                                            </p>
+                                            <div class="comment-actions">
+                                                <button class="comment-action"><i class="bi bi-reply me-1"></i>
+                                                    Responder</button>
+                                                <button class="comment-action"><i class="bi bi-pencil me-1"></i>
+                                                    Editar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment-item">
+                                        <div class="comment-avatar"
+                                            style="background: linear-gradient(135deg, #10b981, #06b6d4);">AL</div>
+                                        <div class="comment-content">
+                                            <div class="comment-header">
+                                                <span class="comment-author">Ana López</span>
+                                                <span class="comment-time">Hace 3 días</span>
+                                            </div>
+                                            <p class="comment-text mb-0">
+                                                Subí los mockups actualizados del carrito con el campo para ingresar
+                                                cupones.
+                                                Incluye estados de cupón válido, inválido y expirado.
+                                            </p>
+                                            <div class="comment-actions">
+                                                <button class="comment-action"><i class="bi bi-reply me-1"></i>
+                                                    Responder</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Attachments Tab -->
+                                <div class="tab-pane fade" id="attachments" role="tabpanel">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h6 class="mb-0">Archivos Adjuntos</h6>
+                                        <button class="btn btn-sm btn-custom-primary">
+                                            <i class="bi bi-upload me-1"></i> Subir Archivo
+                                        </button>
+                                    </div>
+
+                                    <div class="attachment-item">
+                                        <div class="attachment-icon image">
+                                            <i class="bi bi-file-image"></i>
+                                        </div>
+                                        <div class="attachment-info">
+                                            <div class="attachment-name">Cart_UI_Mockup_v2.png</div>
+                                            <div class="attachment-meta">PNG • 1.2 MB • Ana López • Hace 3 días</div>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-custom-secondary"><i
+                                                    class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-custom-secondary"><i
+                                                    class="bi bi-download"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="attachment-item">
+                                        <div class="attachment-icon code">
+                                            <i class="bi bi-file-code"></i>
+                                        </div>
+                                        <div class="attachment-info">
+                                            <div class="attachment-name">cart-schema.json</div>
+                                            <div class="attachment-meta">JSON • 4 KB • Admin User • Hace 5 días</div>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-custom-secondary"><i
+                                                    class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-custom-secondary"><i
+                                                    class="bi bi-download"></i></button>
+                                        </div>
+                                    </div>
+
+                                    <div class="attachment-item">
+                                        <div class="attachment-icon pdf">
+                                            <i class="bi bi-file-pdf"></i>
+                                        </div>
+                                        <div class="attachment-info">
+                                            <div class="attachment-name">Especificaciones_Carrito.pdf</div>
+                                            <div class="attachment-meta">PDF • 856 KB • Admin User • Hace 1 semana</div>
+                                        </div>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-custom-secondary"><i
+                                                    class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-custom-secondary"><i
+                                                    class="bi bi-download"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Activity Tab -->
+                                <div class="tab-pane fade" id="activity" role="tabpanel">
+                                    <h6 class="mb-3">Historial de Actividad</h6>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon completed">
+                                            <i class="bi bi-check"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>Admin User</strong> completó la subtarea "Calcular totales y
+                                                subtotales"</div>
+                                            <div class="activity-log-time">Hace 2 horas</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon comment">
+                                            <i class="bi bi-chat"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>Admin User</strong> agregó un comentario</div>
+                                            <div class="activity-log-time">Hace 2 horas</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon completed">
+                                            <i class="bi bi-check"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>Admin User</strong> completó la subtarea "Implementar funciones
+                                                de agregar/quitar"</div>
+                                            <div class="activity-log-time">Ayer</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon comment">
+                                            <i class="bi bi-chat"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>José Ramírez</strong> agregó un comentario</div>
+                                            <div class="activity-log-time">Ayer</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon file">
+                                            <i class="bi bi-paperclip"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>Ana López</strong> subió el archivo "Cart_UI_Mockup_v2.png"
+                                            </div>
+                                            <div class="activity-log-time">Hace 3 días</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon updated">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>Admin User</strong> cambió la prioridad a "Alta"</div>
+                                            <div class="activity-log-time">Hace 5 días</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="activity-log-item">
+                                        <div class="activity-log-icon created">
+                                            <i class="bi bi-plus"></i>
+                                        </div>
+                                        <div>
+                                            <div><strong>Admin User</strong> creó esta tarea</div>
+                                            <div class="activity-log-time">15 Enero 2024</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <!-- Assignee -->
+                        <div class="content-card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0"><i class="bi bi-person me-2"></i>Asignado a</h5>
+                                <button class="btn btn-sm btn-link p-0"><i class="bi bi-pencil"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <div class="assignee-card">
+                                    <div class="assignee-avatar">AD</div>
+                                    <div>
+                                        <div class="assignee-name">Admin User</div>
+                                        <div class="assignee-role">Full Stack Developer</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Time Tracking -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-stopwatch me-2"></i>Tiempo</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="time-tracker">
+                                    <div class="time-display">08:45:32</div>
+                                    <div class="time-label">Tiempo registrado</div>
+                                    <div class="time-buttons">
+                                        <button class="btn btn-sm btn-custom-success" id="startTimer">
+                                            <i class="bi bi-play-fill me-1"></i> Iniciar
+                                        </button>
+                                        <button class="btn btn-sm btn-custom-secondary">
+                                            <i class="bi bi-plus-lg me-1"></i> Manual
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task Info -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-info-circle me-2"></i>Información</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="info-row">
+                                    <span class="info-label">Estado</span>
+                                    <span class="status-badge progress">En Progreso</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Prioridad</span>
+                                    <span class="priority-badge high">Alta</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Fecha Creación</span>
+                                    <span class="info-value">15 Ene 2024</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Fecha Límite</span>
+                                    <span class="info-value text-danger">25 Ene 2024</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Estimación</span>
+                                    <span class="info-value">12 horas</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Tiempo Real</span>
+                                    <span class="info-value">8h 45m</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Context -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-kanban me-2"></i>Proyecto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="assignee-avatar"
+                                        style="background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 10px;">
+                                        <i class="bi bi-globe"></i>
+                                    </div>
+                                    <div>
+                                        <div class="assignee-name">E-commerce TechStore</div>
+                                        <div class="assignee-role">65% completado</div>
+                                    </div>
+                                </div>
+                                <a href="project.html?id=1" class="btn btn-sm btn-custom-secondary w-100">
+                                    <i class="bi bi-arrow-right me-1"></i> Ver Proyecto
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="content-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0"><i class="bi bi-tags me-2"></i>Etiquetas</h5>
+                                <button class="btn btn-sm btn-link p-0"><i class="bi bi-plus-lg"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="badge bg-primary">Frontend</span>
+                                    <span class="badge bg-info">JavaScript</span>
+                                    <span class="badge bg-warning">Urgente</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                <span>© 2026 YPServicesERP. Todos los derechos reservados.</span>
+                <span class="d-none d-sm-inline">v2.0.0</span>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div class="modal fade" id="editTaskModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-pencil me-2"></i>Editar Tarea</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label-custom">Título de la tarea</label>
+                            <input type="text" class="form-control form-control-custom"
+                                value="Desarrollo del carrito de compras">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Descripción</label>
+                            <textarea class="form-control form-control-custom"
+                                rows="4">Desarrollar el módulo completo del carrito de compras incluyendo agregar/quitar productos, calcular totales, aplicar cupones y persistir en sesión.</textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Asignar a</label>
+                            <select class="form-select form-control-custom">
+                                <option value="1" selected>Admin User</option>
+                                <option value="2">Ana López</option>
+                                <option value="3">José Ramírez</option>
+                                <option value="4">María García</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Estado</label>
+                            <select class="form-select form-control-custom">
+                                <option value="pending">Pendiente</option>
+                                <option value="progress" selected>En Progreso</option>
+                                <option value="completed">Completada</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Prioridad</label>
+                            <select class="form-select form-control-custom">
+                                <option value="low">Baja</option>
+                                <option value="medium">Media</option>
+                                <option value="high" selected>Alta</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Fecha Límite</label>
+                            <input type="date" class="form-control form-control-custom" value="2024-01-25">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Estimación (horas)</label>
+                            <input type="number" class="form-control form-control-custom" value="12">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Proyecto</label>
+                            <select class="form-select form-control-custom">
+                                <option value="1" selected>E-commerce TechStore</option>
+                                <option value="2">App Móvil v2</option>
+                                <option value="3">Rediseño Landing</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary">
+                        <i class="bi bi-check-lg me-1"></i> Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+
+    <script>
+        // Mark task as complete
+        function markAsComplete() {
+            if (confirm('¿Marcar esta tarea como completada?')) {
+                // Update UI
+                document.querySelector('.task-status-icon').className = 'task-status-icon completed';
+                document.querySelector('.task-status-icon i').className = 'bi bi-check-lg';
+                document.querySelectorAll('.status-badge.progress').forEach(badge => {
+                    badge.className = 'status-badge completed';
+                    badge.textContent = 'Completada';
+                });
+
+                // Show toast
+                if (typeof Toast !== 'undefined') {
+                    Toast.success('Tarea completada exitosamente');
+                }
+            }
+        }
+
+        // Subtask checkbox toggle
+        document.querySelectorAll('.subtask-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const subtaskItem = this.closest('.subtask-item');
+                if (this.checked) {
+                    subtaskItem.classList.add('completed');
+                } else {
+                    subtaskItem.classList.remove('completed');
+                }
+                updateSubtaskProgress();
+            });
+        });
+
+        // Update subtask progress
+        function updateSubtaskProgress() {
+            const total = document.querySelectorAll('.subtask-checkbox').length;
+            const completed = document.querySelectorAll('.subtask-checkbox:checked').length;
+            const percent = Math.round((completed / total) * 100);
+
+            // Update ring
+            const circumference = 2 * Math.PI * 20; // radius = 20
+            const offset = circumference - (percent / 100) * circumference;
+            document.querySelector('.progress-ring-fill').style.strokeDashoffset = offset;
+            document.querySelector('.progress-ring-text').textContent = percent + '%';
+
+            // Update text
+            document.querySelector('.subtask-progress-detail').textContent =
+                `${completed} de ${total} subtareas completadas`;
+        }
+
+        // Timer functionality (demo)
+        let timerRunning = false;
+        document.getElementById('startTimer').addEventListener('click', function () {
+            if (!timerRunning) {
+                this.innerHTML = '<i class="bi bi-pause-fill me-1"></i> Pausar';
+                this.className = 'btn btn-sm btn-custom-warning';
+                timerRunning = true;
+            } else {
+                this.innerHTML = '<i class="bi bi-play-fill me-1"></i> Iniciar';
+                this.className = 'btn btn-sm btn-custom-success';
+                timerRunning = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
