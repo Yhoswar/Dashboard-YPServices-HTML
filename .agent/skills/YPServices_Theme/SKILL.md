@@ -137,4 +137,113 @@ Cada página HTML carga su CSS específico después de `main.css`:
 5. **CSS por página** → Cargar CSS específico individualmente
 
 ---
+---
 *Actualizado: 2026-01-25*
+
+## 7. Responsive Breakpoints (`responsive.css`)
+
+El sistema utiliza 4 breakpoints principales para adaptar la interfaz:
+
+| Breakpoint | Ancho | Comportamiento |
+|------------|-------|----------------|
+| **XL** | `≥ 1200px` | Escritorio: Sidebar expandido/colapsable con botón. |
+| **LG/MD** | `< 1200px` | Tablet: Sidebar oculto por defecto (offcanvas), toggle hamburguesa visible. |
+| **SM** | `< 768px` | Móvil Landscape: Reducción de paddings, fuentes y ajustes en tablas. |
+| **XS** | `< 576px` | Móvil Portrait: Vista de tarjetas para tablas, fuentes reducidas, modales full-width. |
+
+---
+
+## 8. Estructura de Layout (`layout.css`)
+
+```html
+<div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">...</div>
+        <nav class="sidebar-nav">...</nav>
+        <div class="sidebar-footer">...</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header Sticky -->
+        <header class="main-header">
+            <button class="menu-toggle">...</button>
+            <div class="search-box">...</div>
+            <div class="header-actions">...</div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="page-content">
+           <!-- Contenido dinámico -->
+        </div>
+    </main>
+</div>
+```
+
+---
+
+## 9. Componentes Adicionales (`components.css`)
+
+### 📋 Tablas (`.table-custom`)
+Tablas limpias con bordes suaves y hover effects.
+```html
+<div class="table-responsive">
+    <table class="table table-custom">
+        <thead>
+            <tr><th>Encabezado</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="table-avatar">JD</div> <!-- Avatar -->
+                        <div>
+                            <span class="table-user-name">John Doe</span>
+                            <span class="table-user-email">john@example.com</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+```
+
+### 🖥️ Modales (`.modal-custom`)
+Modales flotantes con bordes redondeados y sombra suave.
+```html
+<div class="modal fade modal-custom" id="miModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Título</h5>
+                <button type="button" class="modal-close-btn" data-bs-dismiss="modal">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">...</div>
+        </div>
+    </div>
+</div>
+```
+
+### 🍞 Toasts (`.toast-custom`)
+Notificaciones flotantes en la esquina inferior derecha.
+```html
+<div class="toast-container-custom">
+    <div class="toast toast-custom show align-items-center border-0" role="alert">
+        <div class="d-flex">
+            <div class="toast-body d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-success"></i>
+                <div>
+                    <h6 class="mb-0">Éxito</h6>
+                    <small>Operación completada.</small>
+                </div>
+            </div>
+            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+```
