@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Gestión de Suscripciones">
+    <meta name="author" content="YP Services">
+    <title>Suscripciones - YPServicesERP</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/subscriptions.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i><span>Clientes</span><span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i><span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i><span>Tareas</span><span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="quotes.html" class="nav-item" data-title="Presupuestos">
+                        <i class="bi bi-file-earmark-text"></i><span>Presupuestos</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i><span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item active" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i><span>Suscripciones</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i><span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i><span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i><span>Reportes</span>
+                    </a>
+                    <a href="tickets.html" class="nav-item" data-title="Soporte">
+                        <i class="bi bi-headset"></i><span>Soporte</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i><span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Suscripciones</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Suscripciones</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <!-- Time Tracker Widget -->
+                        <div class="time-tracker-widget d-none d-lg-flex">
+                            <select class="tracker-project-select" id="trackerProject">
+                                <option>Proyecto Actual</option>
+                                <option>Website Rediseño</option>
+                                <option>App Móvil</option>
+                                <option>ERP Migración</option>
+                            </select>
+                            <span class="tracker-display" id="trackerDisplay">00:00:00</span>
+                            <button class="tracker-btn" id="trackerToggle" title="Iniciar/Pausar">
+                                <i class="bi bi-play-fill" id="trackerIcon"></i>
+                            </button>
+                        </div>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Filters -->
+                <div class="row g-2 mb-3 align-items-center">
+                    <div class="col-12 col-md-auto">
+                        <div class="position-relative">
+                            <i class="bi bi-search position-absolute" style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                            <input type="text" class="filter-input w-100" style="min-width:200px;" placeholder="Buscar suscripción...">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100">
+                            <option>Todas</option>
+                            <option>Activa</option>
+                            <option>Vencida</option>
+                            <option>Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-auto ms-md-auto">
+                        <button class="btn btn-custom-primary w-100" data-bs-toggle="modal" data-bs-target="#subscriptionModal">
+                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nueva Suscripción</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-arrow-repeat"></i> Pagos Recurrentes</h5>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Servicio</th>
+                                    <th class="d-none d-md-table-cell">Cliente</th>
+                                    <th>Costo</th>
+                                    <th class="d-none d-lg-table-cell">Frecuencia</th>
+                                    <th>Próximo Cobro</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Hosting Premium</strong></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">JD</div>
+                                            <span class="table-user-name">Juan Domínguez</span>
+                                        </div>
+                                    </td>
+                                    <td>$150/mes</td>
+                                    <td class="d-none d-lg-table-cell">Mensual</td>
+                                    <td>15/02/2026</td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Soporte Técnico</strong></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">MG</div>
+                                            <span class="table-user-name">María González</span>
+                                        </div>
+                                    </td>
+                                    <td>$300/mes</td>
+                                    <td class="d-none d-lg-table-cell">Mensual</td>
+                                    <td class="text-overdue">20/01/2026</td>
+                                    <td><span class="status-badge overdue">Vencida</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Licencia ERP</strong></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">CP</div>
+                                            <span class="table-user-name">Carlos Pérez</span>
+                                        </div>
+                                    </td>
+                                    <td>$1,200/año</td>
+                                    <td class="d-none d-lg-table-cell">Anual</td>
+                                    <td>01/06/2026</td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Mantenimiento Web</strong></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">LR</div>
+                                            <span class="table-user-name">Laura Ramírez</span>
+                                        </div>
+                                    </td>
+                                    <td>$200/mes</td>
+                                    <td class="d-none d-lg-table-cell">Mensual</td>
+                                    <td class="text-overdue">10/01/2026</td>
+                                    <td><span class="status-badge overdue">Vencida</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cloud Storage</strong></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">AF</div>
+                                            <span class="table-user-name">Andrés Flores</span>
+                                        </div>
+                                    </td>
+                                    <td>$75/mes</td>
+                                    <td class="d-none d-lg-table-cell">Mensual</td>
+                                    <td>28/02/2026</td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SEO & Marketing</strong></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">SM</div>
+                                            <span class="table-user-name">Sofía Mendoza</span>
+                                        </div>
+                                    </td>
+                                    <td>$500/mes</td>
+                                    <td class="d-none d-lg-table-cell">Mensual</td>
+                                    <td>05/02/2026</td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Nueva Suscripción -->
+    <div class="modal fade modal-custom" id="subscriptionModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nueva Suscripción</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label-custom">Servicio <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" placeholder="Nombre del servicio">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Cliente <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom">
+                                <option>Seleccionar cliente</option>
+                                <option>Juan Domínguez</option>
+                                <option>María González</option>
+                                <option>Carlos Pérez</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Costo <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text input-group-text-custom">$</span>
+                                <input type="number" class="form-control form-control-custom" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Frecuencia</label>
+                            <select class="form-select form-select-custom">
+                                <option>Mensual</option>
+                                <option>Trimestral</option>
+                                <option>Semestral</option>
+                                <option>Anual</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Inicio</label>
+                            <input type="date" class="form-control form-control-custom">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Próximo Cobro</label>
+                            <input type="date" class="form-control form-control-custom">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i> Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

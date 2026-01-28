@@ -1,0 +1,52 @@
+/**
+ * YPServicesERP - Tickets Page Styles
+ * Estilos específicos para el módulo de Soporte
+ * @version 1.0.0
+ */
+
+/* Tab Filters */
+.ticket-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.ticket-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.ticket-tab:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.ticket-tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.ticket-tab.active .ticket-tab-count {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.ticket-tab-count {
+    background: var(--bg-input);
+    color: var(--text-muted);
+    padding: 0.1rem 0.5rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}

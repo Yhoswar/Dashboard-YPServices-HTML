@@ -1,0 +1,11 @@
+/**
+ * YPServicesERP - Subscriptions Page Styles
+ * Estilos específicos para el módulo de Suscripciones
+ * @version 1.0.0
+ */
+
+/* Overdue date text (fecha de cobro pasada) */
+.text-overdue {
+    color: var(--danger);
+    font-weight: 600;
+}

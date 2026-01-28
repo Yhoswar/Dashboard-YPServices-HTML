@@ -1,0 +1,16 @@
+/**
+ * YPServicesERP - Quotes Page Styles
+ * Estilos específicos para el módulo de Presupuestos
+ * @version 1.0.0
+ */
+
+/* Convert to Invoice button */
+.action-btn.convert-btn {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.action-btn.convert-btn:hover {
+    background: var(--success);
+    color: white;
+}
