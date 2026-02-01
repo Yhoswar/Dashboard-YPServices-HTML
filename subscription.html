@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Detalle de Suscripción">
+    <meta name="author" content="YP Services">
+    <title>Suscripción - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/subscriptions.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="quotes.html" class="nav-item" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item active" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Suscripción</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <a href="subscriptions.html">Suscripciones</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>SUB-0001</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Back Button & Actions -->
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 mb-4">
+                    <a href="subscriptions.html" class="btn btn-custom-secondary">
+                        <i class="bi bi-arrow-left me-1"></i> Volver
+                    </a>
+                    <div class="action-buttons">
+                        <button class="btn btn-custom-secondary" onclick="generateInvoice()">
+                            <i class="bi bi-receipt me-1"></i> <span class="d-none d-sm-inline">Generar Factura</span>
+                        </button>
+                        <button class="btn btn-custom-warning" onclick="pauseSubscription()">
+                            <i class="bi bi-pause-fill me-1"></i> <span class="d-none d-sm-inline">Pausar</span>
+                        </button>
+                        <button class="btn btn-custom-primary" onclick="saveSubscription()">
+                            <i class="bi bi-check-lg me-1"></i> Guardar
+                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-custom-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="duplicateSubscription()"><i class="bi bi-copy me-2"></i>Duplicar</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" onclick="cancelSubscription()"><i class="bi bi-x-circle me-2"></i>Cancelar Suscripción</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscription Header Card -->
+                <div class="subscription-header">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="subscription-icon">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="subscription-id">SUB-0001</span>
+                                    <span class="subscription-status active">
+                                        <i class="bi bi-check-circle-fill"></i> Activa
+                                    </span>
+                                </div>
+                                <h2 class="subscription-title">Mantenimiento Web Mensual</h2>
+                                <div class="subscription-client">
+                                    <i class="bi bi-person"></i> Juan Domínguez - TechStore Inc.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="subscription-amount-box">
+                            <div class="amount-label">Monto Recurrente</div>
+                            <div class="amount-value">$350.00</div>
+                            <div class="amount-frequency">
+                                <span class="frequency-badge monthly">
+                                    <i class="bi bi-calendar3"></i> Mensual
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subscription-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Fecha Inicio</span>
+                            <span class="meta-value">01 Enero 2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Próxima Factura</span>
+                            <span class="meta-value highlight">02 Febrero 2026</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Facturas Generadas</span>
+                            <span class="meta-value">13</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Total Facturado</span>
+                            <span class="meta-value">$4,550.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Main Content -->
+                    <div class="col-lg-8">
+                        <!-- Cliente -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-person"></i> Cliente</h5>
+                                <button class="btn btn-custom-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#selectClientModal">
+                                    <i class="bi bi-pencil me-1"></i> Cambiar
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="client-card-header">
+                                    <div class="client-avatar-lg">JD</div>
+                                    <div>
+                                        <div class="client-name">Juan Domínguez</div>
+                                        <div class="client-company">TechStore Inc.</div>
+                                    </div>
+                                </div>
+                                <div class="client-details">
+                                    <p><i class="bi bi-envelope"></i> juan@techstore.com</p>
+                                    <p><i class="bi bi-telephone"></i> +1 555 123 4567</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Detalles de la Suscripción -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-gear"></i> Detalles de la Suscripción</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Nombre / Descripción <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-custom" value="Mantenimiento Web Mensual">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Servicio</label>
+                                        <select class="form-select form-select-custom">
+                                            <option value="">Seleccionar servicio</option>
+                                            <option value="1" selected>Mantenimiento Web</option>
+                                            <option value="2">Hosting Premium</option>
+                                            <option value="3">Soporte Técnico</option>
+                                            <option value="4">SEO & Analytics</option>
+                                            <option value="5">Email Marketing</option>
+                                            <option value="6">Community Management</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label-custom">Monto <span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text input-group-text-custom">$</span>
+                                            <input type="number" class="form-control form-control-custom" value="350.00" step="0.01">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label-custom">Moneda</label>
+                                        <select class="form-select form-select-custom">
+                                            <option value="USD" selected>USD - Dólar</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label-custom">Frecuencia <span class="text-danger">*</span></label>
+                                        <select class="form-select form-select-custom" id="frequencySelect" onchange="updateFrequencyInfo()">
+                                            <option value="monthly" selected>Mensual</option>
+                                            <option value="quarterly">Trimestral (cada 3 meses)</option>
+                                            <option value="semi_annual">Semestral (cada 6 meses)</option>
+                                            <option value="annual">Anual</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label-custom">Descripción del Servicio</label>
+                                        <textarea class="form-control form-control-custom textarea-lg" rows="3" placeholder="Describe qué incluye esta suscripción...">Servicio de mantenimiento web que incluye:
+• Actualizaciones de seguridad y plugins
+• Backups semanales
+• Monitoreo de uptime 24/7
+• Soporte técnico por email (respuesta en 24h)
+• 2 horas de desarrollo/modificaciones mensuales</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Configuración de Fechas -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-calendar3"></i> Configuración de Fechas</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Fecha de Inicio <span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control form-control-custom" value="2025-01-01">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Fecha de Fin <small class="text-muted">(opcional)</small></label>
+                                        <input type="date" class="form-control form-control-custom" placeholder="Sin fecha de fin">
+                                        <small class="form-text text-muted">Dejar vacío para suscripción indefinida</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Próxima Fecha de Factura</label>
+                                        <input type="date" class="form-control form-control-custom" value="2026-02-01">
+                                        <small class="form-text text-muted">Se actualiza automáticamente al generar factura</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Última Factura Generada</label>
+                                        <input type="date" class="form-control form-control-custom" value="2026-01-01" readonly style="background: var(--bg-input);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Configuración de Facturación -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-receipt"></i> Configuración de Facturación</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <div class="form-check form-switch-custom">
+                                            <input class="form-check-input" type="checkbox" id="autoGenerate" checked>
+                                            <label class="form-check-label" for="autoGenerate">
+                                                <strong>Generar factura automáticamente</strong>
+                                                <small class="d-block text-muted">El sistema creará una factura borrador cuando se acerque la fecha de facturación</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" id="daysBeforeGroup">
+                                        <label class="form-label-custom">Días de anticipación</label>
+                                        <select class="form-select form-select-custom">
+                                            <option value="1">1 día antes</option>
+                                            <option value="3">3 días antes</option>
+                                            <option value="5" selected>5 días antes</option>
+                                            <option value="7">7 días antes</option>
+                                            <option value="15">15 días antes</option>
+                                        </select>
+                                        <small class="form-text text-muted">Cuántos días antes de la fecha se genera la factura</small>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Días para vencimiento</label>
+                                        <select class="form-select form-select-custom">
+                                            <option value="15">15 días</option>
+                                            <option value="30" selected>30 días</option>
+                                            <option value="45">45 días</option>
+                                            <option value="60">60 días</option>
+                                        </select>
+                                        <small class="form-text text-muted">Días para pagar después de emitir la factura</small>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sendEmail" checked>
+                                            <label class="form-check-label" for="sendEmail">
+                                                Enviar factura por email automáticamente al cliente
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notas -->
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-sticky"></i> Notas Internas</h5>
+                            </div>
+                            <div class="card-body">
+                                <textarea class="form-control form-control-custom textarea-lg" rows="3" placeholder="Notas internas sobre esta suscripción...">Cliente desde enero 2025. Muy satisfecho con el servicio. Posible upsell a plan premium en Q2 2026.</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-lg-4">
+                        <!-- Resumen -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-calculator"></i> Resumen</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="summary-section">
+                                    <div class="summary-row">
+                                        <span class="summary-label">Monto por período</span>
+                                        <span class="summary-value">$350.00</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span class="summary-label">Frecuencia</span>
+                                        <span class="summary-value">Mensual</span>
+                                    </div>
+                                    <div class="summary-row highlight">
+                                        <span class="summary-label">Valor Mensual (MRR)</span>
+                                        <span class="summary-value">$350.00</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span class="summary-label">Valor Anual (ARR)</span>
+                                        <span class="summary-value">$4,200.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Estado -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-info-circle"></i> Estado</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="status-info">
+                                    <div class="status-indicator active">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>Activa</span>
+                                    </div>
+                                    <p class="status-description">
+                                        La suscripción está activa y se facturará automáticamente.
+                                    </p>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="form-label-custom">Cambiar Estado</label>
+                                    <select class="form-select form-select-custom" onchange="updateStatus(this.value)">
+                                        <option value="active" selected>Activa</option>
+                                        <option value="paused">Pausada</option>
+                                        <option value="cancelled">Cancelada</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Historial de Facturas -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-receipt"></i> Últimas Facturas</h5>
+                                <a href="invoices.html?subscription=1" class="btn btn-custom-secondary btn-sm">Ver todas</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="invoice-list">
+                                    <a href="invoice.html?id=45" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-2026-0045</span>
+                                            <span class="invoice-date">01 Ene 2026</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$350</span>
+                                            <span class="status-badge completed small">Pagada</span>
+                                        </div>
+                                    </a>
+                                    <a href="invoice.html?id=40" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-2025-0040</span>
+                                            <span class="invoice-date">01 Dic 2025</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$350</span>
+                                            <span class="status-badge completed small">Pagada</span>
+                                        </div>
+                                    </a>
+                                    <a href="invoice.html?id=35" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-2025-0035</span>
+                                            <span class="invoice-date">01 Nov 2025</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$350</span>
+                                            <span class="status-badge completed small">Pagada</span>
+                                        </div>
+                                    </a>
+                                    <a href="invoice.html?id=30" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-2025-0030</span>
+                                            <span class="invoice-date">01 Oct 2025</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$350</span>
+                                            <span class="status-badge completed small">Pagada</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actividad -->
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-clock-history"></i> Actividad</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="activity-timeline">
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+                                            <i class="bi bi-receipt"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">Factura INV-2026-0045 generada</p>
+                                            <small class="activity-time">01 Ene 2026</small>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--primary);">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">Monto actualizado de $300 a $350</p>
+                                            <small class="activity-time">15 Dic 2025</small>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--success);">
+                                            <i class="bi bi-plus-circle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <p class="activity-text">Suscripción creada</p>
+                                            <small class="activity-time">01 Ene 2025</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button (Fixed Bottom on Mobile) -->
+                <div class="d-lg-none position-fixed bottom-0 start-0 end-0 p-3 bg-body border-top" style="z-index: 1000;">
+                    <button class="btn btn-custom-primary w-100" onclick="saveSubscription()">
+                        <i class="bi bi-check-lg me-1"></i> Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Seleccionar Cliente -->
+    <div class="modal fade modal-custom" id="selectClientModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Seleccionar Cliente</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="text" class="form-control form-control-custom" placeholder="Buscar cliente...">
+                    </div>
+                    <div class="client-list" style="max-height: 300px; overflow-y: auto;">
+                        <div class="client-option p-3 rounded mb-2" style="background: var(--bg-input); cursor: pointer;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="table-avatar">JD</div>
+                                <div>
+                                    <div class="fw-semibold">Juan Domínguez</div>
+                                    <small class="text-muted">TechStore Inc.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-option p-3 rounded mb-2" style="background: var(--bg-input); cursor: pointer;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="table-avatar" style="background: var(--info);">MG</div>
+                                <div>
+                                    <div class="fw-semibold">María González</div>
+                                    <small class="text-muted">Marketing Solutions</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-option p-3 rounded mb-2" style="background: var(--bg-input); cursor: pointer;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="table-avatar" style="background: var(--secondary);">CP</div>
+                                <div>
+                                    <div class="fw-semibold">Carlos Pérez</div>
+                                    <small class="text-muted">Freelance</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a href="clients.html?action=new" class="btn btn-custom-primary">
+                        <i class="bi bi-plus-lg me-1"></i> Nuevo Cliente
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Generar Factura -->
+    <div class="modal fade modal-custom" id="generateInvoiceModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Generar Factura</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="generate-icon mx-auto mb-3">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+                        <p class="mb-0">Se generará una factura para esta suscripción</p>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label-custom">N° Factura</label>
+                            <input type="text" class="form-control form-control-custom" value="INV-2026-0047" readonly style="background:var(--bg-input);">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Monto</label>
+                            <input type="text" class="form-control form-control-custom" value="$350.00" readonly style="background:var(--bg-input);">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Fecha de Emisión</label>
+                            <input type="date" class="form-control form-control-custom" id="modalInvoiceDate">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Vencimiento</label>
+                            <input type="date" class="form-control form-control-custom" id="modalInvoiceDueDate">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="sendInvoiceEmail" checked>
+                                <label class="form-check-label" for="sendInvoiceEmail">
+                                    Enviar factura por email al cliente
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="confirmGenerateInvoice()">
+                        <i class="bi bi-receipt me-1"></i> Generar Factura
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Subscription Functions
+        function saveSubscription() {
+            showToast('Guardado', 'La suscripción ha sido actualizada correctamente', 'success');
+        }
+
+        function generateInvoice() {
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            const dueDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            document.getElementById('modalInvoiceDate').value = today;
+            document.getElementById('modalInvoiceDueDate').value = dueDate;
+            
+            new bootstrap.Modal(document.getElementById('generateInvoiceModal')).show();
+        }
+
+        function confirmGenerateInvoice() {
+            bootstrap.Modal.getInstance(document.getElementById('generateInvoiceModal')).hide();
+            showToast('Factura Generada', 'Se ha creado la factura INV-2026-0047', 'success');
+        }
+
+        function pauseSubscription() {
+            if (confirm('¿Deseas pausar esta suscripción? No se generarán facturas mientras esté pausada.')) {
+                showToast('Suscripción Pausada', 'La suscripción ha sido pausada', 'warning');
+            }
+        }
+
+        function duplicateSubscription() {
+            if (confirm('¿Deseas crear una copia de esta suscripción?')) {
+                showToast('Duplicada', 'Se ha creado una copia de la suscripción', 'success');
+            }
+        }
+
+        function cancelSubscription() {
+            if (confirm('¿Estás seguro de cancelar esta suscripción? Esta acción no se puede deshacer.')) {
+                showToast('Cancelada', 'La suscripción ha sido cancelada', 'success');
+                setTimeout(() => {
+                    window.location.href = 'subscriptions.html';
+                }, 1500);
+            }
+        }
+
+        function updateStatus(status) {
+            const statusNames = {
+                'active': 'Activa',
+                'paused': 'Pausada',
+                'cancelled': 'Cancelada'
+            };
+            showToast('Estado Actualizado', `La suscripción ahora está ${statusNames[status]}`, 'success');
+        }
+
+        function updateFrequencyInfo() {
+            const frequency = document.getElementById('frequencySelect').value;
+            console.log('Frequency changed to:', frequency);
+            // Aquí se actualizarían los cálculos de MRR/ARR
+        }
+
+        // Toggle days before group based on auto-generate checkbox
+        document.getElementById('autoGenerate').addEventListener('change', function() {
+            document.getElementById('daysBeforeGroup').style.opacity = this.checked ? '1' : '0.5';
+            document.getElementById('daysBeforeGroup').querySelector('select').disabled = !this.checked;
+        });
+    </script>
+</body>
+
+</html>

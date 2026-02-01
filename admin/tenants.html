@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Gestión de Tenants">
+    <meta name="author" content="YP Services">
+    <title>Tenants - YPServicesERP Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="admin.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar admin-sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon admin">YP</div>
+                    <div class="logo-text">YPServices<span>Admin</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Administración</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="tenants.html" class="nav-item active" data-title="Tenants">
+                        <i class="bi bi-buildings"></i>
+                        <span>Tenants</span>
+                        <span class="badge">24</span>
+                    </a>
+                    <a href="plans.html" class="nav-item" data-title="Planes">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Planes</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Usuarios">
+                        <i class="bi bi-people"></i>
+                        <span>Usuarios</span>
+                        <span class="badge">156</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-credit-card"></i>
+                        <span>Facturación</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="#" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Logs">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Logs</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="API">
+                        <i class="bi bi-braces"></i>
+                        <span>API Keys</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Acceso Rápido</div>
+                    <a href="../index.html" class="nav-item" data-title="Ver ERP">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        <span>Ver ERP Demo</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar admin">SA</div>
+                    <div class="user-info">
+                        <div class="user-name">Super Admin</div>
+                        <div class="user-role">Administrador Global</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Gestión de Tenants</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">Admin</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Tenants</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Filters -->
+                <div class="row g-2 mb-3 align-items-center">
+                    <div class="col-12 col-md-auto">
+                        <div class="position-relative">
+                            <i class="bi bi-search position-absolute"
+                                style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                            <input type="text" class="filter-input w-100" style="min-width:200px;"
+                                placeholder="Buscar tenant...">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterPlan">
+                            <option value="">Todos los planes</option>
+                            <option value="enterprise">Enterprise</option>
+                            <option value="pro">Profesional</option>
+                            <option value="basic">Básico</option>
+                            <option value="free">Free Trial</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterStatus">
+                            <option value="">Todos los estados</option>
+                            <option value="active">Activo</option>
+                            <option value="trial">Trial</option>
+                            <option value="suspended">Suspendido</option>
+                            <option value="cancelled">Cancelado</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-auto ms-md-auto">
+                        <button class="btn btn-custom-primary w-100" onclick="openNewTenantModal()">
+                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nuevo Tenant</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-buildings"></i></div>
+                            </div>
+                            <div class="kpi-label">Total Tenants</div>
+                            <div class="kpi-value">24</div>
+                            <div class="kpi-sublabel">En plataforma</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-check-circle"></i></div>
+                            </div>
+                            <div class="kpi-label">Activos</div>
+                            <div class="kpi-value">21</div>
+                            <div class="kpi-sublabel">Con suscripción pagada</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-hourglass-split"></i></div>
+                            </div>
+                            <div class="kpi-label">En Trial</div>
+                            <div class="kpi-value">3</div>
+                            <div class="kpi-sublabel">14 días restantes prom.</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon danger"><i class="bi bi-x-circle"></i></div>
+                            </div>
+                            <div class="kpi-label">Cancelados</div>
+                            <div class="kpi-value">2</div>
+                            <div class="kpi-sublabel">Este mes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-buildings"></i> Lista de Tenants</h5>
+                        <span class="text-muted small">24 tenants</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Empresa</th>
+                                    <th class="d-none d-md-table-cell">Contacto</th>
+                                    <th>Plan</th>
+                                    <th class="d-none d-lg-table-cell">Usuarios</th>
+                                    <th class="d-none d-lg-table-cell">MRR</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">GE</div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Global Enterprises</span>
+                                                <small class="text-muted">global-enterprises</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div>
+                                            <span class="d-block">Carlos Mendoza</span>
+                                            <small class="text-muted">carlos@globalent.com</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="plan-badge enterprise">Enterprise</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold">25</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold text-success">$1,500</span></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver" onclick="viewTenant(1)"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" title="Editar" onclick="editTenant(1)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn" title="Acceder" onclick="accessTenant(1)"><i class="bi bi-box-arrow-up-right"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--info);">TC</div>
+                                            <div>
+                                                <span class="fw-semibold d-block">TechCorp Solutions</span>
+                                                <small class="text-muted">techcorp</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div>
+                                            <span class="d-block">Ana García</span>
+                                            <small class="text-muted">ana@techcorp.io</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="plan-badge pro">Pro</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold">12</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold text-success">$650</span></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver" onclick="viewTenant(2)"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" title="Editar" onclick="editTenant(2)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn" title="Acceder" onclick="accessTenant(2)"><i class="bi bi-box-arrow-up-right"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--success);">DM</div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Digital Marketing Pro</span>
+                                                <small class="text-muted">dmpro</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div>
+                                            <span class="d-block">Laura Rodríguez</span>
+                                            <small class="text-muted">laura@dmpro.com</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="plan-badge pro">Pro</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold">8</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold text-success">$650</span></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver" onclick="viewTenant(3)"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" title="Editar" onclick="editTenant(3)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn" title="Acceder" onclick="accessTenant(3)"><i class="bi bi-box-arrow-up-right"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--warning);">IS</div>
+                                            <div>
+                                                <span class="fw-semibold d-block">InnoSoft Labs</span>
+                                                <small class="text-muted">innosoft</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div>
+                                            <span class="d-block">Pedro Sánchez</span>
+                                            <small class="text-muted">pedro@innosoft.dev</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="plan-badge free">Trial</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold">3</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="text-muted">$0</span></td>
+                                    <td><span class="status-badge pending">Trial <small>(7 días)</small></span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver" onclick="viewTenant(4)"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" title="Editar" onclick="editTenant(4)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn" title="Acceder" onclick="accessTenant(4)"><i class="bi bi-box-arrow-up-right"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--secondary);">CS</div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Creative Studio</span>
+                                                <small class="text-muted">creativestudio</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div>
+                                            <span class="d-block">María López</span>
+                                            <small class="text-muted">maria@creativestudio.mx</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="plan-badge basic">Básico</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold">5</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold text-success">$250</span></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver" onclick="viewTenant(5)"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" title="Editar" onclick="editTenant(5)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn" title="Acceder" onclick="accessTenant(5)"><i class="bi bi-box-arrow-up-right"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--danger);">OC</div>
+                                            <div>
+                                                <span class="fw-semibold d-block">Old Company Inc.</span>
+                                                <small class="text-muted">oldcompany</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div>
+                                            <span class="d-block">Roberto Martínez</span>
+                                            <small class="text-muted">roberto@oldcompany.com</small>
+                                        </div>
+                                    </td>
+                                    <td><span class="plan-badge basic">Básico</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="fw-semibold">2</span></td>
+                                    <td class="d-none d-lg-table-cell"><span class="text-muted">$0</span></td>
+                                    <td><span class="status-badge cancelled">Cancelado</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Ver" onclick="viewTenant(6)"><i class="bi bi-eye"></i></button>
+                                            <button class="action-btn" title="Reactivar" onclick="reactivateTenant(6)"><i class="bi bi-arrow-counterclockwise"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                        <small class="text-muted">Mostrando 1-6 de 24 tenants</small>
+                        <nav>
+                            <ul class="pagination pagination-custom mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Nuevo/Editar Tenant -->
+    <div class="modal fade modal-custom" id="tenantModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tenantModalTitle">Nuevo Tenant</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <h6 class="form-section-title">Información de la Empresa</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Nombre de la Empresa <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="tenantName" placeholder="Nombre de la empresa">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Subdominio <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-custom" id="tenantSubdomain" placeholder="empresa">
+                                <span class="input-group-text">.ypservices.app</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Plan <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom" id="tenantPlan">
+                                <option value="free">Free Trial (14 días)</option>
+                                <option value="basic">Básico - $250/mes</option>
+                                <option value="pro">Profesional - $650/mes</option>
+                                <option value="enterprise">Enterprise - $1,500/mes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Estado</label>
+                            <select class="form-select form-select-custom" id="tenantStatus">
+                                <option value="active">Activo</option>
+                                <option value="trial">Trial</option>
+                                <option value="suspended">Suspendido</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-12 mt-4">
+                            <h6 class="form-section-title">Contacto Principal</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Nombre del Contacto <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="contactName" placeholder="Nombre completo">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control form-control-custom" id="contactEmail" placeholder="email@empresa.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Teléfono</label>
+                            <input type="tel" class="form-control form-control-custom" id="contactPhone" placeholder="+1 555 123 4567">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Cargo</label>
+                            <input type="text" class="form-control form-control-custom" id="contactRole" placeholder="Ej: CEO, Director">
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <h6 class="form-section-title">Configuración</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Límite de Usuarios</label>
+                            <input type="number" class="form-control form-control-custom" id="userLimit" value="10">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Almacenamiento (GB)</label>
+                            <input type="number" class="form-control form-control-custom" id="storageLimit" value="5">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Notas Internas</label>
+                            <textarea class="form-control form-control-custom" id="tenantNotes" rows="2" placeholder="Notas privadas sobre este tenant..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="saveTenant()">
+                        <i class="bi bi-check-lg me-1"></i> <span id="saveTenantBtnText">Crear Tenant</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Ver Tenant -->
+    <div class="modal fade modal-custom" id="viewTenantModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalle del Tenant</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tenant-detail-header">
+                        <div class="tenant-avatar-lg">GE</div>
+                        <div class="tenant-info">
+                            <h4 class="tenant-name">Global Enterprises</h4>
+                            <span class="tenant-subdomain"><i class="bi bi-link-45deg"></i> global-enterprises.ypservices.app</span>
+                            <div class="tenant-badges">
+                                <span class="plan-badge enterprise">Enterprise</span>
+                                <span class="status-badge active">Activo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <h6 class="detail-title"><i class="bi bi-person"></i> Contacto Principal</h6>
+                                <div class="detail-content">
+                                    <p><strong>Carlos Mendoza</strong></p>
+                                    <p><i class="bi bi-envelope"></i> carlos@globalent.com</p>
+                                    <p><i class="bi bi-telephone"></i> +1 555 123 4567</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <h6 class="detail-title"><i class="bi bi-bar-chart"></i> Uso del Plan</h6>
+                                <div class="detail-content">
+                                    <div class="usage-item">
+                                        <span>Usuarios: 25 / 50</span>
+                                        <div class="usage-bar"><div class="usage-progress" style="width: 50%;"></div></div>
+                                    </div>
+                                    <div class="usage-item">
+                                        <span>Almacenamiento: 8.2 GB / 20 GB</span>
+                                        <div class="usage-bar"><div class="usage-progress" style="width: 41%;"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <h6 class="detail-title"><i class="bi bi-credit-card"></i> Facturación</h6>
+                                <div class="detail-content">
+                                    <p><strong>MRR:</strong> $1,500/mes</p>
+                                    <p><strong>Próximo cobro:</strong> 15 Feb 2026</p>
+                                    <p><strong>Método:</strong> Visa ****4242</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="detail-card">
+                                <h6 class="detail-title"><i class="bi bi-calendar3"></i> Fechas</h6>
+                                <div class="detail-content">
+                                    <p><strong>Registro:</strong> 15 Mar 2024</p>
+                                    <p><strong>Última actividad:</strong> Hace 2 horas</p>
+                                    <p><strong>Días activo:</strong> 322 días</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="accessTenant(1)">
+                        <i class="bi bi-box-arrow-up-right me-1"></i> Acceder al ERP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/toast.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    <script>
+        let currentTenantId = null;
+        let isEditing = false;
+
+        function openNewTenantModal() {
+            isEditing = false;
+            currentTenantId = null;
+            document.getElementById('tenantModalTitle').textContent = 'Nuevo Tenant';
+            document.getElementById('saveTenantBtnText').textContent = 'Crear Tenant';
+            
+            // Clear form
+            document.getElementById('tenantName').value = '';
+            document.getElementById('tenantSubdomain').value = '';
+            document.getElementById('tenantPlan').value = 'free';
+            document.getElementById('tenantStatus').value = 'trial';
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactRole').value = '';
+            document.getElementById('userLimit').value = '10';
+            document.getElementById('storageLimit').value = '5';
+            document.getElementById('tenantNotes').value = '';
+            
+            new bootstrap.Modal(document.getElementById('tenantModal')).show();
+        }
+
+        function editTenant(id) {
+            isEditing = true;
+            currentTenantId = id;
+            document.getElementById('tenantModalTitle').textContent = 'Editar Tenant';
+            document.getElementById('saveTenantBtnText').textContent = 'Guardar Cambios';
+            
+            // Load tenant data (simulated)
+            document.getElementById('tenantName').value = 'Global Enterprises';
+            document.getElementById('tenantSubdomain').value = 'global-enterprises';
+            document.getElementById('tenantPlan').value = 'enterprise';
+            document.getElementById('tenantStatus').value = 'active';
+            document.getElementById('contactName').value = 'Carlos Mendoza';
+            document.getElementById('contactEmail').value = 'carlos@globalent.com';
+            document.getElementById('contactPhone').value = '+1 555 123 4567';
+            document.getElementById('contactRole').value = 'CEO';
+            document.getElementById('userLimit').value = '50';
+            document.getElementById('storageLimit').value = '20';
+            document.getElementById('tenantNotes').value = 'Cliente premium desde 2024';
+            
+            new bootstrap.Modal(document.getElementById('tenantModal')).show();
+        }
+
+        function saveTenant() {
+            const name = document.getElementById('tenantName').value;
+            const email = document.getElementById('contactEmail').value;
+            
+            if (!name || !email) {
+                showToast('Error', 'Nombre y email son requeridos', 'error');
+                return;
+            }
+            
+            bootstrap.Modal.getInstance(document.getElementById('tenantModal')).hide();
+            
+            if (isEditing) {
+                showToast('Actualizado', 'El tenant ha sido actualizado', 'success');
+            } else {
+                showToast('Creado', 'El tenant ha sido creado correctamente', 'success');
+            }
+        }
+
+        function viewTenant(id) {
+            new bootstrap.Modal(document.getElementById('viewTenantModal')).show();
+        }
+
+        function accessTenant(id) {
+            showToast('Accediendo', 'Redirigiendo al ERP del tenant...', 'info');
+            setTimeout(() => {
+                window.open('../index.html', '_blank');
+            }, 1000);
+        }
+
+        function reactivateTenant(id) {
+            showToast('Reactivado', 'El tenant ha sido reactivado', 'success');
+        }
+    </script>
+</body>
+
+</html>

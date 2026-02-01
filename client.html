@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#6366f1">
     <meta name="description" content="YPServicesERP - Detalle de Cliente">
     <meta name="author" content="YP Services">
-    <title>Cliente: Juan Domínguez - YPServicesERP</title>
+    <title>Cliente - YPServicesERP</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -22,13 +22,10 @@
 
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/client.css" rel="stylesheet">
-
-
+    <link href="assets/css/clients.css" rel="stylesheet">
 </head>
 
 <body>
-
     <div class="app-container">
         <!-- Sidebar Overlay -->
         <div class="sidebar-overlay" id="sidebarOverlay"></div>
@@ -67,9 +64,17 @@
                         <span>Tareas</span>
                         <span class="badge bg-warning">5</span>
                     </a>
+                    <a href="quotes.html" class="nav-item" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
                     <a href="invoices.html" class="nav-item" data-title="Facturación">
                         <i class="bi bi-receipt"></i>
                         <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
                     </a>
                     <a href="employees.html" class="nav-item" data-title="Empleados">
                         <i class="bi bi-person-badge-fill"></i>
@@ -86,6 +91,14 @@
                 </div>
                 <div class="nav-section">
                     <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
                     <a href="settings.html" class="nav-item" data-title="Configuración">
                         <i class="bi bi-gear-fill"></i>
                         <span>Configuración</span>
@@ -114,11 +127,11 @@
                         <div>
                             <h1 class="page-title">Detalle de Cliente</h1>
                             <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
-                                <a href="index.html">Dashboard</a>
+                                <a href="index.html">YPServicesERP</a>
                                 <i class="bi bi-chevron-right small"></i>
                                 <a href="clients.html">Clientes</a>
                                 <i class="bi bi-chevron-right small"></i>
-                                <span>Juan Domínguez</span>
+                                <span>TechStore Inc.</span>
                             </nav>
                         </div>
                     </div>
@@ -136,511 +149,394 @@
 
             <!-- Page Content -->
             <div class="page-content">
-                <!-- Back Button -->
-                <a href="clients.html" class="btn btn-custom-secondary mb-4">
-                    <i class="bi bi-arrow-left me-1"></i> Volver a Clientes
-                </a>
-
                 <!-- Client Header -->
-                <div class="client-header">
-                    <div class="row align-items-center">
-                        <div class="col-lg-8">
-                            <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3">
-                                <div class="client-avatar-large">JD</div>
-                                <div>
-                                    <h1 class="client-name">Juan Domínguez</h1>
-                                    <p class="client-company"><i class="bi bi-building me-1"></i> TechStore Inc.</p>
-                                    <div class="client-meta">
-                                        <span class="client-meta-item">
-                                            <i class="bi bi-envelope"></i> juan@techstore.com
-                                        </span>
-                                        <span class="client-meta-item">
-                                            <i class="bi bi-telephone"></i> +1 234 567 890
-                                        </span>
-                                        <span class="client-meta-item">
-                                            <i class="bi bi-calendar3"></i> Cliente desde Ene 2024
-                                        </span>
-                                    </div>
-                                </div>
+                <div class="client-header content-card mb-4">
+                    <div class="client-header-main">
+                        <div class="client-avatar-lg">TS</div>
+                        <div class="client-header-info">
+                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                                <h2 class="client-name mb-0">TechStore Inc.</h2>
+                                <span class="status-badge active">Activo</span>
+                                <span class="client-type-badge"><i class="bi bi-building"></i> Empresa</span>
+                            </div>
+                            <div class="client-meta">
+                                <span><i class="bi bi-calendar3"></i> Cliente desde: Marzo 2024</span>
+                                <span><i class="bi bi-people"></i> 3 contactos</span>
+                                <span><i class="bi bi-folder"></i> 4 proyectos</span>
                             </div>
                         </div>
-                        <div class="col-lg-4 mt-3 mt-lg-0">
-                            <div class="client-actions justify-content-lg-end">
-                                <button class="btn btn-custom-secondary" onclick="openEditClientModal()">
-                                    <i class="bi bi-pencil me-1"></i> Editar
+                        <div class="client-header-actions">
+                            <a href="clients.html" class="btn btn-custom-secondary">
+                                <i class="bi bi-arrow-left me-1"></i> Volver
+                            </a>
+                            <button class="btn btn-custom-primary" onclick="saveClient()">
+                                <i class="bi bi-check-lg me-1"></i> Guardar
+                            </button>
+                            <div class="dropdown">
+                                <button class="btn btn-custom-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
                                 </button>
-                                <button class="btn btn-custom-primary">
-                                    <i class="bi bi-plus-lg me-1"></i> Nuevo Proyecto
-                                </button>
-                                <div class="dropdown">
-                                    <button class="btn btn-custom-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-receipt me-2"></i>Nueva
-                                                Factura</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope me-2"></i>Enviar
-                                                Email</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item text-danger" href="#"><i
-                                                    class="bi bi-trash me-2"></i>Eliminar Cliente</a></li>
-                                    </ul>
-                                </div>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="quote.html"><i class="bi bi-file-earmark-plus me-2"></i>Nueva Cotización</a></li>
+                                    <li><a class="dropdown-item" href="invoice.html"><i class="bi bi-receipt me-2"></i>Nueva Factura</a></li>
+                                    <li><a class="dropdown-item" href="project.html"><i class="bi bi-folder-plus me-2"></i>Nuevo Proyecto</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger" href="#" onclick="deleteClient(); return false;"><i class="bi bi-trash me-2"></i>Eliminar Cliente</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row g-4">
-                    <!-- Main Content -->
+                    <!-- Left Column -->
                     <div class="col-lg-8">
-                        <!-- Stats Row -->
-                        <div class="row g-3 mb-4">
-                            <div class="col-6 col-md-3">
-                                <div class="stat-card primary">
-                                    <div class="stat-value">5</div>
-                                    <div class="stat-label">Proyectos</div>
-                                </div>
+                        <!-- Company Info -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-building"></i> Información de la Empresa</h5>
                             </div>
-                            <div class="col-6 col-md-3">
-                                <div class="stat-card success">
-                                    <div class="stat-value">3</div>
-                                    <div class="stat-label">Completados</div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="stat-card warning">
-                                    <div class="stat-value">2</div>
-                                    <div class="stat-label">En Progreso</div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="stat-card">
-                                    <div class="stat-value">$28.5K</div>
-                                    <div class="stat-label">Total Facturado</div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Nombre / Razón Social <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-custom" id="clientName" value="TechStore Inc.">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">RFC / Tax ID</label>
+                                        <input type="text" class="form-control form-control-custom" id="clientTaxId" value="TSI123456ABC">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Tipo de Cliente</label>
+                                        <select class="form-select form-select-custom" id="clientType">
+                                            <option value="company" selected>Empresa</option>
+                                            <option value="individual">Persona Física</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label-custom">Sitio Web</label>
+                                        <input type="url" class="form-control form-control-custom" id="clientWebsite" value="https://techstore.com">
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label-custom">Dirección</label>
+                                        <textarea class="form-control form-control-custom" id="clientAddress" rows="2">456 Commerce Blvd, Suite 200, San Francisco, CA 94102</textarea>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label-custom">País</label>
+                                        <select class="form-select form-select-custom" id="clientCountry">
+                                            <option value="US" selected>Estados Unidos</option>
+                                            <option value="MX">México</option>
+                                            <option value="ES">España</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label-custom">Moneda</label>
+                                        <select class="form-select form-select-custom" id="clientCurrency">
+                                            <option value="USD" selected>USD - Dólar</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                            <option value="MXN">MXN - Peso Mexicano</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label-custom">Estado</label>
+                                        <select class="form-select form-select-custom" id="clientStatus">
+                                            <option value="active" selected>Activo</option>
+                                            <option value="inactive">Inactivo</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Tabs -->
+                        <!-- Contacts Section -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-people"></i> Contactos</h5>
+                                <button class="btn btn-custom-primary btn-sm" onclick="openAddContactModal()">
+                                    <i class="bi bi-plus-lg"></i> Agregar Contacto
+                                </button>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="contacts-list" id="contactsList">
+                                    <!-- Contact 1 - Primary -->
+                                    <div class="contact-card primary" data-contact-id="1">
+                                        <div class="contact-card-header">
+                                            <div class="contact-avatar">JD</div>
+                                            <div class="contact-main-info">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span class="contact-name">Juan Domínguez</span>
+                                                    <span class="primary-badge"><i class="bi bi-star-fill"></i> Principal</span>
+                                                </div>
+                                                <span class="contact-role">CEO / Director General</span>
+                                            </div>
+                                            <div class="contact-actions">
+                                                <button class="action-btn" title="Editar" onclick="editContact(1)">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="action-btn" title="Más opciones" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-custom dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" onclick="sendEmail(1)"><i class="bi bi-envelope me-2"></i>Enviar Email</a></li>
+                                                    <li><a class="dropdown-item" href="#" onclick="scheduleCall(1)"><i class="bi bi-telephone me-2"></i>Programar Llamada</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#" onclick="removeContact(1)"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="contact-card-body">
+                                            <div class="contact-detail">
+                                                <i class="bi bi-envelope"></i>
+                                                <a href="mailto:juan@techstore.com">juan@techstore.com</a>
+                                            </div>
+                                            <div class="contact-detail">
+                                                <i class="bi bi-telephone"></i>
+                                                <a href="tel:+15551234567">+1 555 123 4567</a>
+                                            </div>
+                                            <div class="contact-detail">
+                                                <i class="bi bi-phone"></i>
+                                                <a href="tel:+15559876543">+1 555 987 6543</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Contact 2 -->
+                                    <div class="contact-card" data-contact-id="2">
+                                        <div class="contact-card-header">
+                                            <div class="contact-avatar" style="background: var(--info);">SM</div>
+                                            <div class="contact-main-info">
+                                                <span class="contact-name">Sandra Mendoza</span>
+                                                <span class="contact-role">Project Manager</span>
+                                            </div>
+                                            <div class="contact-actions">
+                                                <button class="action-btn" title="Marcar como principal" onclick="setPrimaryContact(2)">
+                                                    <i class="bi bi-star"></i>
+                                                </button>
+                                                <button class="action-btn" title="Editar" onclick="editContact(2)">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="action-btn" title="Más opciones" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-custom dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" onclick="sendEmail(2)"><i class="bi bi-envelope me-2"></i>Enviar Email</a></li>
+                                                    <li><a class="dropdown-item" href="#" onclick="scheduleCall(2)"><i class="bi bi-telephone me-2"></i>Programar Llamada</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#" onclick="removeContact(2)"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="contact-card-body">
+                                            <div class="contact-detail">
+                                                <i class="bi bi-envelope"></i>
+                                                <a href="mailto:sandra@techstore.com">sandra@techstore.com</a>
+                                            </div>
+                                            <div class="contact-detail">
+                                                <i class="bi bi-telephone"></i>
+                                                <a href="tel:+15552345678">+1 555 234 5678</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Contact 3 -->
+                                    <div class="contact-card" data-contact-id="3">
+                                        <div class="contact-card-header">
+                                            <div class="contact-avatar" style="background: var(--success);">MR</div>
+                                            <div class="contact-main-info">
+                                                <span class="contact-name">Miguel Rodríguez</span>
+                                                <span class="contact-role">Contador / Finanzas</span>
+                                            </div>
+                                            <div class="contact-actions">
+                                                <button class="action-btn" title="Marcar como principal" onclick="setPrimaryContact(3)">
+                                                    <i class="bi bi-star"></i>
+                                                </button>
+                                                <button class="action-btn" title="Editar" onclick="editContact(3)">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="action-btn" title="Más opciones" data-bs-toggle="dropdown">
+                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-custom dropdown-menu-end">
+                                                    <li><a class="dropdown-item" href="#" onclick="sendEmail(3)"><i class="bi bi-envelope me-2"></i>Enviar Email</a></li>
+                                                    <li><a class="dropdown-item" href="#" onclick="scheduleCall(3)"><i class="bi bi-telephone me-2"></i>Programar Llamada</a></li>
+                                                    <li><hr class="dropdown-divider"></li>
+                                                    <li><a class="dropdown-item text-danger" href="#" onclick="removeContact(3)"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="contact-card-body">
+                                            <div class="contact-detail">
+                                                <i class="bi bi-envelope"></i>
+                                                <a href="mailto:miguel@techstore.com">miguel@techstore.com</a>
+                                            </div>
+                                            <div class="contact-detail">
+                                                <i class="bi bi-telephone"></i>
+                                                <a href="tel:+15553456789">+1 555 345 6789</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
                         <div class="content-card">
-                            <ul class="nav nav-tabs nav-tabs-custom" id="clientTabs" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="projects-tab" data-bs-toggle="tab"
-                                        data-bs-target="#projects" type="button" role="tab">
-                                        <i class="bi bi-kanban"></i><span class="d-none d-sm-inline">Proyectos</span>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="invoices-tab" data-bs-toggle="tab"
-                                        data-bs-target="#invoices" type="button" role="tab">
-                                        <i class="bi bi-receipt"></i><span class="d-none d-sm-inline">Facturas</span>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="history-tab" data-bs-toggle="tab"
-                                        data-bs-target="#history" type="button" role="tab">
-                                        <i class="bi bi-clock-history"></i><span
-                                            class="d-none d-sm-inline">Historial</span>
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes"
-                                        type="button" role="tab">
-                                        <i class="bi bi-sticky"></i><span class="d-none d-sm-inline">Notas</span>
-                                    </button>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content p-3 p-md-4" id="clientTabsContent">
-                                <!-- Proyectos Tab -->
-                                <div class="tab-pane fade show active" id="projects" role="tabpanel">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h6 class="mb-0">Proyectos del Cliente</h6>
-                                        <button class="btn btn-sm btn-custom-primary">
-                                            <i class="bi bi-plus-lg me-1"></i> Nuevo
-                                        </button>
-                                    </div>
-
-                                    <div class="row g-3">
-                                        <!-- Project 1 -->
-                                        <div class="col-md-6">
-                                            <a href="project.html?id=1" class="text-decoration-none">
-                                                <div class="project-mini-card">
-                                                    <div class="d-flex gap-3">
-                                                        <div class="project-mini-icon"
-                                                            style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
-                                                            <i class="bi bi-globe"></i>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <div class="project-mini-name">E-commerce TechStore</div>
-                                                            <div class="project-mini-dates">Ene 2024 - Mar 2024</div>
-                                                            <div class="d-flex align-items-center gap-2 mt-2">
-                                                                <span class="status-badge completed">Completado</span>
-                                                                <span class="text-muted small">$8,500</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Project 2 -->
-                                        <div class="col-md-6">
-                                            <a href="project.html?id=2" class="text-decoration-none">
-                                                <div class="project-mini-card">
-                                                    <div class="d-flex gap-3">
-                                                        <div class="project-mini-icon"
-                                                            style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
-                                                            <i class="bi bi-phone"></i>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <div class="project-mini-name">App Móvil v2</div>
-                                                            <div class="project-mini-dates">Nov 2024 - En curso</div>
-                                                            <div class="d-flex align-items-center gap-2 mt-2">
-                                                                <span class="status-badge progress">En Progreso</span>
-                                                                <span class="text-muted small">$15,000</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Project 3 -->
-                                        <div class="col-md-6">
-                                            <a href="project.html?id=3" class="text-decoration-none">
-                                                <div class="project-mini-card">
-                                                    <div class="d-flex gap-3">
-                                                        <div class="project-mini-icon"
-                                                            style="background: linear-gradient(135deg, #10b981, #06b6d4);">
-                                                            <i class="bi bi-brush"></i>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <div class="project-mini-name">Rediseño Landing</div>
-                                                            <div class="project-mini-dates">Ago 2024 - Sep 2024</div>
-                                                            <div class="d-flex align-items-center gap-2 mt-2">
-                                                                <span class="status-badge completed">Completado</span>
-                                                                <span class="text-muted small">$2,500</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-
-                                        <!-- Project 4 -->
-                                        <div class="col-md-6">
-                                            <a href="project.html?id=4" class="text-decoration-none">
-                                                <div class="project-mini-card">
-                                                    <div class="d-flex gap-3">
-                                                        <div class="project-mini-icon"
-                                                            style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
-                                                            <i class="bi bi-gear"></i>
-                                                        </div>
-                                                        <div class="flex-grow-1">
-                                                            <div class="project-mini-name">Mantenimiento Anual</div>
-                                                            <div class="project-mini-dates">Ene 2024 - Dic 2024</div>
-                                                            <div class="d-flex align-items-center gap-2 mt-2">
-                                                                <span class="status-badge progress">En Progreso</span>
-                                                                <span class="text-muted small">$2,400/año</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Facturas Tab -->
-                                <div class="tab-pane fade" id="invoices" role="tabpanel">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h6 class="mb-0">Facturas del Cliente</h6>
-                                        <button class="btn btn-sm btn-custom-primary">
-                                            <i class="bi bi-plus-lg me-1"></i> Nueva Factura
-                                        </button>
-                                    </div>
-
-                                    <!-- Invoice 1 -->
-                                    <div class="invoice-row">
-                                        <div>
-                                            <div class="invoice-number">INV-2024-0042</div>
-                                            <div class="invoice-date">15 Enero 2024</div>
-                                        </div>
-                                        <div class="text-end">
-                                            <div class="invoice-amount text-success">$8,500</div>
-                                            <span class="status-badge paid">Pagada</span>
-                                        </div>
-                                        <a href="invoice.html?id=42" class="btn btn-sm btn-custom-secondary ms-3">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Invoice 2 -->
-                                    <div class="invoice-row">
-                                        <div>
-                                            <div class="invoice-number">INV-2024-0058</div>
-                                            <div class="invoice-date">01 Noviembre 2024</div>
-                                        </div>
-                                        <div class="text-end">
-                                            <div class="invoice-amount text-warning">$7,500</div>
-                                            <span class="status-badge pending">Pendiente</span>
-                                        </div>
-                                        <a href="invoice.html?id=58" class="btn btn-sm btn-custom-secondary ms-3">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Invoice 3 -->
-                                    <div class="invoice-row">
-                                        <div>
-                                            <div class="invoice-number">INV-2024-0035</div>
-                                            <div class="invoice-date">15 Agosto 2024</div>
-                                        </div>
-                                        <div class="text-end">
-                                            <div class="invoice-amount text-success">$2,500</div>
-                                            <span class="status-badge paid">Pagada</span>
-                                        </div>
-                                        <a href="invoice.html?id=35" class="btn btn-sm btn-custom-secondary ms-3">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Invoice 4 -->
-                                    <div class="invoice-row">
-                                        <div>
-                                            <div class="invoice-number">INV-2024-0012</div>
-                                            <div class="invoice-date">01 Enero 2024</div>
-                                        </div>
-                                        <div class="text-end">
-                                            <div class="invoice-amount text-success">$2,400</div>
-                                            <span class="status-badge paid">Pagada</span>
-                                        </div>
-                                        <a href="invoice.html?id=12" class="btn btn-sm btn-custom-secondary ms-3">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- Historial Tab -->
-                                <div class="tab-pane fade" id="history" role="tabpanel">
-                                    <h6 class="mb-3">Actividad Reciente</h6>
-
-                                    <div class="timeline">
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot success"></div>
-                                            <div class="timeline-content">
-                                                <div class="timeline-title">Factura INV-2024-0058 creada</div>
-                                                <div class="timeline-desc">Nueva factura por $7,500 para App Móvil v2
-                                                </div>
-                                                <div class="timeline-time">Hace 2 días</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot info"></div>
-                                            <div class="timeline-content">
-                                                <div class="timeline-title">Proyecto "App Móvil v2" iniciado</div>
-                                                <div class="timeline-desc">Nuevo proyecto asignado al equipo de
-                                                    desarrollo</div>
-                                                <div class="timeline-time">01 Nov 2024</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot success"></div>
-                                            <div class="timeline-content">
-                                                <div class="timeline-title">Proyecto "Rediseño Landing" completado</div>
-                                                <div class="timeline-desc">Entrega final aprobada por el cliente</div>
-                                                <div class="timeline-time">15 Sep 2024</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot warning"></div>
-                                            <div class="timeline-content">
-                                                <div class="timeline-title">Pago recibido - INV-2024-0035</div>
-                                                <div class="timeline-desc">Pago de $2,500 confirmado</div>
-                                                <div class="timeline-time">20 Ago 2024</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot"></div>
-                                            <div class="timeline-content">
-                                                <div class="timeline-title">Reunión de kick-off</div>
-                                                <div class="timeline-desc">Presentación de propuesta para Rediseño
-                                                    Landing</div>
-                                                <div class="timeline-time">01 Ago 2024</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="timeline-item">
-                                            <div class="timeline-dot success"></div>
-                                            <div class="timeline-content">
-                                                <div class="timeline-title">Proyecto "E-commerce TechStore" completado
-                                                </div>
-                                                <div class="timeline-desc">Sitio web lanzado exitosamente</div>
-                                                <div class="timeline-time">15 Mar 2024</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Notas Tab -->
-                                <div class="tab-pane fade" id="notes" role="tabpanel">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h6 class="mb-0">Notas del Cliente</h6>
-                                        <button class="btn btn-sm btn-custom-primary" data-bs-toggle="modal"
-                                            data-bs-target="#newNoteModal">
-                                            <i class="bi bi-plus-lg me-1"></i> Nueva Nota
-                                        </button>
-                                    </div>
-
-                                    <div class="note-card">
-                                        <div class="note-header">
-                                            <span class="note-author">Admin User</span>
-                                            <span class="note-date">15 Nov 2024</span>
-                                        </div>
-                                        <p class="note-content mb-0">
-                                            Cliente muy satisfecho con el proyecto de e-commerce. Interesado en expandir
-                                            funcionalidades con una app móvil para el próximo año. Preferencia por
-                                            diseños minimalistas y modernos.
-                                        </p>
-                                    </div>
-
-                                    <div class="note-card">
-                                        <div class="note-header">
-                                            <span class="note-author">María García</span>
-                                            <span class="note-date">20 Ago 2024</span>
-                                        </div>
-                                        <p class="note-content mb-0">
-                                            Llamada de seguimiento: El cliente solicitó ajustes menores en los colores
-                                            del landing. Prefiere tonos más cálidos. Deadline flexible.
-                                        </p>
-                                    </div>
-
-                                    <div class="note-card">
-                                        <div class="note-header">
-                                            <span class="note-author">Admin User</span>
-                                            <span class="note-date">10 Ene 2024</span>
-                                        </div>
-                                        <p class="note-content mb-0">
-                                            Primer contacto: Cliente referido por Luis Martínez. Empresa en crecimiento,
-                                            buscan presencia digital profesional. Presupuesto aproximado $10-15K para
-                                            primer proyecto.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-sticky"></i> Notas Internas</h5>
+                            </div>
+                            <div class="card-body">
+                                <textarea class="form-control form-control-custom" id="clientNotes" rows="4" placeholder="Notas privadas sobre el cliente...">Cliente con alto potencial de crecimiento. Interesado en servicios de e-commerce para expansión 2026. Prefiere comunicación por email. Pagos puntuales.</textarea>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sidebar -->
+                    <!-- Right Column -->
                     <div class="col-lg-4">
-                        <!-- Contact Info -->
+                        <!-- Quick Stats -->
                         <div class="content-card mb-4">
                             <div class="card-header">
-                                <h5 class="card-title"><i class="bi bi-person-lines-fill me-2"></i>Información de
-                                    Contacto</h5>
+                                <h5 class="card-title"><i class="bi bi-graph-up"></i> Resumen</h5>
                             </div>
                             <div class="card-body">
-                                <div class="contact-info-item">
-                                    <div class="contact-info-icon">
-                                        <i class="bi bi-envelope"></i>
+                                <div class="stats-grid">
+                                    <div class="stat-item">
+                                        <span class="stat-value">$45,200</span>
+                                        <span class="stat-label">Total Facturado</span>
                                     </div>
-                                    <div>
-                                        <div class="contact-info-label">Email</div>
-                                        <div class="contact-info-value">
-                                            <a href="mailto:juan@techstore.com">juan@techstore.com</a>
-                                        </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">$2,500</span>
+                                        <span class="stat-label">Pendiente</span>
                                     </div>
-                                </div>
-
-                                <div class="contact-info-item">
-                                    <div class="contact-info-icon">
-                                        <i class="bi bi-telephone"></i>
+                                    <div class="stat-item">
+                                        <span class="stat-value">4</span>
+                                        <span class="stat-label">Proyectos</span>
                                     </div>
-                                    <div>
-                                        <div class="contact-info-label">Teléfono</div>
-                                        <div class="contact-info-value">
-                                            <a href="tel:+1234567890">+1 234 567 890</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="contact-info-item">
-                                    <div class="contact-info-icon">
-                                        <i class="bi bi-building"></i>
-                                    </div>
-                                    <div>
-                                        <div class="contact-info-label">Empresa</div>
-                                        <div class="contact-info-value">TechStore Inc.</div>
-                                    </div>
-                                </div>
-
-                                <div class="contact-info-item">
-                                    <div class="contact-info-icon">
-                                        <i class="bi bi-geo-alt"></i>
-                                    </div>
-                                    <div>
-                                        <div class="contact-info-label">Dirección</div>
-                                        <div class="contact-info-value">123 Tech Street, San Francisco, CA 94102</div>
-                                    </div>
-                                </div>
-
-                                <div class="contact-info-item">
-                                    <div class="contact-info-icon">
-                                        <i class="bi bi-globe"></i>
-                                    </div>
-                                    <div>
-                                        <div class="contact-info-label">Sitio Web</div>
-                                        <div class="contact-info-value">
-                                            <a href="https://techstore.com" target="_blank">techstore.com</a>
-                                        </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">12</span>
+                                        <span class="stat-label">Facturas</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Quick Actions -->
+                        <!-- Recent Projects -->
                         <div class="content-card mb-4">
                             <div class="card-header">
-                                <h5 class="card-title"><i class="bi bi-lightning-fill me-2"></i>Acciones Rápidas</h5>
+                                <h5 class="card-title"><i class="bi bi-folder"></i> Proyectos Recientes</h5>
+                                <a href="projects.html" class="btn btn-link btn-sm p-0">Ver todos</a>
                             </div>
-                            <div class="card-body">
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-custom-secondary text-start">
-                                        <i class="bi bi-envelope me-2"></i> Enviar Email
-                                    </button>
-                                    <button class="btn btn-custom-secondary text-start">
-                                        <i class="bi bi-telephone me-2"></i> Llamar
-                                    </button>
-                                    <button class="btn btn-custom-secondary text-start">
-                                        <i class="bi bi-calendar-plus me-2"></i> Agendar Reunión
-                                    </button>
-                                    <button class="btn btn-custom-secondary text-start">
-                                        <i class="bi bi-file-earmark-pdf me-2"></i> Exportar PDF
-                                    </button>
+                            <div class="card-body p-0">
+                                <div class="project-list">
+                                    <a href="project.html?id=1" class="project-item">
+                                        <div class="project-info">
+                                            <span class="project-name">Rediseño Web 2026</span>
+                                            <span class="project-status"><span class="status-dot active"></span> En progreso</span>
+                                        </div>
+                                        <span class="project-amount">$8,500</span>
+                                    </a>
+                                    <a href="project.html?id=2" class="project-item">
+                                        <div class="project-info">
+                                            <span class="project-name">App Móvil iOS</span>
+                                            <span class="project-status"><span class="status-dot active"></span> En progreso</span>
+                                        </div>
+                                        <span class="project-amount">$15,000</span>
+                                    </a>
+                                    <a href="project.html?id=3" class="project-item">
+                                        <div class="project-info">
+                                            <span class="project-name">Integración ERP</span>
+                                            <span class="project-status"><span class="status-dot completed"></span> Completado</span>
+                                        </div>
+                                        <span class="project-amount">$12,000</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Tags -->
+                        <!-- Recent Invoices -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-receipt"></i> Últimas Facturas</h5>
+                                <a href="invoices.html" class="btn btn-link btn-sm p-0">Ver todas</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="invoice-list">
+                                    <a href="invoice.html?id=1" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-0047</span>
+                                            <span class="invoice-date">25 Ene 2026</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$2,500</span>
+                                            <span class="status-badge pending">Pendiente</span>
+                                        </div>
+                                    </a>
+                                    <a href="invoice.html?id=2" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-0042</span>
+                                            <span class="invoice-date">15 Ene 2026</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$4,200</span>
+                                            <span class="status-badge active">Pagada</span>
+                                        </div>
+                                    </a>
+                                    <a href="invoice.html?id=3" class="invoice-item">
+                                        <div class="invoice-info">
+                                            <span class="invoice-number">INV-0038</span>
+                                            <span class="invoice-date">28 Dic 2025</span>
+                                        </div>
+                                        <div class="invoice-right">
+                                            <span class="invoice-amount">$3,800</span>
+                                            <span class="status-badge active">Pagada</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Activity Timeline -->
                         <div class="content-card">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="card-title mb-0"><i class="bi bi-tags me-2"></i>Etiquetas</h5>
-                                <button class="btn btn-sm btn-link p-0"><i class="bi bi-pencil"></i></button>
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-clock-history"></i> Actividad</h5>
                             </div>
                             <div class="card-body">
-                                <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-primary">VIP</span>
-                                    <span class="badge bg-success">Recurrente</span>
-                                    <span class="badge bg-info">E-commerce</span>
-                                    <span class="badge bg-secondary">Referido</span>
+                                <div class="activity-timeline">
+                                    <div class="activity-item">
+                                        <div class="activity-icon invoice">
+                                            <i class="bi bi-receipt"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text">Factura INV-0047 enviada</span>
+                                            <span class="activity-time">Hace 5 días</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon payment">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text">Pago recibido: $4,200</span>
+                                            <span class="activity-time">Hace 15 días</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon contact">
+                                            <i class="bi bi-person-plus"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text">Contacto agregado: Miguel Rodríguez</span>
+                                            <span class="activity-time">Hace 1 mes</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon project">
+                                            <i class="bi bi-folder-plus"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text">Proyecto iniciado: Rediseño Web</span>
+                                            <span class="activity-time">Hace 2 meses</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -648,105 +544,245 @@
                 </div>
             </div>
 
-            <!-- Footer -->
-            <footer class="main-footer">
-                <span>© 2026 YPServicesERP. Todos los derechos reservados.</span>
-                <span class="d-none d-sm-inline">v2.0.0</span>
-            </footer>
+            <!-- Fixed Save Button Mobile -->
+            <div class="fixed-save-btn d-lg-none">
+                <button class="btn btn-custom-primary w-100" onclick="saveClient()">
+                    <i class="bi bi-check-lg me-2"></i> Guardar Cambios
+                </button>
+            </div>
         </main>
     </div>
 
-    <!-- New Note Modal -->
-    <div class="modal fade modal-custom" id="newNoteModal" tabindex="-1">
-        <div class="modal-dialog">
+    <!-- Modal: Agregar/Editar Contacto -->
+    <div class="modal fade modal-custom" id="contactModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="bi bi-sticky me-2"></i>Nueva Nota</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label-custom">Contenido de la nota</label>
-                        <textarea class="form-control form-control-custom" rows="5"
-                            placeholder="Escribe una nota sobre este cliente..."></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary">
-                        <i class="bi bi-check-lg me-1"></i> Guardar Nota
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Edit Client Modal -->
-    <div class="modal fade modal-custom" id="editClientModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="bi bi-pencil me-2"></i>Editar Cliente</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title" id="contactModalTitle">Agregar Contacto</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label class="form-label-custom">Nombre completo</label>
-                            <input type="text" class="form-control form-control-custom" value="Juan Domínguez">
+                            <label class="form-label-custom">Nombre <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="contactName" placeholder="Nombre completo">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label-custom">Empresa</label>
-                            <input type="text" class="form-control form-control-custom" value="TechStore Inc.">
+                            <label class="form-label-custom">Cargo / Puesto</label>
+                            <input type="text" class="form-control form-control-custom" id="contactRole" placeholder="Ej: Director de Marketing">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label-custom">Email</label>
-                            <input type="email" class="form-control form-control-custom" value="juan@techstore.com">
+                            <label class="form-label-custom">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control form-control-custom" id="contactEmail" placeholder="email@empresa.com">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label-custom">Teléfono</label>
-                            <input type="tel" class="form-control form-control-custom" value="+1 234 567 890">
+                            <input type="tel" class="form-control form-control-custom" id="contactPhone" placeholder="+1 555 123 4567">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Celular</label>
+                            <input type="tel" class="form-control form-control-custom" id="contactMobile" placeholder="+1 555 987 6543">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Departamento</label>
+                            <select class="form-select form-select-custom" id="contactDepartment">
+                                <option value="">Seleccionar</option>
+                                <option value="management">Dirección / Gerencia</option>
+                                <option value="sales">Ventas</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="finance">Finanzas / Contabilidad</option>
+                                <option value="it">Tecnología / IT</option>
+                                <option value="operations">Operaciones</option>
+                                <option value="hr">Recursos Humanos</option>
+                                <option value="other">Otro</option>
+                            </select>
                         </div>
                         <div class="col-12">
-                            <label class="form-label-custom">Dirección</label>
-                            <input type="text" class="form-control form-control-custom"
-                                value="123 Tech Street, San Francisco, CA 94102">
+                            <label class="form-label-custom">Notas</label>
+                            <textarea class="form-control form-control-custom" id="contactNotes" rows="2" placeholder="Notas adicionales sobre este contacto..."></textarea>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label-custom">Sitio Web</label>
-                            <input type="url" class="form-control form-control-custom" value="https://techstore.com">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label-custom">Estado</label>
-                            <select class="form-select form-control-custom">
-                                <option value="active" selected>Activo</option>
-                                <option value="inactive">Inactivo</option>
-                            </select>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="contactIsPrimary">
+                                <label class="form-check-label" for="contactIsPrimary">
+                                    <strong>Marcar como contacto principal</strong>
+                                    <small class="d-block text-muted">Este contacto aparecerá primero y recibirá las comunicaciones por defecto.</small>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary">
-                        <i class="bi bi-check-lg me-1"></i> Guardar Cambios
+                    <button type="button" class="btn btn-custom-primary" onclick="saveContact()">
+                        <i class="bi bi-check-lg me-1"></i> <span id="saveContactBtnText">Agregar Contacto</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Modal: Confirmar Eliminación -->
+    <div class="modal fade modal-custom" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                    <h5 class="mb-2" id="deleteModalTitle">¿Eliminar este contacto?</h5>
+                    <p class="mb-0" id="deleteModalText">El contacto será eliminado permanentemente.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()">
+                        <i class="bi bi-trash me-1"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- YPServicesERP Scripts -->
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/toast.js"></script>
+    <script src="assets/js/app.js"></script>
 
     <script>
-        // Open Edit Client Modal
-        function openEditClientModal() {
-            new bootstrap.Modal(document.getElementById('editClientModal')).show();
+        // Variables
+        let currentContactId = null;
+        let isEditingContact = false;
+        let deleteType = 'contact';
+
+        // Save Client
+        function saveClient() {
+            showToast('Guardado', 'Los cambios han sido guardados correctamente', 'success');
+        }
+
+        // Delete Client
+        function deleteClient() {
+            deleteType = 'client';
+            document.getElementById('deleteModalTitle').textContent = '¿Eliminar este cliente?';
+            document.getElementById('deleteModalText').textContent = 'El cliente y todos sus contactos, proyectos asociados e historial serán eliminados permanentemente.';
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+        // Contact Functions
+        function openAddContactModal() {
+            isEditingContact = false;
+            currentContactId = null;
+            document.getElementById('contactModalTitle').textContent = 'Agregar Contacto';
+            document.getElementById('saveContactBtnText').textContent = 'Agregar Contacto';
+            
+            // Clear form
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactRole').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactMobile').value = '';
+            document.getElementById('contactDepartment').value = '';
+            document.getElementById('contactNotes').value = '';
+            document.getElementById('contactIsPrimary').checked = false;
+            
+            new bootstrap.Modal(document.getElementById('contactModal')).show();
+        }
+
+        function editContact(id) {
+            isEditingContact = true;
+            currentContactId = id;
+            document.getElementById('contactModalTitle').textContent = 'Editar Contacto';
+            document.getElementById('saveContactBtnText').textContent = 'Guardar Cambios';
+            
+            // Load contact data (simulado)
+            document.getElementById('contactName').value = 'Juan Domínguez';
+            document.getElementById('contactRole').value = 'CEO / Director General';
+            document.getElementById('contactEmail').value = 'juan@techstore.com';
+            document.getElementById('contactPhone').value = '+1 555 123 4567';
+            document.getElementById('contactMobile').value = '+1 555 987 6543';
+            document.getElementById('contactDepartment').value = 'management';
+            document.getElementById('contactNotes').value = '';
+            document.getElementById('contactIsPrimary').checked = true;
+            
+            new bootstrap.Modal(document.getElementById('contactModal')).show();
+        }
+
+        function saveContact() {
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            
+            if (!name || !email) {
+                showToast('Error', 'Nombre y email son requeridos', 'error');
+                return;
+            }
+
+            bootstrap.Modal.getInstance(document.getElementById('contactModal')).hide();
+            
+            if (isEditingContact) {
+                showToast('Actualizado', 'El contacto ha sido actualizado', 'success');
+            } else {
+                showToast('Agregado', 'El contacto ha sido agregado', 'success');
+            }
+        }
+
+        function removeContact(id) {
+            currentContactId = id;
+            deleteType = 'contact';
+            document.getElementById('deleteModalTitle').textContent = '¿Eliminar este contacto?';
+            document.getElementById('deleteModalText').textContent = 'El contacto será eliminado permanentemente de este cliente.';
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+        function setPrimaryContact(id) {
+            // Remove primary from all
+            document.querySelectorAll('.contact-card').forEach(card => {
+                card.classList.remove('primary');
+                const badge = card.querySelector('.primary-badge');
+                if (badge) badge.remove();
+                
+                const starBtn = card.querySelector('.action-btn[title="Marcar como principal"]');
+                if (starBtn) starBtn.innerHTML = '<i class="bi bi-star"></i>';
+            });
+            
+            // Set new primary
+            const card = document.querySelector(`[data-contact-id="${id}"]`);
+            card.classList.add('primary');
+            
+            const nameSpan = card.querySelector('.contact-name');
+            const badge = document.createElement('span');
+            badge.className = 'primary-badge';
+            badge.innerHTML = '<i class="bi bi-star-fill"></i> Principal';
+            nameSpan.parentNode.insertBefore(badge, nameSpan.nextSibling);
+            
+            showToast('Actualizado', 'Contacto marcado como principal', 'success');
+        }
+
+        function confirmDelete() {
+            bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
+            
+            if (deleteType === 'client') {
+                showToast('Eliminado', 'El cliente ha sido eliminado', 'success');
+                setTimeout(() => window.location.href = 'clients.html', 1500);
+            } else {
+                showToast('Eliminado', 'El contacto ha sido eliminado', 'success');
+            }
+        }
+
+        // Quick Actions
+        function sendEmail(contactId) {
+            showToast('Email', 'Abriendo cliente de correo...', 'info');
+        }
+
+        function scheduleCall(contactId) {
+            showToast('Calendario', 'Abriendo calendario para programar llamada...', 'info');
         }
     </script>
 </body>

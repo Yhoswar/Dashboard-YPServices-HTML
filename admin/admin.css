@@ -1,0 +1,671 @@
+/* =============================================
+   ADMIN PANEL - Estilos Específicos
+   YPServicesERP
+   ============================================= */
+
+/* ==========================================
+   Admin Sidebar Overrides
+   ========================================== */
+.admin-sidebar .logo-icon.admin {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+}
+
+.admin-sidebar .logo-text span {
+    color: #dc2626;
+}
+
+.admin-sidebar .user-avatar.admin {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+}
+
+/* ==========================================
+   Welcome Banner
+   ========================================== */
+.admin-welcome-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.welcome-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-content p {
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+.welcome-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.welcome-stat {
+    text-align: center;
+}
+
+.welcome-stat .stat-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.welcome-stat .stat-label {
+    font-size: 0.8125rem;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   Plan Badges
+   ========================================== */
+.plan-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.plan-badge.free {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.plan-badge.basic {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.plan-badge.pro {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+}
+
+.plan-badge.enterprise {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+/* ==========================================
+   Status Badge Extensions
+   ========================================== */
+.status-badge.cancelled {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* ==========================================
+   Plan Distribution
+   ========================================== */
+.plan-distribution {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.plan-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.plan-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.plan-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.plan-color.enterprise {
+    background: #f59e0b;
+}
+
+.plan-color.pro {
+    background: #6366f1;
+}
+
+.plan-color.basic {
+    background: #10b981;
+}
+
+.plan-color.free {
+    background: #6b7280;
+}
+
+.plan-name {
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.plan-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plan-count {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+}
+
+.plan-revenue {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.plan-bar {
+    height: 6px;
+    background: var(--bg-input);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.plan-progress {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.plan-progress.enterprise {
+    background: #f59e0b;
+}
+
+.plan-progress.pro {
+    background: #6366f1;
+}
+
+.plan-progress.basic {
+    background: #10b981;
+}
+
+.plan-progress.free {
+    background: #6b7280;
+}
+
+/* ==========================================
+   Chart Placeholder
+   ========================================== */
+.chart-placeholder {
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem 0;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}
+
+.chart-bar {
+    flex: 1;
+    background: var(--bg-input);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 20px;
+    transition: all 0.3s ease;
+}
+
+.chart-bar:hover {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.chart-bar.active {
+    background: var(--primary);
+}
+
+.chart-bar::before {
+    content: attr(data-value);
+    position: absolute;
+    top: -24px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.chart-bar:hover::before {
+    opacity: 1;
+}
+
+.chart-bar.active::before {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.bar-label {
+    position: absolute;
+    bottom: -24px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   Activity Icons (Admin)
+   ========================================== */
+.activity-icon.signup {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.activity-icon.upgrade {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.activity-icon.payment {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.activity-icon.alert {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.activity-icon.cancel {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+/* ==========================================
+   Metric Cards
+   ========================================== */
+.metric-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.metric-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.metric-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   Tenant Detail Modal
+   ========================================== */
+.tenant-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tenant-avatar-lg {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-lg);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tenant-info .tenant-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.tenant-subdomain {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.tenant-badges {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.detail-card {
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}
+
+.detail-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-content p {
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.detail-content p i {
+    color: var(--text-muted);
+    margin-right: 0.5rem;
+    width: 16px;
+}
+
+.usage-item {
+    margin-bottom: 0.75rem;
+}
+
+.usage-item span {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 0.375rem;
+}
+
+.usage-bar {
+    height: 6px;
+    background: var(--bg-card);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.usage-progress {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+/* ==========================================
+   Form Section Title
+   ========================================== */
+.form-section-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ==========================================
+   Pricing Cards
+   ========================================== */
+.pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.pricing-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.popular {
+    border-color: var(--primary);
+    border-width: 2px;
+}
+
+.popular-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-badge {
+    display: inline-flex;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.pricing-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem;
+}
+
+.pricing-price .price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.pricing-price .period {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.pricing-features {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.feature-item i {
+    font-size: 1rem;
+}
+
+.feature-item .bi-check-circle {
+    color: var(--success);
+}
+
+.feature-item.disabled {
+    color: var(--text-muted);
+}
+
+.feature-item.disabled .bi-x-circle {
+    color: var(--text-muted);
+}
+
+.pricing-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.pricing-stats .stat {
+    text-align: center;
+}
+
+.pricing-stats .stat-value {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pricing-stats .stat-label {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.pricing-actions {
+    margin-top: auto;
+}
+
+/* ==========================================
+   Comparison Table
+   ========================================== */
+.comparison-table th.highlight,
+.comparison-table td.highlight {
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.comparison-table .bi-check {
+    font-size: 1.25rem;
+}
+
+.comparison-table .bi-x {
+    font-size: 1.25rem;
+}
+
+.comparison-table .bi-infinity {
+    font-size: 1rem;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 992px) {
+    .admin-welcome-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-stats {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-welcome-banner {
+        padding: 1.5rem;
+    }
+
+    .welcome-content h2 {
+        font-size: 1.25rem;
+    }
+
+    .welcome-stat .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .tenant-detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tenant-badges {
+        justify-content: center;
+    }
+
+    .chart-bars {
+        gap: 0.5rem;
+    }
+
+    .pricing-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .metric-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

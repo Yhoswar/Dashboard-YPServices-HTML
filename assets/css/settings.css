@@ -1,0 +1,579 @@
+/* =============================================
+   SETTINGS - Estilos para Configuración
+   YPServicesERP
+   ============================================= */
+
+/* ==========================================
+   Settings Navigation
+   ========================================== */
+.settings-nav-card {
+    padding: 0;
+    position: sticky;
+    top: 1rem;
+}
+
+.settings-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.settings-nav-item:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+}
+
+.settings-nav-item.active {
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--primary);
+    border-left-color: var(--primary);
+}
+
+.settings-nav-item i {
+    font-size: 1.125rem;
+    width: 24px;
+}
+
+/* ==========================================
+   Settings Sections
+   ========================================== */
+.settings-section {
+    display: none;
+}
+
+.settings-section.active {
+    display: block;
+}
+
+/* ==========================================
+   Logo Upload
+   ========================================== */
+.logo-upload {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-input);
+    border: 2px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo-placeholder {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================================
+   Color Picker
+   ========================================== */
+.color-picker-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.color-picker {
+    width: 48px;
+    height: 40px;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 4px;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--radius-sm);
+}
+
+/* ==========================================
+   Categories List
+   ========================================== */
+.categories-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background var(--transition-fast);
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+.category-item:hover {
+    background: var(--bg-card-hover);
+}
+
+.category-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.category-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.category-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.category-count {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.category-actions {
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.category-item:hover .category-actions {
+    opacity: 1;
+}
+
+/* ==========================================
+   Payment Methods List
+   ========================================== */
+.payment-methods-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-method-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background var(--transition-fast);
+}
+
+.payment-method-item:last-child {
+    border-bottom: none;
+}
+
+.payment-method-item:hover {
+    background: var(--bg-card-hover);
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.payment-icon.paypal {
+    background: rgba(0, 112, 186, 0.1);
+    color: #0070ba;
+}
+
+.payment-icon.stripe {
+    background: rgba(99, 91, 255, 0.1);
+    color: #635bff;
+}
+
+.payment-icon.cash {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.payment-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.payment-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.payment-details {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.payment-status {
+    flex-shrink: 0;
+}
+
+.payment-actions {
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.payment-method-item:hover .payment-actions {
+    opacity: 1;
+}
+
+/* ==========================================
+   Integrations Grid
+   ========================================== */
+.integrations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.integration-card {
+    background: var(--bg-input);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-fast);
+}
+
+.integration-card:hover {
+    border-color: var(--primary);
+}
+
+.integration-card.connected {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.integration-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.integration-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.integration-logo.stripe {
+    background: rgba(99, 91, 255, 0.1);
+    color: #635bff;
+}
+
+.integration-logo.paypal {
+    background: rgba(0, 112, 186, 0.1);
+    color: #0070ba;
+}
+
+.integration-logo.gmail {
+    background: rgba(234, 67, 53, 0.1);
+    color: #ea4335;
+}
+
+.integration-logo.gdrive {
+    background: rgba(66, 133, 244, 0.1);
+    color: #4285f4;
+}
+
+.integration-logo.calcom {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.integration-logo.slack {
+    background: rgba(74, 21, 75, 0.1);
+    color: #4a154b;
+}
+
+.integration-status {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--text-muted);
+}
+
+.integration-status.connected {
+    color: var(--success);
+}
+
+.integration-status i {
+    font-size: 0.75rem;
+}
+
+.integration-body {
+    margin-bottom: 1rem;
+}
+
+.integration-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.integration-desc {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.integration-footer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.integration-footer .btn {
+    flex: 1;
+}
+
+/* ==========================================
+   Notification Settings
+   ========================================== */
+.notification-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.notification-group {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+.notification-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.notification-group-title {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    gap: 1rem;
+}
+
+.notification-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    font-size: 0.875rem;
+}
+
+.notification-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.notification-toggles {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.toggle-label {
+    cursor: pointer;
+}
+
+.toggle-label input {
+    display: none;
+}
+
+.toggle-label span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--bg-input);
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+}
+
+.toggle-label input:checked + span {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.toggle-label:hover span {
+    background: var(--bg-card-hover);
+}
+
+/* ==========================================
+   Role Badges
+   ========================================== */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.role-badge.admin {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.role-badge.manager {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.role-badge.employee {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.role-badge.accountant {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+/* ==========================================
+   Card Footer
+   ========================================== */
+.card-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-input);
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 992px) {
+    .settings-nav-card {
+        position: static;
+        margin-bottom: 1.5rem;
+    }
+
+    .settings-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .settings-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .settings-nav-item {
+        flex-shrink: 0;
+        padding: 0.75rem 1rem;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        white-space: nowrap;
+    }
+
+    .settings-nav-item.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--primary);
+    }
+}
+
+@media (max-width: 768px) {
+    .integrations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-method-item {
+        flex-wrap: wrap;
+    }
+
+    .payment-actions,
+    .category-actions {
+        opacity: 1;
+    }
+
+    .logo-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notification-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notification-toggles {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .settings-nav-item span {
+        display: none;
+    }
+
+    .settings-nav-item {
+        padding: 0.75rem;
+    }
+
+    .settings-nav-item i {
+        margin: 0;
+    }
+}

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Calendario">
+    <meta name="author" content="YP Services">
+    <title>Calendario - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/calendar.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="quotes.html" class="nav-item" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item active" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Calendario</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Calendario</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="row g-4">
+                    <!-- Calendar Sidebar -->
+                    <div class="col-lg-3">
+                        <!-- New Event Button -->
+                        <button class="btn btn-custom-primary w-100 mb-4" data-bs-toggle="modal" data-bs-target="#eventModal" onclick="openNewEventModal()">
+                            <i class="bi bi-plus-lg me-2"></i> Nuevo Evento
+                        </button>
+
+                        <!-- Mini Calendar -->
+                        <div class="content-card mb-4">
+                            <div class="mini-calendar">
+                                <div class="mini-calendar-header">
+                                    <button class="mini-nav-btn" onclick="prevMiniMonth()">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </button>
+                                    <span class="mini-month-title" id="miniMonthTitle">Enero 2026</span>
+                                    <button class="mini-nav-btn" onclick="nextMiniMonth()">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <div class="mini-calendar-grid">
+                                    <div class="mini-weekday">Lu</div>
+                                    <div class="mini-weekday">Ma</div>
+                                    <div class="mini-weekday">Mi</div>
+                                    <div class="mini-weekday">Ju</div>
+                                    <div class="mini-weekday">Vi</div>
+                                    <div class="mini-weekday">Sa</div>
+                                    <div class="mini-weekday">Do</div>
+                                    
+                                    <div class="mini-day other-month">29</div>
+                                    <div class="mini-day other-month">30</div>
+                                    <div class="mini-day other-month">31</div>
+                                    <div class="mini-day">1</div>
+                                    <div class="mini-day">2</div>
+                                    <div class="mini-day">3</div>
+                                    <div class="mini-day">4</div>
+                                    
+                                    <div class="mini-day">5</div>
+                                    <div class="mini-day has-event">6</div>
+                                    <div class="mini-day">7</div>
+                                    <div class="mini-day has-event">8</div>
+                                    <div class="mini-day">9</div>
+                                    <div class="mini-day">10</div>
+                                    <div class="mini-day">11</div>
+                                    
+                                    <div class="mini-day">12</div>
+                                    <div class="mini-day">13</div>
+                                    <div class="mini-day has-event">14</div>
+                                    <div class="mini-day">15</div>
+                                    <div class="mini-day">16</div>
+                                    <div class="mini-day">17</div>
+                                    <div class="mini-day">18</div>
+                                    
+                                    <div class="mini-day">19</div>
+                                    <div class="mini-day has-event">20</div>
+                                    <div class="mini-day">21</div>
+                                    <div class="mini-day">22</div>
+                                    <div class="mini-day">23</div>
+                                    <div class="mini-day">24</div>
+                                    <div class="mini-day">25</div>
+                                    
+                                    <div class="mini-day">26</div>
+                                    <div class="mini-day">27</div>
+                                    <div class="mini-day">28</div>
+                                    <div class="mini-day">29</div>
+                                    <div class="mini-day today">30</div>
+                                    <div class="mini-day">31</div>
+                                    <div class="mini-day other-month">1</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Events -->
+                        <div class="content-card mb-4">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-clock"></i> Próximos Eventos</h5>
+                            </div>
+                            <div class="upcoming-events">
+                                <div class="upcoming-event" onclick="openEventDetail(1)">
+                                    <div class="event-indicator meeting"></div>
+                                    <div class="event-info">
+                                        <span class="event-title">Reunión con TechStore</span>
+                                        <span class="event-time"><i class="bi bi-clock"></i> Hoy, 14:00</span>
+                                    </div>
+                                </div>
+                                <div class="upcoming-event" onclick="openEventDetail(2)">
+                                    <div class="event-indicator call"></div>
+                                    <div class="event-info">
+                                        <span class="event-title">Llamada María González</span>
+                                        <span class="event-time"><i class="bi bi-clock"></i> Hoy, 16:30</span>
+                                    </div>
+                                </div>
+                                <div class="upcoming-event" onclick="openEventDetail(3)">
+                                    <div class="event-indicator deadline"></div>
+                                    <div class="event-info">
+                                        <span class="event-title">Entrega Diseño Web</span>
+                                        <span class="event-time"><i class="bi bi-clock"></i> Mañana, 18:00</span>
+                                    </div>
+                                </div>
+                                <div class="upcoming-event" onclick="openEventDetail(4)">
+                                    <div class="event-indicator meeting"></div>
+                                    <div class="event-info">
+                                        <span class="event-title">Demo E-commerce</span>
+                                        <span class="event-time"><i class="bi bi-clock"></i> 02 Feb, 10:00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event Types Filter -->
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-funnel"></i> Filtrar por Tipo</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="event-filter">
+                                    <label class="filter-check">
+                                        <input type="checkbox" checked>
+                                        <span class="filter-color meeting"></span>
+                                        <span class="filter-label">Reuniones</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="checkbox" checked>
+                                        <span class="filter-color call"></span>
+                                        <span class="filter-label">Llamadas</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="checkbox" checked>
+                                        <span class="filter-color deadline"></span>
+                                        <span class="filter-label">Deadlines</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="checkbox" checked>
+                                        <span class="filter-color reminder"></span>
+                                        <span class="filter-label">Recordatorios</span>
+                                    </label>
+                                    <label class="filter-check">
+                                        <input type="checkbox" checked>
+                                        <span class="filter-color personal"></span>
+                                        <span class="filter-label">Personal</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Calendar -->
+                    <div class="col-lg-9">
+                        <div class="content-card">
+                            <!-- Calendar Header -->
+                            <div class="calendar-header">
+                                <div class="calendar-nav">
+                                    <button class="btn btn-custom-secondary btn-sm" onclick="goToToday()">Hoy</button>
+                                    <button class="btn-nav" onclick="prevMonth()">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </button>
+                                    <button class="btn-nav" onclick="nextMonth()">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </button>
+                                    <h3 class="calendar-title" id="calendarTitle">Enero 2026</h3>
+                                </div>
+                                <div class="calendar-views">
+                                    <button class="view-btn" onclick="setCalendarView('day')">Día</button>
+                                    <button class="view-btn" onclick="setCalendarView('week')">Semana</button>
+                                    <button class="view-btn active" onclick="setCalendarView('month')">Mes</button>
+                                </div>
+                            </div>
+
+                            <!-- Calendar Grid (Month View) -->
+                            <div class="calendar-grid" id="calendarMonth">
+                                <!-- Weekday Headers -->
+                                <div class="calendar-weekday">Lunes</div>
+                                <div class="calendar-weekday">Martes</div>
+                                <div class="calendar-weekday">Miércoles</div>
+                                <div class="calendar-weekday">Jueves</div>
+                                <div class="calendar-weekday">Viernes</div>
+                                <div class="calendar-weekday weekend">Sábado</div>
+                                <div class="calendar-weekday weekend">Domingo</div>
+
+                                <!-- Week 1 -->
+                                <div class="calendar-day other-month">
+                                    <span class="day-number">29</span>
+                                </div>
+                                <div class="calendar-day other-month">
+                                    <span class="day-number">30</span>
+                                </div>
+                                <div class="calendar-day other-month">
+                                    <span class="day-number">31</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">1</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">2</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">3</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">4</span>
+                                </div>
+
+                                <!-- Week 2 -->
+                                <div class="calendar-day">
+                                    <span class="day-number">5</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">6</span>
+                                    <div class="calendar-event meeting" onclick="openEventDetail(5)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">10:00 Kickoff Proyecto</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">7</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">8</span>
+                                    <div class="calendar-event call" onclick="openEventDetail(6)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">11:00 Llamada Carlos</span>
+                                    </div>
+                                    <div class="calendar-event deadline" onclick="openEventDetail(7)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">18:00 Entrega Logo</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">9</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">10</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">11</span>
+                                </div>
+
+                                <!-- Week 3 -->
+                                <div class="calendar-day">
+                                    <span class="day-number">12</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">13</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">14</span>
+                                    <div class="calendar-event meeting" onclick="openEventDetail(8)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">09:00 Review Sprint</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">15</span>
+                                    <div class="calendar-event reminder" onclick="openEventDetail(9)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">Facturar hosting</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">16</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">17</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">18</span>
+                                </div>
+
+                                <!-- Week 4 -->
+                                <div class="calendar-day">
+                                    <span class="day-number">19</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">20</span>
+                                    <div class="calendar-event meeting" onclick="openEventDetail(10)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">14:00 Demo Cliente</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">21</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">22</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">23</span>
+                                    <div class="calendar-event deadline" onclick="openEventDetail(11)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">Deadline E-commerce</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">24</span>
+                                </div>
+                                <div class="calendar-day weekend">
+                                    <span class="day-number">25</span>
+                                </div>
+
+                                <!-- Week 5 -->
+                                <div class="calendar-day">
+                                    <span class="day-number">26</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">27</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">28</span>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">29</span>
+                                </div>
+                                <div class="calendar-day today">
+                                    <span class="day-number">30</span>
+                                    <div class="calendar-event meeting" onclick="openEventDetail(1)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">14:00 TechStore</span>
+                                    </div>
+                                    <div class="calendar-event call" onclick="openEventDetail(2)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">16:30 María González</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day">
+                                    <span class="day-number">31</span>
+                                    <div class="calendar-event deadline" onclick="openEventDetail(3)">
+                                        <span class="event-dot"></span>
+                                        <span class="event-text">18:00 Entrega Diseño</span>
+                                    </div>
+                                </div>
+                                <div class="calendar-day weekend other-month">
+                                    <span class="day-number">1</span>
+                                </div>
+                            </div>
+
+                            <!-- Week View (Hidden) -->
+                            <div class="calendar-week d-none" id="calendarWeek">
+                                <div class="week-header">
+                                    <div class="week-time-col"></div>
+                                    <div class="week-day-col">
+                                        <span class="week-day-name">Lun</span>
+                                        <span class="week-day-number">26</span>
+                                    </div>
+                                    <div class="week-day-col">
+                                        <span class="week-day-name">Mar</span>
+                                        <span class="week-day-number">27</span>
+                                    </div>
+                                    <div class="week-day-col">
+                                        <span class="week-day-name">Mié</span>
+                                        <span class="week-day-number">28</span>
+                                    </div>
+                                    <div class="week-day-col">
+                                        <span class="week-day-name">Jue</span>
+                                        <span class="week-day-number">29</span>
+                                    </div>
+                                    <div class="week-day-col today">
+                                        <span class="week-day-name">Vie</span>
+                                        <span class="week-day-number">30</span>
+                                    </div>
+                                    <div class="week-day-col weekend">
+                                        <span class="week-day-name">Sáb</span>
+                                        <span class="week-day-number">31</span>
+                                    </div>
+                                    <div class="week-day-col weekend">
+                                        <span class="week-day-name">Dom</span>
+                                        <span class="week-day-number">1</span>
+                                    </div>
+                                </div>
+                                <div class="week-body">
+                                    <!-- Time slots 8:00 - 20:00 -->
+                                    <div class="week-row">
+                                        <div class="week-time">08:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">09:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">10:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">11:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">12:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">13:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">14:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell">
+                                            <div class="week-event meeting" onclick="openEventDetail(1)">
+                                                <span class="week-event-title">Reunión TechStore</span>
+                                                <span class="week-event-time">14:00 - 15:00</span>
+                                            </div>
+                                        </div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">15:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">16:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell">
+                                            <div class="week-event call" onclick="openEventDetail(2)">
+                                                <span class="week-event-title">Llamada María</span>
+                                                <span class="week-event-time">16:30 - 17:00</span>
+                                            </div>
+                                        </div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">17:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend"></div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                    <div class="week-row">
+                                        <div class="week-time">18:00</div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell"></div>
+                                        <div class="week-cell weekend">
+                                            <div class="week-event deadline" onclick="openEventDetail(3)">
+                                                <span class="week-event-title">Entrega Diseño</span>
+                                                <span class="week-event-time">18:00</span>
+                                            </div>
+                                        </div>
+                                        <div class="week-cell weekend"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Day View (Hidden) -->
+                            <div class="calendar-day-view d-none" id="calendarDay">
+                                <div class="day-header">
+                                    <span class="day-view-date">Viernes, 30 de Enero 2026</span>
+                                </div>
+                                <div class="day-body">
+                                    <div class="day-row">
+                                        <div class="day-time">08:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">09:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">10:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">11:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">12:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">13:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">14:00</div>
+                                        <div class="day-cell">
+                                            <div class="day-event meeting" onclick="openEventDetail(1)">
+                                                <div class="day-event-header">
+                                                    <span class="day-event-title">Reunión con TechStore</span>
+                                                    <span class="day-event-time">14:00 - 15:00</span>
+                                                </div>
+                                                <p class="day-event-desc">Revisión de avances del proyecto de rediseño web.</p>
+                                                <div class="day-event-meta">
+                                                    <span><i class="bi bi-person"></i> Juan Domínguez</span>
+                                                    <span><i class="bi bi-camera-video"></i> Google Meet</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">15:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">16:00</div>
+                                        <div class="day-cell">
+                                            <div class="day-event call" onclick="openEventDetail(2)">
+                                                <div class="day-event-header">
+                                                    <span class="day-event-title">Llamada María González</span>
+                                                    <span class="day-event-time">16:30 - 17:00</span>
+                                                </div>
+                                                <p class="day-event-desc">Seguimiento propuesta de mantenimiento.</p>
+                                                <div class="day-event-meta">
+                                                    <span><i class="bi bi-telephone"></i> +1 555 234 5678</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">17:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                    <div class="day-row">
+                                        <div class="day-time">18:00</div>
+                                        <div class="day-cell"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Crear/Editar Evento -->
+    <div class="modal fade modal-custom" id="eventModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalTitle">Nuevo Evento</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label-custom">Título del Evento <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="eventTitle" placeholder="Ej: Reunión con cliente">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Tipo de Evento <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom" id="eventType">
+                                <option value="meeting">Reunión</option>
+                                <option value="call">Llamada</option>
+                                <option value="deadline">Deadline</option>
+                                <option value="reminder">Recordatorio</option>
+                                <option value="personal">Personal</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Cliente / Proyecto</label>
+                            <select class="form-select form-select-custom" id="eventClient">
+                                <option value="">Sin asociar</option>
+                                <option value="1">Juan Domínguez - TechStore</option>
+                                <option value="2">María González - Marketing Solutions</option>
+                                <option value="3">Carlos Pérez</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Fecha <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control form-control-custom" id="eventDate">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label-custom">Hora Inicio</label>
+                            <input type="time" class="form-control form-control-custom" id="eventStartTime" value="09:00">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label-custom">Hora Fin</label>
+                            <input type="time" class="form-control form-control-custom" id="eventEndTime" value="10:00">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="eventAllDay">
+                                <label class="form-check-label" for="eventAllDay">
+                                    Todo el día
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Descripción / Notas</label>
+                            <textarea class="form-control form-control-custom" id="eventDescription" rows="3" placeholder="Detalles del evento..."></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Ubicación / Link</label>
+                            <input type="text" class="form-control form-control-custom" id="eventLocation" placeholder="Ej: Google Meet, Oficina, etc.">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Recordatorio</label>
+                            <select class="form-select form-select-custom" id="eventReminder">
+                                <option value="none">Sin recordatorio</option>
+                                <option value="15">15 minutos antes</option>
+                                <option value="30" selected>30 minutos antes</option>
+                                <option value="60">1 hora antes</option>
+                                <option value="1440">1 día antes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="saveEvent()">
+                        <i class="bi bi-check-lg me-1"></i> <span id="saveEventBtnText">Crear Evento</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Ver Evento -->
+    <div class="modal fade modal-custom" id="eventDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalle del Evento</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="event-detail">
+                        <div class="event-detail-header">
+                            <div class="event-type-badge meeting" id="detailTypeBadge">
+                                <i class="bi bi-people-fill"></i> Reunión
+                            </div>
+                            <h4 class="event-detail-title" id="detailTitle">Reunión con TechStore</h4>
+                        </div>
+                        <div class="event-detail-info">
+                            <div class="detail-row">
+                                <i class="bi bi-calendar3"></i>
+                                <span id="detailDate">Viernes, 30 de Enero 2026</span>
+                            </div>
+                            <div class="detail-row">
+                                <i class="bi bi-clock"></i>
+                                <span id="detailTime">14:00 - 15:00</span>
+                            </div>
+                            <div class="detail-row">
+                                <i class="bi bi-person"></i>
+                                <span id="detailClient">Juan Domínguez - TechStore Inc.</span>
+                            </div>
+                            <div class="detail-row">
+                                <i class="bi bi-geo-alt"></i>
+                                <span id="detailLocation">Google Meet</span>
+                            </div>
+                        </div>
+                        <div class="event-detail-desc">
+                            <p id="detailDescription">Revisión de avances del proyecto de rediseño web. Discutir feedback del cliente sobre los mockups presentados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" onclick="deleteEvent()">
+                        <i class="bi bi-trash me-1"></i> Eliminar
+                    </button>
+                    <button type="button" class="btn btn-custom-primary" onclick="editEvent()">
+                        <i class="bi bi-pencil me-1"></i> Editar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Variables
+        let currentEventId = null;
+        let isEditing = false;
+        let currentView = 'month';
+
+        // Calendar Navigation
+        function prevMonth() {
+            showToast('Navegación', 'Mes anterior', 'info');
+        }
+
+        function nextMonth() {
+            showToast('Navegación', 'Mes siguiente', 'info');
+        }
+
+        function goToToday() {
+            showToast('Navegación', 'Volviendo a hoy', 'info');
+        }
+
+        function prevMiniMonth() {
+            console.log('Mini calendar: prev month');
+        }
+
+        function nextMiniMonth() {
+            console.log('Mini calendar: next month');
+        }
+
+        // Calendar Views
+        function setCalendarView(view) {
+            currentView = view;
+            
+            // Update buttons
+            document.querySelectorAll('.calendar-views .view-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide views
+            document.getElementById('calendarMonth').classList.add('d-none');
+            document.getElementById('calendarWeek').classList.add('d-none');
+            document.getElementById('calendarDay').classList.add('d-none');
+
+            if (view === 'month') {
+                document.getElementById('calendarMonth').classList.remove('d-none');
+            } else if (view === 'week') {
+                document.getElementById('calendarWeek').classList.remove('d-none');
+            } else if (view === 'day') {
+                document.getElementById('calendarDay').classList.remove('d-none');
+            }
+        }
+
+        // Event Modal
+        function openNewEventModal() {
+            isEditing = false;
+            currentEventId = null;
+            document.getElementById('eventModalTitle').textContent = 'Nuevo Evento';
+            document.getElementById('saveEventBtnText').textContent = 'Crear Evento';
+            
+            // Clear form
+            document.getElementById('eventTitle').value = '';
+            document.getElementById('eventType').value = 'meeting';
+            document.getElementById('eventClient').value = '';
+            document.getElementById('eventDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('eventStartTime').value = '09:00';
+            document.getElementById('eventEndTime').value = '10:00';
+            document.getElementById('eventAllDay').checked = false;
+            document.getElementById('eventDescription').value = '';
+            document.getElementById('eventLocation').value = '';
+            document.getElementById('eventReminder').value = '30';
+        }
+
+        function openEventDetail(id) {
+            currentEventId = id;
+            new bootstrap.Modal(document.getElementById('eventDetailModal')).show();
+        }
+
+        function editEvent() {
+            bootstrap.Modal.getInstance(document.getElementById('eventDetailModal')).hide();
+            
+            isEditing = true;
+            document.getElementById('eventModalTitle').textContent = 'Editar Evento';
+            document.getElementById('saveEventBtnText').textContent = 'Guardar Cambios';
+            
+            // Load event data (simulado)
+            document.getElementById('eventTitle').value = 'Reunión con TechStore';
+            document.getElementById('eventType').value = 'meeting';
+            document.getElementById('eventClient').value = '1';
+            document.getElementById('eventDate').value = '2026-01-30';
+            document.getElementById('eventStartTime').value = '14:00';
+            document.getElementById('eventEndTime').value = '15:00';
+            document.getElementById('eventDescription').value = 'Revisión de avances del proyecto de rediseño web.';
+            document.getElementById('eventLocation').value = 'Google Meet';
+            
+            new bootstrap.Modal(document.getElementById('eventModal')).show();
+        }
+
+        function saveEvent() {
+            const title = document.getElementById('eventTitle').value;
+            if (!title) {
+                showToast('Error', 'El título del evento es requerido', 'error');
+                return;
+            }
+
+            bootstrap.Modal.getInstance(document.getElementById('eventModal')).hide();
+            
+            if (isEditing) {
+                showToast('Actualizado', 'El evento ha sido actualizado', 'success');
+            } else {
+                showToast('Creado', 'El evento ha sido creado', 'success');
+            }
+        }
+
+        function deleteEvent() {
+            if (confirm('¿Estás seguro de eliminar este evento?')) {
+                bootstrap.Modal.getInstance(document.getElementById('eventDetailModal')).hide();
+                showToast('Eliminado', 'El evento ha sido eliminado', 'success');
+            }
+        }
+
+        // All Day Toggle
+        document.getElementById('eventAllDay')?.addEventListener('change', function() {
+            const startTime = document.getElementById('eventStartTime');
+            const endTime = document.getElementById('eventEndTime');
+            startTime.disabled = this.checked;
+            endTime.disabled = this.checked;
+        });
+    </script>
+</body>
+
+</html>

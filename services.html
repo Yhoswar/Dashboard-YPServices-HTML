@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Catálogo de Servicios">
+    <meta name="author" content="YP Services">
+    <title>Servicios - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/services.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="quotes.html" class="nav-item" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item active" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Servicios</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Servicios</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="search-box d-none d-lg-block">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Buscar...">
+                        </div>
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Filters -->
+                <div class="row g-2 mb-3 align-items-center">
+                    <div class="col-12 col-md-auto">
+                        <div class="position-relative">
+                            <i class="bi bi-search position-absolute"
+                                style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                            <input type="text" class="filter-input w-100" style="min-width:200px;"
+                                placeholder="Buscar servicio...">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterCategory">
+                            <option value="">Todas las categorías</option>
+                            <option value="design">Diseño</option>
+                            <option value="development">Desarrollo</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="maintenance">Mantenimiento</option>
+                            <option value="consulting">Consultoría</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterStatus">
+                            <option value="">Todos los estados</option>
+                            <option value="active">Activo</option>
+                            <option value="inactive">Inactivo</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-auto ms-md-auto">
+                        <button class="btn btn-custom-primary w-100" data-bs-toggle="modal" data-bs-target="#serviceModal" onclick="openNewServiceModal()">
+                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nuevo Servicio</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-box-seam"></i></div>
+                            </div>
+                            <div class="kpi-label">Total Servicios</div>
+                            <div class="kpi-value">12</div>
+                            <div class="kpi-sublabel">En catálogo</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-check-circle"></i></div>
+                            </div>
+                            <div class="kpi-label">Activos</div>
+                            <div class="kpi-value">10</div>
+                            <div class="kpi-sublabel">Disponibles para cotizar</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon info"><i class="bi bi-arrow-repeat"></i></div>
+                            </div>
+                            <div class="kpi-label">Recurrentes</div>
+                            <div class="kpi-value">5</div>
+                            <div class="kpi-sublabel">Servicios de suscripción</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-star-fill"></i></div>
+                            </div>
+                            <div class="kpi-label">Más Cotizado</div>
+                            <div class="kpi-value">Diseño Web</div>
+                            <div class="kpi-sublabel">15 cotizaciones</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted small">12 servicios encontrados</span>
+                    <div class="view-toggle">
+                        <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')">
+                            <i class="bi bi-grid-3x2-gap-fill"></i>
+                        </button>
+                        <button class="view-btn" id="listViewBtn" onclick="setView('list')">
+                            <i class="bi bi-list-ul"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid View -->
+                <div class="services-grid" id="gridView">
+                    <!-- Diseño Web -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <div class="service-icon design">
+                                <i class="bi bi-palette-fill"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(1)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(1, 'Diseño Web')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Diseño Web</h5>
+                            <p class="service-description">Diseño de interfaces modernas y atractivas para sitios web y aplicaciones.</p>
+                            <div class="service-tags">
+                                <span class="category-tag design">Diseño</span>
+                                <span class="unit-tag">Por proyecto</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$2,500</span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Desarrollo Web -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <div class="service-icon development">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(2)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(2, 'Desarrollo Web')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Desarrollo Web</h5>
+                            <p class="service-description">Desarrollo frontend y backend con las últimas tecnologías del mercado.</p>
+                            <div class="service-tags">
+                                <span class="category-tag development">Desarrollo</span>
+                                <span class="unit-tag">Por proyecto</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$3,500</span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- E-commerce -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <div class="service-icon development">
+                                <i class="bi bi-cart3"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(3)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(3, 'E-commerce')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">E-commerce</h5>
+                            <p class="service-description">Tiendas online completas con carrito, pagos y gestión de inventario.</p>
+                            <div class="service-tags">
+                                <span class="category-tag development">Desarrollo</span>
+                                <span class="unit-tag">Por proyecto</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$5,000</span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Branding -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <div class="service-icon design">
+                                <i class="bi bi-brush-fill"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(4)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(4, 'Branding')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Branding / Logo</h5>
+                            <p class="service-description">Creación de identidad visual, logos, paletas de colores y guías de estilo.</p>
+                            <div class="service-tags">
+                                <span class="category-tag design">Diseño</span>
+                                <span class="unit-tag">Por proyecto</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$1,500</span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Mantenimiento Web -->
+                    <div class="service-card recurring">
+                        <div class="service-card-header">
+                            <div class="service-icon maintenance">
+                                <i class="bi bi-wrench-adjustable"></i>
+                            </div>
+                            <span class="recurring-badge"><i class="bi bi-arrow-repeat"></i> Recurrente</span>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(5)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(5, 'Mantenimiento Web')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Mantenimiento Web</h5>
+                            <p class="service-description">Actualizaciones, backups, monitoreo y soporte técnico continuo.</p>
+                            <div class="service-tags">
+                                <span class="category-tag maintenance">Mantenimiento</span>
+                                <span class="unit-tag">Por mes</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$300<small>/mes</small></span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Hosting Premium -->
+                    <div class="service-card recurring">
+                        <div class="service-card-header">
+                            <div class="service-icon maintenance">
+                                <i class="bi bi-hdd-rack-fill"></i>
+                            </div>
+                            <span class="recurring-badge"><i class="bi bi-arrow-repeat"></i> Recurrente</span>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(6)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(6, 'Hosting Premium')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Hosting Premium</h5>
+                            <p class="service-description">Alojamiento web de alto rendimiento con SSL, CDN y soporte 24/7.</p>
+                            <div class="service-tags">
+                                <span class="category-tag maintenance">Mantenimiento</span>
+                                <span class="unit-tag">Por año</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$1,200<small>/año</small></span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- SEO -->
+                    <div class="service-card recurring">
+                        <div class="service-card-header">
+                            <div class="service-icon marketing">
+                                <i class="bi bi-search"></i>
+                            </div>
+                            <span class="recurring-badge"><i class="bi bi-arrow-repeat"></i> Recurrente</span>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(7)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(7, 'SEO')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">SEO & Analytics</h5>
+                            <p class="service-description">Optimización para buscadores, análisis de tráfico y reportes mensuales.</p>
+                            <div class="service-tags">
+                                <span class="category-tag marketing">Marketing</span>
+                                <span class="unit-tag">Por mes</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$500<small>/mes</small></span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="service-card recurring">
+                        <div class="service-card-header">
+                            <div class="service-icon marketing">
+                                <i class="bi bi-megaphone-fill"></i>
+                            </div>
+                            <span class="recurring-badge"><i class="bi bi-arrow-repeat"></i> Recurrente</span>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(8)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(8, 'Social Media')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Community Management</h5>
+                            <p class="service-description">Gestión de redes sociales, creación de contenido y engagement.</p>
+                            <div class="service-tags">
+                                <span class="category-tag marketing">Marketing</span>
+                                <span class="unit-tag">Por mes</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$400<small>/mes</small></span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Consultoría -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <div class="service-icon consulting">
+                                <i class="bi bi-lightbulb-fill"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(9)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(9, 'Consultoría')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Consultoría Digital</h5>
+                            <p class="service-description">Asesoría estratégica para transformación digital y optimización de procesos.</p>
+                            <div class="service-tags">
+                                <span class="category-tag consulting">Consultoría</span>
+                                <span class="unit-tag">Por hora</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$150<small>/hora</small></span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- App Móvil -->
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <div class="service-icon development">
+                                <i class="bi bi-phone-fill"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(10)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(10, 'App Móvil')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Desarrollo App Móvil</h5>
+                            <p class="service-description">Aplicaciones nativas y multiplataforma para iOS y Android.</p>
+                            <div class="service-tags">
+                                <span class="category-tag development">Desarrollo</span>
+                                <span class="unit-tag">Por proyecto</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$8,000</span>
+                            </div>
+                            <span class="status-badge active">Activo</span>
+                        </div>
+                    </div>
+
+                    <!-- Email Marketing - Inactivo -->
+                    <div class="service-card inactive">
+                        <div class="service-card-header">
+                            <div class="service-icon marketing">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(11)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(11, 'Email Marketing')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Email Marketing</h5>
+                            <p class="service-description">Campañas de email, automatizaciones y newsletters.</p>
+                            <div class="service-tags">
+                                <span class="category-tag marketing">Marketing</span>
+                                <span class="unit-tag">Por mes</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$250<small>/mes</small></span>
+                            </div>
+                            <span class="status-badge pending">Inactivo</span>
+                        </div>
+                    </div>
+
+                    <!-- Soporte Técnico - Inactivo -->
+                    <div class="service-card inactive">
+                        <div class="service-card-header">
+                            <div class="service-icon maintenance">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <div class="service-actions">
+                                <button class="action-btn" title="Editar" onclick="openEditServiceModal(12)">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(12, 'Soporte Técnico')">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="service-card-body">
+                            <h5 class="service-name">Soporte Técnico</h5>
+                            <p class="service-description">Asistencia técnica remota para resolver problemas y consultas.</p>
+                            <div class="service-tags">
+                                <span class="category-tag maintenance">Mantenimiento</span>
+                                <span class="unit-tag">Por hora</span>
+                            </div>
+                        </div>
+                        <div class="service-card-footer">
+                            <div class="service-price">
+                                <span class="price-label">Desde</span>
+                                <span class="price-value">$75<small>/hora</small></span>
+                            </div>
+                            <span class="status-badge pending">Inactivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List View (Hidden by default) -->
+                <div class="content-card d-none" id="listView">
+                    <div class="table-responsive">
+                        <table class="table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Servicio</th>
+                                    <th class="d-none d-md-table-cell">Categoría</th>
+                                    <th class="d-none d-lg-table-cell">Unidad</th>
+                                    <th>Precio Base</th>
+                                    <th class="d-none d-sm-table-cell">Recurrente</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="service-icon-sm design"><i class="bi bi-palette-fill"></i></div>
+                                            <span class="fw-semibold">Diseño Web</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell"><span class="category-tag design">Diseño</span></td>
+                                    <td class="d-none d-lg-table-cell">Por proyecto</td>
+                                    <td><strong>$2,500</strong></td>
+                                    <td class="d-none d-sm-table-cell"><i class="bi bi-x-circle text-muted"></i></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Editar" onclick="openEditServiceModal(1)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(1, 'Diseño Web')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="service-icon-sm development"><i class="bi bi-code-slash"></i></div>
+                                            <span class="fw-semibold">Desarrollo Web</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell"><span class="category-tag development">Desarrollo</span></td>
+                                    <td class="d-none d-lg-table-cell">Por proyecto</td>
+                                    <td><strong>$3,500</strong></td>
+                                    <td class="d-none d-sm-table-cell"><i class="bi bi-x-circle text-muted"></i></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Editar" onclick="openEditServiceModal(2)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(2, 'Desarrollo Web')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="service-icon-sm maintenance"><i class="bi bi-wrench-adjustable"></i></div>
+                                            <span class="fw-semibold">Mantenimiento Web</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell"><span class="category-tag maintenance">Mantenimiento</span></td>
+                                    <td class="d-none d-lg-table-cell">Por mes</td>
+                                    <td><strong>$300</strong>/mes</td>
+                                    <td class="d-none d-sm-table-cell"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Editar" onclick="openEditServiceModal(5)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(5, 'Mantenimiento Web')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="service-icon-sm marketing"><i class="bi bi-search"></i></div>
+                                            <span class="fw-semibold">SEO & Analytics</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell"><span class="category-tag marketing">Marketing</span></td>
+                                    <td class="d-none d-lg-table-cell">Por mes</td>
+                                    <td><strong>$500</strong>/mes</td>
+                                    <td class="d-none d-sm-table-cell"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Editar" onclick="openEditServiceModal(7)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(7, 'SEO & Analytics')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="row-inactive">
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="service-icon-sm marketing"><i class="bi bi-envelope-fill"></i></div>
+                                            <span class="fw-semibold">Email Marketing</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell"><span class="category-tag marketing">Marketing</span></td>
+                                    <td class="d-none d-lg-table-cell">Por mes</td>
+                                    <td><strong>$250</strong>/mes</td>
+                                    <td class="d-none d-sm-table-cell"><i class="bi bi-check-circle-fill text-success"></i></td>
+                                    <td><span class="status-badge pending">Inactivo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="action-btn" title="Editar" onclick="openEditServiceModal(11)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(11, 'Email Marketing')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Crear/Editar Servicio -->
+    <div class="modal fade modal-custom" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalTitle">Nuevo Servicio</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label class="form-label-custom">Nombre del Servicio <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="serviceName" placeholder="Ej: Diseño Web">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Categoría <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom" id="serviceCategory">
+                                <option value="">Seleccionar</option>
+                                <option value="design">Diseño</option>
+                                <option value="development">Desarrollo</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="maintenance">Mantenimiento</option>
+                                <option value="consulting">Consultoría</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Descripción</label>
+                            <textarea class="form-control form-control-custom" id="serviceDescription" rows="3" placeholder="Describe el servicio..."></textarea>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Precio Base <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text input-group-text-custom">$</span>
+                                <input type="number" class="form-control form-control-custom" id="servicePrice" placeholder="0.00" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Unidad <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom" id="serviceUnit">
+                                <option value="project">Por proyecto</option>
+                                <option value="hour">Por hora</option>
+                                <option value="month">Por mes</option>
+                                <option value="year">Por año</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Estado</label>
+                            <select class="form-select form-select-custom" id="serviceStatus">
+                                <option value="active">Activo</option>
+                                <option value="inactive">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="serviceRecurring">
+                                <label class="form-check-label" for="serviceRecurring">
+                                    <strong>Servicio recurrente</strong>
+                                    <small class="d-block text-muted">Marcar si es un servicio de suscripción (mantenimiento, hosting, etc.)</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="saveService()">
+                        <i class="bi bi-check-lg me-1"></i> <span id="saveServiceBtnText">Crear Servicio</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Confirmar Eliminación -->
+    <div class="modal fade modal-custom" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                    <h5 class="mb-2">¿Eliminar este servicio?</h5>
+                    <p class="mb-0">El servicio <strong class="text-danger" id="deleteServiceName">Nombre</strong> será eliminado permanentemente.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()">
+                        <i class="bi bi-trash me-1"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Variables
+        let currentServiceId = null;
+        let isEditing = false;
+
+        // View Toggle
+        function setView(view) {
+            const gridView = document.getElementById('gridView');
+            const listView = document.getElementById('listView');
+            const gridBtn = document.getElementById('gridViewBtn');
+            const listBtn = document.getElementById('listViewBtn');
+
+            if (view === 'grid') {
+                gridView.classList.remove('d-none');
+                listView.classList.add('d-none');
+                gridBtn.classList.add('active');
+                listBtn.classList.remove('active');
+            } else {
+                gridView.classList.add('d-none');
+                listView.classList.remove('d-none');
+                gridBtn.classList.remove('active');
+                listBtn.classList.add('active');
+            }
+        }
+
+        // Modal Functions
+        function openNewServiceModal() {
+            isEditing = false;
+            currentServiceId = null;
+            document.getElementById('serviceModalTitle').textContent = 'Nuevo Servicio';
+            document.getElementById('saveServiceBtnText').textContent = 'Crear Servicio';
+            
+            // Clear form
+            document.getElementById('serviceName').value = '';
+            document.getElementById('serviceCategory').value = '';
+            document.getElementById('serviceDescription').value = '';
+            document.getElementById('servicePrice').value = '';
+            document.getElementById('serviceUnit').value = 'project';
+            document.getElementById('serviceStatus').value = 'active';
+            document.getElementById('serviceRecurring').checked = false;
+        }
+
+        function openEditServiceModal(id) {
+            isEditing = true;
+            currentServiceId = id;
+            document.getElementById('serviceModalTitle').textContent = 'Editar Servicio';
+            document.getElementById('saveServiceBtnText').textContent = 'Guardar Cambios';
+            
+            // Load service data (simulado)
+            document.getElementById('serviceName').value = 'Diseño Web';
+            document.getElementById('serviceCategory').value = 'design';
+            document.getElementById('serviceDescription').value = 'Diseño de interfaces modernas y atractivas para sitios web y aplicaciones.';
+            document.getElementById('servicePrice').value = '2500';
+            document.getElementById('serviceUnit').value = 'project';
+            document.getElementById('serviceStatus').value = 'active';
+            document.getElementById('serviceRecurring').checked = false;
+            
+            new bootstrap.Modal(document.getElementById('serviceModal')).show();
+        }
+
+        function saveService() {
+            const name = document.getElementById('serviceName').value;
+            if (!name) {
+                showToast('Error', 'El nombre del servicio es requerido', 'error');
+                return;
+            }
+
+            bootstrap.Modal.getInstance(document.getElementById('serviceModal')).hide();
+            
+            if (isEditing) {
+                showToast('Actualizado', 'El servicio ha sido actualizado correctamente', 'success');
+            } else {
+                showToast('Creado', 'El servicio ha sido creado correctamente', 'success');
+            }
+        }
+
+        function openDeleteModal(id, name) {
+            currentServiceId = id;
+            document.getElementById('deleteServiceName').textContent = name;
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+        function confirmDelete() {
+            bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
+            showToast('Eliminado', 'El servicio ha sido eliminado correctamente', 'success');
+        }
+    </script>
+</body>
+
+</html>

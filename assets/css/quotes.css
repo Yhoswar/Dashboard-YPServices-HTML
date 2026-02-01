@@ -1,0 +1,442 @@
+/* =============================================
+   QUOTES - Estilos para Cotizaciones
+   YPServicesERP
+   ============================================= */
+
+/* ==========================================
+   Quote Header
+   ========================================== */
+.quote-header {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.quote-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.quote-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.quote-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.quote-meta-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quote-meta-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ==========================================
+   Quote Status Badges
+   ========================================== */
+.quote-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.quote-status.draft {
+    background: rgba(100, 116, 139, 0.1);
+    color: var(--text-muted);
+}
+
+.quote-status.sent {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.quote-status.approved {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.quote-status.rejected {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.quote-status.expired {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.quote-status.converted {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+/* ==========================================
+   Items Table (Servicios/Items)
+   ========================================== */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table th {
+    background: var(--bg-input);
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.items-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.items-table tbody tr:hover {
+    background: var(--bg-card-hover);
+}
+
+/* Item Inputs */
+.item-input {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    width: 100%;
+    transition: all var(--transition-fast);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-family: inherit;
+}
+
+.item-input:hover,
+.item-input:focus {
+    background: var(--bg-input);
+    border-color: var(--border-color);
+    outline: none;
+    color: var(--text-primary);
+}
+
+.item-input:focus {
+    border-color: var(--primary);
+}
+
+.item-input option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* Item Remove Button */
+.item-remove {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.item-remove:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+/* Add Item Button */
+.add-item-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    width: 100%;
+    justify-content: center;
+}
+
+.add-item-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+/* ==========================================
+   Totals Section
+   ========================================== */
+.totals-section {
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.totals-row.total {
+    border-top: 2px solid var(--border-color);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+.totals-label {
+    color: var(--text-secondary);
+}
+
+.totals-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.totals-row.total .totals-label,
+.totals-row.total .totals-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.totals-row.total .totals-value {
+    color: var(--primary);
+}
+
+/* ==========================================
+   Client Card
+   ========================================== */
+.client-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+}
+
+.client-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.client-avatar-lg {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.client-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.client-company {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.client-details {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.client-details p {
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.client-details i {
+    color: var(--text-muted);
+    width: 16px;
+}
+
+/* Client Option (Modal selector) */
+.client-option {
+    transition: all var(--transition-fast);
+}
+
+.client-option:hover {
+    background: var(--bg-card-hover) !important;
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   Activity Timeline
+   ========================================== */
+.activity-timeline {
+    padding: 1rem 1.25rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-item:first-child {
+    padding-top: 0;
+}
+
+.activity-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-text {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.activity-time {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* ==========================================
+   Action Buttons Group
+   ========================================== */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* ==========================================
+   Form Elements
+   ========================================== */
+.form-control-custom.textarea-lg {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ==========================================
+   Convert Icon (Modal)
+   ========================================== */
+.convert-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (max-width: 768px) {
+    .quote-header {
+        padding: 1rem;
+    }
+
+    .quote-number {
+        font-size: 1.25rem;
+    }
+
+    .quote-meta {
+        gap: 1rem;
+    }
+
+    .quote-meta-item {
+        min-width: calc(50% - 0.5rem);
+    }
+
+    .items-table th:nth-child(2),
+    .items-table td:nth-child(2) {
+        display: none;
+    }
+
+    .items-table th,
+    .items-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .totals-section {
+        padding: 1rem;
+    }
+
+    .activity-timeline {
+        padding: 0.75rem 1rem;
+    }
+
+    .activity-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .quote-meta-item {
+        min-width: 100%;
+    }
+
+    .items-table th:nth-child(3),
+    .items-table td:nth-child(3) {
+        display: none;
+    }
+}

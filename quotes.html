@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Gestión de Cotizaciones">
+    <meta name="author" content="YP Services">
+    <title>Cotizaciones - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/quotes.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="quotes.html" class="nav-item active" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Cotizaciones</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Cotizaciones</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="search-box d-none d-lg-block">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Buscar...">
+                        </div>
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Filters -->
+                <div class="row g-2 mb-3 align-items-center">
+                    <div class="col-12 col-md-auto">
+                        <div class="position-relative">
+                            <i class="bi bi-search position-absolute"
+                                style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                            <input type="text" class="filter-input w-100" style="min-width:200px;"
+                                placeholder="Buscar cotización...">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterStatus">
+                            <option value="">Todos los estados</option>
+                            <option value="draft">Borrador</option>
+                            <option value="sent">Enviada</option>
+                            <option value="approved">Aprobada</option>
+                            <option value="rejected">Rechazada</option>
+                            <option value="expired">Expirada</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterClient">
+                            <option value="">Todos los clientes</option>
+                            <option value="1">Juan Domínguez</option>
+                            <option value="2">María González</option>
+                            <option value="3">Carlos Pérez</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-auto ms-md-auto">
+                        <a href="quote.html" class="btn btn-custom-primary w-100">
+                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nueva Cotización</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-file-earmark-text"></i></div>
+                            </div>
+                            <div class="kpi-label">Total Cotizado</div>
+                            <div class="kpi-value">$45,800</div>
+                            <div class="kpi-sublabel">Este mes</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-check-circle-fill"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 75%</span>
+                            </div>
+                            <div class="kpi-label">Aprobadas</div>
+                            <div class="kpi-value">$34,500</div>
+                            <div class="kpi-sublabel">Tasa de conversión</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-clock-fill"></i></div>
+                            </div>
+                            <div class="kpi-label">Pendientes</div>
+                            <div class="kpi-value">$8,500</div>
+                            <div class="kpi-sublabel">3 cotizaciones</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon danger"><i class="bi bi-x-circle-fill"></i></div>
+                            </div>
+                            <div class="kpi-label">Rechazadas/Expiradas</div>
+                            <div class="kpi-value">$2,800</div>
+                            <div class="kpi-sublabel">2 cotizaciones</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-file-earmark-text"></i> Lista de Cotizaciones</h5>
+                        <span class="text-muted small">8 cotizaciones</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table-custom">
+                            <thead>
+                                <tr>
+                                    <th>N° Cotización</th>
+                                    <th class="d-none d-md-table-cell">Cliente</th>
+                                    <th class="d-none d-lg-table-cell">Título</th>
+                                    <th class="d-none d-sm-table-cell">Válido hasta</th>
+                                    <th>Monto</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Cotización Aprobada -->
+                                <tr>
+                                    <td>
+                                        <a href="quote.html?id=1" class="fw-semibold text-primary">QUO-2026-0012</a>
+                                        <span class="d-block d-md-none text-muted small">Juan Domínguez</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar">JD</div>
+                                            <span>Juan Domínguez</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                            Rediseño E-commerce TechStore
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">15 Feb 2026</td>
+                                    <td><strong>$8,500</strong></td>
+                                    <td><span class="status-badge completed">Aprobada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="quote.html?id=1" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Convertir a Factura" onclick="convertToInvoice('QUO-2026-0012')">
+                                                <i class="bi bi-receipt"></i>
+                                            </button>
+                                            <button class="action-btn" title="Duplicar" onclick="duplicateQuote('QUO-2026-0012')">
+                                                <i class="bi bi-copy"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Cotización Enviada (Pendiente) -->
+                                <tr>
+                                    <td>
+                                        <a href="quote.html?id=2" class="fw-semibold text-primary">QUO-2026-0011</a>
+                                        <span class="d-block d-md-none text-muted small">María González</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--info);">MG</div>
+                                            <span>María González</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                            App Móvil Inventario
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">20 Feb 2026</td>
+                                    <td><strong>$12,000</strong></td>
+                                    <td><span class="status-badge pending">Enviada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="quote.html?id=2" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Reenviar" onclick="resendQuote('QUO-2026-0011')">
+                                                <i class="bi bi-send"></i>
+                                            </button>
+                                            <button class="action-btn" title="Editar">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Cotización Borrador -->
+                                <tr>
+                                    <td>
+                                        <a href="quote.html?id=3" class="fw-semibold text-primary">QUO-2026-0010</a>
+                                        <span class="d-block d-md-none text-muted small">Carlos Pérez</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--secondary);">CP</div>
+                                            <span>Carlos Pérez</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                            Landing Page Promocional
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">25 Feb 2026</td>
+                                    <td><strong>$2,500</strong></td>
+                                    <td><span class="status-badge draft">Borrador</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="quote.html?id=3" class="action-btn" title="Editar"><i class="bi bi-pencil"></i></a>
+                                            <button class="action-btn" title="Enviar" onclick="sendQuote('QUO-2026-0010')">
+                                                <i class="bi bi-send"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal('cotización','QUO-2026-0010')">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Cotización Rechazada -->
+                                <tr>
+                                    <td>
+                                        <a href="quote.html?id=4" class="fw-semibold text-primary">QUO-2026-0009</a>
+                                        <span class="d-block d-md-none text-muted small">Ana Martínez</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--warning);">AM</div>
+                                            <span>Ana Martínez</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                            Sistema CRM Personalizado
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">10 Ene 2026</td>
+                                    <td><strong>$15,000</strong></td>
+                                    <td><span class="status-badge cancelled">Rechazada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="quote.html?id=4" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Duplicar" onclick="duplicateQuote('QUO-2026-0009')">
+                                                <i class="bi bi-copy"></i>
+                                            </button>
+                                            <button class="action-btn delete d-none d-sm-inline-flex" title="Eliminar" onclick="openDeleteModal('cotización','QUO-2026-0009')">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Cotización Expirada -->
+                                <tr>
+                                    <td>
+                                        <a href="quote.html?id=5" class="fw-semibold text-primary">QUO-2026-0008</a>
+                                        <span class="d-block d-md-none text-muted small">Roberto Sánchez</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--danger);">RS</div>
+                                            <span>Roberto Sánchez</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                            Mantenimiento Web Anual
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">
+                                        <span class="text-danger">05 Ene 2026</span>
+                                    </td>
+                                    <td><strong>$3,600</strong></td>
+                                    <td><span class="status-badge overdue">Expirada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="quote.html?id=5" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Renovar" onclick="renewQuote('QUO-2026-0008')">
+                                                <i class="bi bi-arrow-repeat"></i>
+                                            </button>
+                                            <button class="action-btn delete d-none d-sm-inline-flex" title="Eliminar" onclick="openDeleteModal('cotización','QUO-2026-0008')">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Cotización Aprobada y Convertida -->
+                                <tr>
+                                    <td>
+                                        <a href="quote.html?id=6" class="fw-semibold text-primary">QUO-2026-0007</a>
+                                        <span class="d-block d-md-none text-muted small">Laura Torres</span>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="table-avatar" style="background: var(--success);">LT</div>
+                                            <span>Laura Torres</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-truncate d-inline-block" style="max-width: 200px;">
+                                            Branding Completo
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell">20 Dic 2025</td>
+                                    <td><strong>$4,200</strong></td>
+                                    <td>
+                                        <span class="status-badge active">Convertida</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="quote.html?id=6" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <a href="invoice.html?id=42" class="action-btn" title="Ver Factura">
+                                                <i class="bi bi-receipt"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                        <small class="text-muted">Mostrando 1-6 de 8 cotizaciones</small>
+                        <nav>
+                            <ul class="pagination pagination-custom mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Confirmar Eliminación -->
+    <div class="modal fade modal-custom" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                    <h5 class="mb-2">¿Estás seguro?</h5>
+                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">esta cotización</strong>. Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()">
+                        <i class="bi bi-trash me-1"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Convertir a Factura -->
+    <div class="modal fade modal-custom" id="convertModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Convertir a Factura</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="convert-icon mx-auto mb-3">
+                            <i class="bi bi-arrow-right-circle"></i>
+                        </div>
+                        <p class="mb-0">Se creará una factura basada en la cotización <strong id="convertQuoteNumber">QUO-2026-0012</strong></p>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label-custom">N° Factura</label>
+                            <input type="text" class="form-control form-control-custom" value="INV-2026-0046" readonly style="background:var(--bg-input);">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Fecha de Emisión</label>
+                            <input type="date" class="form-control form-control-custom" id="invoiceDate">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Fecha de Vencimiento</label>
+                            <input type="date" class="form-control form-control-custom" id="invoiceDueDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary">
+                        <i class="bi bi-receipt me-1"></i> Crear Factura
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Enviar Cotización -->
+    <div class="modal fade modal-custom" id="sendModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enviar Cotización</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label-custom">Enviar a <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control form-control-custom" id="sendToEmail" placeholder="cliente@email.com">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Asunto</label>
+                            <input type="text" class="form-control form-control-custom" id="emailSubject" value="Cotización QUO-2026-0010 - YP Services">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Mensaje (opcional)</label>
+                            <textarea class="form-control form-control-custom" rows="4" placeholder="Añade un mensaje personalizado..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="attachPdf" checked>
+                                <label class="form-check-label" for="attachPdf">
+                                    Adjuntar PDF de la cotización
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary">
+                        <i class="bi bi-send me-1"></i> Enviar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Funciones específicas de Cotizaciones
+        function convertToInvoice(quoteNumber) {
+            document.getElementById('convertQuoteNumber').textContent = quoteNumber;
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            const dueDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            document.getElementById('invoiceDate').value = today;
+            document.getElementById('invoiceDueDate').value = dueDate;
+            new bootstrap.Modal(document.getElementById('convertModal')).show();
+        }
+
+        function sendQuote(quoteNumber) {
+            document.getElementById('emailSubject').value = `Cotización ${quoteNumber} - YP Services`;
+            new bootstrap.Modal(document.getElementById('sendModal')).show();
+        }
+
+        function resendQuote(quoteNumber) {
+            sendQuote(quoteNumber);
+        }
+
+        function duplicateQuote(quoteNumber) {
+            if (confirm(`¿Deseas duplicar la cotización ${quoteNumber}?`)) {
+                showToast('Cotización duplicada', 'Se ha creado una copia como borrador', 'success');
+                // Redirect to new quote with data
+                // window.location.href = 'quote.html?duplicate=' + quoteNumber;
+            }
+        }
+
+        function renewQuote(quoteNumber) {
+            if (confirm(`¿Deseas renovar la cotización ${quoteNumber} con nuevas fechas?`)) {
+                showToast('Cotización renovada', 'Se ha creado una nueva cotización con fechas actualizadas', 'success');
+            }
+        }
+
+        function openDeleteModal(type, name) {
+            document.getElementById('deleteItemName').textContent = `${type} ${name}`;
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+        function confirmDelete() {
+            bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
+            showToast('Eliminado', 'La cotización ha sido eliminada correctamente', 'success');
+        }
+    </script>
+</body>
+
+</html>

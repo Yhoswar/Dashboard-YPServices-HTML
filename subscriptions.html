@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Gestión de Suscripciones">
+    <meta name="author" content="YP Services">
+    <title>Suscripciones - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/subscriptions.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon">YP</div>
+                    <div class="logo-text">YPServices<span>ERP</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Menú Principal</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="clients.html" class="nav-item" data-title="Clientes">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                        <span class="badge">12</span>
+                    </a>
+                    <a href="projects.html" class="nav-item" data-title="Proyectos">
+                        <i class="bi bi-kanban-fill"></i>
+                        <span>Proyectos</span>
+                    </a>
+                    <a href="tasks.html" class="nav-item" data-title="Tareas">
+                        <i class="bi bi-check2-square"></i>
+                        <span>Tareas</span>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <a href="quotes.html" class="nav-item" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
+                    <a href="invoices.html" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-receipt"></i>
+                        <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item active" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
+                    </a>
+                    <a href="employees.html" class="nav-item" data-title="Empleados">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <span>Empleados</span>
+                    </a>
+                    <a href="movements.html" class="nav-item" data-title="Movimientos">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Movimientos</span>
+                    </a>
+                    <a href="reports.html" class="nav-item" data-title="Reportes">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <span>Reportes</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
+                    <a href="settings.html" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Configuración</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div class="user-info">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrador</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Suscripciones</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">YPServicesERP</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Suscripciones</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="search-box d-none d-lg-block">
+                            <i class="bi bi-search"></i>
+                            <input type="text" placeholder="Buscar...">
+                        </div>
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Filters -->
+                <div class="row g-2 mb-3 align-items-center">
+                    <div class="col-12 col-md-auto">
+                        <div class="position-relative">
+                            <i class="bi bi-search position-absolute"
+                                style="left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
+                            <input type="text" class="filter-input w-100" style="min-width:200px;"
+                                placeholder="Buscar suscripción...">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterStatus">
+                            <option value="">Todos los estados</option>
+                            <option value="active">Activa</option>
+                            <option value="paused">Pausada</option>
+                            <option value="cancelled">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterFrequency">
+                            <option value="">Todas las frecuencias</option>
+                            <option value="monthly">Mensual</option>
+                            <option value="quarterly">Trimestral</option>
+                            <option value="semi_annual">Semestral</option>
+                            <option value="annual">Anual</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-auto ms-md-auto">
+                        <a href="subscription.html" class="btn btn-custom-primary w-100">
+                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nueva Suscripción</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-currency-dollar"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 12%</span>
+                            </div>
+                            <div class="kpi-label">MRR</div>
+                            <div class="kpi-value">$4,850</div>
+                            <div class="kpi-sublabel">Ingreso Mensual Recurrente</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-arrow-repeat"></i></div>
+                            </div>
+                            <div class="kpi-label">Activas</div>
+                            <div class="kpi-value">8</div>
+                            <div class="kpi-sublabel">Suscripciones activas</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-calendar-event"></i></div>
+                            </div>
+                            <div class="kpi-label">Próximas a facturar</div>
+                            <div class="kpi-value">3</div>
+                            <div class="kpi-sublabel">En los próximos 7 días</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon info"><i class="bi bi-graph-up"></i></div>
+                            </div>
+                            <div class="kpi-label">ARR</div>
+                            <div class="kpi-value">$58,200</div>
+                            <div class="kpi-sublabel">Ingreso Anual Recurrente</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert: Próximas a facturar -->
+                <div class="alert-custom alert-warning mb-4">
+                    <div class="alert-icon">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <div class="alert-content">
+                        <strong>3 suscripciones</strong> requieren facturación en los próximos 7 días.
+                        <a href="#" class="alert-link" onclick="filterUpcoming()">Ver detalles</a>
+                    </div>
+                    <button class="alert-close" onclick="this.parentElement.remove()">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Table -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-arrow-repeat"></i> Lista de Suscripciones</h5>
+                        <span class="text-muted small">10 suscripciones</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Cliente / Servicio</th>
+                                    <th class="d-none d-md-table-cell">Frecuencia</th>
+                                    <th>Monto</th>
+                                    <th class="d-none d-lg-table-cell">Próxima Factura</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Suscripción Activa - Próxima a facturar -->
+                                <tr class="row-highlight-warning">
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar">JD</div>
+                                                <div>
+                                                    <a href="subscription.html?id=1" class="fw-semibold text-primary d-block">Juan Domínguez</a>
+                                                    <small class="text-muted">Mantenimiento Web Mensual</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge monthly">
+                                            <i class="bi bi-calendar3"></i> Mensual
+                                        </span>
+                                    </td>
+                                    <td><strong>$350</strong><small class="text-muted">/mes</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="next-invoice soon">
+                                            <i class="bi bi-clock-fill"></i> 02 Feb 2026
+                                        </span>
+                                        <small class="d-block text-warning">En 3 días</small>
+                                    </td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=1" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Generar Factura" onclick="generateInvoice(1, 'Juan Domínguez')">
+                                                <i class="bi bi-receipt"></i>
+                                            </button>
+                                            <button class="action-btn" title="Pausar" onclick="pauseSubscription(1)">
+                                                <i class="bi bi-pause-fill"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Activa -->
+                                <tr>
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: var(--info);">MG</div>
+                                                <div>
+                                                    <a href="subscription.html?id=2" class="fw-semibold text-primary d-block">María González</a>
+                                                    <small class="text-muted">Hosting Premium</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge annual">
+                                            <i class="bi bi-calendar3"></i> Anual
+                                        </span>
+                                    </td>
+                                    <td><strong>$1,200</strong><small class="text-muted">/año</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="next-invoice">
+                                            <i class="bi bi-calendar"></i> 15 Jun 2026
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=2" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="action-btn" title="Pausar" onclick="pauseSubscription(2)">
+                                                <i class="bi bi-pause-fill"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Activa - Próxima a facturar -->
+                                <tr class="row-highlight-warning">
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: var(--secondary);">CP</div>
+                                                <div>
+                                                    <a href="subscription.html?id=3" class="fw-semibold text-primary d-block">Carlos Pérez</a>
+                                                    <small class="text-muted">Soporte Técnico</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge monthly">
+                                            <i class="bi bi-calendar3"></i> Mensual
+                                        </span>
+                                    </td>
+                                    <td><strong>$500</strong><small class="text-muted">/mes</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="next-invoice soon">
+                                            <i class="bi bi-clock-fill"></i> 01 Feb 2026
+                                        </span>
+                                        <small class="d-block text-warning">En 2 días</small>
+                                    </td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=3" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Generar Factura" onclick="generateInvoice(3, 'Carlos Pérez')">
+                                                <i class="bi bi-receipt"></i>
+                                            </button>
+                                            <button class="action-btn" title="Pausar" onclick="pauseSubscription(3)">
+                                                <i class="bi bi-pause-fill"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Activa Trimestral -->
+                                <tr>
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: var(--warning);">AM</div>
+                                                <div>
+                                                    <a href="subscription.html?id=4" class="fw-semibold text-primary d-block">Ana Martínez</a>
+                                                    <small class="text-muted">SEO & Analytics</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge quarterly">
+                                            <i class="bi bi-calendar3"></i> Trimestral
+                                        </span>
+                                    </td>
+                                    <td><strong>$900</strong><small class="text-muted">/trim</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="next-invoice">
+                                            <i class="bi bi-calendar"></i> 01 Abr 2026
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=4" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="action-btn" title="Pausar" onclick="pauseSubscription(4)">
+                                                <i class="bi bi-pause-fill"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Activa - Próxima a facturar -->
+                                <tr class="row-highlight-warning">
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: var(--success);">LT</div>
+                                                <div>
+                                                    <a href="subscription.html?id=5" class="fw-semibold text-primary d-block">Laura Torres</a>
+                                                    <small class="text-muted">Email Marketing</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge monthly">
+                                            <i class="bi bi-calendar3"></i> Mensual
+                                        </span>
+                                    </td>
+                                    <td><strong>$250</strong><small class="text-muted">/mes</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="next-invoice soon">
+                                            <i class="bi bi-clock-fill"></i> 05 Feb 2026
+                                        </span>
+                                        <small class="d-block text-warning">En 6 días</small>
+                                    </td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=5" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Generar Factura" onclick="generateInvoice(5, 'Laura Torres')">
+                                                <i class="bi bi-receipt"></i>
+                                            </button>
+                                            <button class="action-btn" title="Pausar" onclick="pauseSubscription(5)">
+                                                <i class="bi bi-pause-fill"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Pausada -->
+                                <tr>
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: var(--danger);">RS</div>
+                                                <div>
+                                                    <a href="subscription.html?id=6" class="fw-semibold text-primary d-block">Roberto Sánchez</a>
+                                                    <small class="text-muted">Community Management</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge monthly">
+                                            <i class="bi bi-calendar3"></i> Mensual
+                                        </span>
+                                    </td>
+                                    <td><strong>$400</strong><small class="text-muted">/mes</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-muted">
+                                            <i class="bi bi-pause-circle"></i> Pausada
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge pending">Pausada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=6" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Reactivar" onclick="reactivateSubscription(6)">
+                                                <i class="bi bi-play-fill"></i>
+                                            </button>
+                                            <button class="action-btn delete" title="Cancelar" onclick="openCancelModal(6, 'Roberto Sánchez')">
+                                                <i class="bi bi-x-circle"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Semestral -->
+                                <tr>
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: var(--primary);">EV</div>
+                                                <div>
+                                                    <a href="subscription.html?id=7" class="fw-semibold text-primary d-block">Elena Vargas</a>
+                                                    <small class="text-muted">Consultoría Digital</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge semi-annual">
+                                            <i class="bi bi-calendar3"></i> Semestral
+                                        </span>
+                                    </td>
+                                    <td><strong>$3,000</strong><small class="text-muted">/sem</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="next-invoice">
+                                            <i class="bi bi-calendar"></i> 01 Jul 2026
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge active">Activa</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=7" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button class="action-btn" title="Pausar" onclick="pauseSubscription(7)">
+                                                <i class="bi bi-pause-fill"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Suscripción Cancelada -->
+                                <tr>
+                                    <td>
+                                        <div class="subscription-info">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div class="table-avatar" style="background: #64748b;">PG</div>
+                                                <div>
+                                                    <a href="subscription.html?id=8" class="fw-semibold text-primary d-block">Pedro García</a>
+                                                    <small class="text-muted">Mantenimiento Básico</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <span class="frequency-badge monthly" style="opacity: 0.5;">
+                                            <i class="bi bi-calendar3"></i> Mensual
+                                        </span>
+                                    </td>
+                                    <td><strong class="text-muted">$200</strong><small class="text-muted">/mes</small></td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="text-muted">
+                                            <i class="bi bi-x-circle"></i> Cancelada
+                                        </span>
+                                    </td>
+                                    <td><span class="status-badge cancelled">Cancelada</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="subscription.html?id=8" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Reactivar" onclick="reactivateSubscription(8)">
+                                                <i class="bi bi-arrow-counterclockwise"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                        <small class="text-muted">Mostrando 1-8 de 10 suscripciones</small>
+                        <nav>
+                            <ul class="pagination pagination-custom mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Nueva Suscripción Rápida -->
+    <div class="modal fade modal-custom" id="newSubscriptionModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nueva Suscripción</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Cliente <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom">
+                                <option value="">Seleccionar cliente</option>
+                                <option value="1">Juan Domínguez - TechStore Inc.</option>
+                                <option value="2">María González - Marketing Solutions</option>
+                                <option value="3">Carlos Pérez</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Servicio <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom">
+                                <option value="">Seleccionar servicio</option>
+                                <option value="1">Mantenimiento Web</option>
+                                <option value="2">Hosting Premium</option>
+                                <option value="3">Soporte Técnico</option>
+                                <option value="4">SEO & Analytics</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Monto <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text input-group-text-custom">$</span>
+                                <input type="number" class="form-control form-control-custom" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Frecuencia <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-custom">
+                                <option value="monthly">Mensual</option>
+                                <option value="quarterly">Trimestral</option>
+                                <option value="semi_annual">Semestral</option>
+                                <option value="annual">Anual</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Fecha Inicio <span class="text-danger">*</span></label>
+                            <input type="date" class="form-control form-control-custom">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="autoGenerate" checked>
+                                <label class="form-check-label" for="autoGenerate">
+                                    Generar factura automáticamente
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary">
+                        <i class="bi bi-check-lg me-1"></i> Crear Suscripción
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Generar Factura -->
+    <div class="modal fade modal-custom" id="generateInvoiceModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Generar Factura</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="generate-icon mx-auto mb-3">
+                            <i class="bi bi-receipt"></i>
+                        </div>
+                        <p class="mb-0">Se generará una factura para la suscripción de <strong id="invoiceClientName">Cliente</strong></p>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label class="form-label-custom">N° Factura</label>
+                            <input type="text" class="form-control form-control-custom" value="INV-2026-0047" readonly style="background:var(--bg-input);">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Fecha de Emisión</label>
+                            <input type="date" class="form-control form-control-custom" id="invoiceDate">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Monto</label>
+                            <input type="text" class="form-control form-control-custom" value="$350.00" readonly style="background:var(--bg-input);">
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label-custom">Vencimiento</label>
+                            <input type="date" class="form-control form-control-custom" id="invoiceDueDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="confirmGenerateInvoice()">
+                        <i class="bi bi-receipt me-1"></i> Generar Factura
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Cancelar Suscripción -->
+    <div class="modal fade modal-custom" id="cancelModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cancelar Suscripción</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                    <h5 class="mb-2">¿Cancelar esta suscripción?</h5>
+                    <p class="mb-3">La suscripción de <strong class="text-danger" id="cancelClientName">Cliente</strong> será cancelada permanentemente.</p>
+                    <div class="text-start">
+                        <label class="form-label-custom">Motivo de cancelación (opcional)</label>
+                        <textarea class="form-control form-control-custom" rows="3" placeholder="Indica el motivo..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmCancel()">
+                        <i class="bi bi-x-circle me-1"></i> Cancelar Suscripción
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- YPServicesERP Scripts -->
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script>
+        // Variables globales
+        let currentSubscriptionId = null;
+
+        // Generar Factura
+        function generateInvoice(id, clientName) {
+            currentSubscriptionId = id;
+            document.getElementById('invoiceClientName').textContent = clientName;
+            
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            const dueDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            document.getElementById('invoiceDate').value = today;
+            document.getElementById('invoiceDueDate').value = dueDate;
+            
+            new bootstrap.Modal(document.getElementById('generateInvoiceModal')).show();
+        }
+
+        function confirmGenerateInvoice() {
+            bootstrap.Modal.getInstance(document.getElementById('generateInvoiceModal')).hide();
+            showToast('Factura Generada', 'Se ha creado la factura INV-2026-0047', 'success');
+        }
+
+        // Pausar Suscripción
+        function pauseSubscription(id) {
+            if (confirm('¿Deseas pausar esta suscripción? No se generarán facturas mientras esté pausada.')) {
+                showToast('Suscripción Pausada', 'La suscripción ha sido pausada correctamente', 'warning');
+            }
+        }
+
+        // Reactivar Suscripción
+        function reactivateSubscription(id) {
+            if (confirm('¿Deseas reactivar esta suscripción?')) {
+                showToast('Suscripción Reactivada', 'La suscripción ha sido reactivada', 'success');
+            }
+        }
+
+        // Cancelar Suscripción
+        function openCancelModal(id, clientName) {
+            currentSubscriptionId = id;
+            document.getElementById('cancelClientName').textContent = clientName;
+            new bootstrap.Modal(document.getElementById('cancelModal')).show();
+        }
+
+        function confirmCancel() {
+            bootstrap.Modal.getInstance(document.getElementById('cancelModal')).hide();
+            showToast('Suscripción Cancelada', 'La suscripción ha sido cancelada', 'success');
+        }
+
+        // Filtrar próximas a facturar
+        function filterUpcoming() {
+            document.getElementById('filterStatus').value = 'active';
+            showToast('Filtro Aplicado', 'Mostrando suscripciones próximas a facturar', 'info');
+        }
+    </script>
+</body>
+
+</html>

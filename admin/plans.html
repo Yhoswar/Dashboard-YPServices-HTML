@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Gestión de Planes">
+    <meta name="author" content="YP Services">
+    <title>Planes - YPServicesERP Admin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="admin.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar admin-sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon admin">YP</div>
+                    <div class="logo-text">YPServices<span>Admin</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Administración</div>
+                    <a href="index.html" class="nav-item" data-title="Dashboard">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="tenants.html" class="nav-item" data-title="Tenants">
+                        <i class="bi bi-buildings"></i>
+                        <span>Tenants</span>
+                        <span class="badge">24</span>
+                    </a>
+                    <a href="plans.html" class="nav-item active" data-title="Planes">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Planes</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Usuarios">
+                        <i class="bi bi-people"></i>
+                        <span>Usuarios</span>
+                        <span class="badge">156</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-credit-card"></i>
+                        <span>Facturación</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="#" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Logs">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Logs</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="API">
+                        <i class="bi bi-braces"></i>
+                        <span>API Keys</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Acceso Rápido</div>
+                    <a href="../index.html" class="nav-item" data-title="Ver ERP">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        <span>Ver ERP Demo</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar admin">SA</div>
+                    <div class="user-info">
+                        <div class="user-name">Super Admin</div>
+                        <div class="user-role">Administrador Global</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Gestión de Planes</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">Admin</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Planes</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Header Actions -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <p class="text-muted mb-0">Configura los planes de suscripción disponibles para tus clientes.</p>
+                    </div>
+                    <button class="btn btn-custom-primary" onclick="openNewPlanModal()">
+                        <i class="bi bi-plus-lg"></i> Nuevo Plan
+                    </button>
+                </div>
+
+                <!-- Plans Grid -->
+                <div class="row g-4 mb-4">
+                    <!-- Free Trial -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="pricing-card free">
+                            <div class="pricing-header">
+                                <span class="pricing-badge free">Trial</span>
+                                <h3 class="pricing-name">Free Trial</h3>
+                                <div class="pricing-price">
+                                    <span class="price">$0</span>
+                                    <span class="period">/ 14 días</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Hasta 3 usuarios</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>1 GB almacenamiento</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Proyectos ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Facturación básica</span>
+                                </div>
+                                <div class="feature-item disabled">
+                                    <i class="bi bi-x-circle"></i>
+                                    <span>Integraciones</span>
+                                </div>
+                                <div class="feature-item disabled">
+                                    <i class="bi bi-x-circle"></i>
+                                    <span>Soporte prioritario</span>
+                                </div>
+                            </div>
+                            <div class="pricing-stats">
+                                <div class="stat">
+                                    <span class="stat-value">3</span>
+                                    <span class="stat-label">Tenants</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">$0</span>
+                                    <span class="stat-label">MRR</span>
+                                </div>
+                            </div>
+                            <div class="pricing-actions">
+                                <button class="btn btn-sm btn-custom-secondary w-100" onclick="editPlan('free')">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Basic -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="pricing-card basic">
+                            <div class="pricing-header">
+                                <span class="pricing-badge basic">Básico</span>
+                                <h3 class="pricing-name">Básico</h3>
+                                <div class="pricing-price">
+                                    <span class="price">$250</span>
+                                    <span class="period">/ mes</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Hasta 10 usuarios</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>5 GB almacenamiento</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Proyectos ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Facturación completa</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>2 integraciones</span>
+                                </div>
+                                <div class="feature-item disabled">
+                                    <i class="bi bi-x-circle"></i>
+                                    <span>Soporte prioritario</span>
+                                </div>
+                            </div>
+                            <div class="pricing-stats">
+                                <div class="stat">
+                                    <span class="stat-value">10</span>
+                                    <span class="stat-label">Tenants</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">$2,500</span>
+                                    <span class="stat-label">MRR</span>
+                                </div>
+                            </div>
+                            <div class="pricing-actions">
+                                <button class="btn btn-sm btn-custom-secondary w-100" onclick="editPlan('basic')">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="pricing-card pro popular">
+                            <div class="popular-tag">Más Popular</div>
+                            <div class="pricing-header">
+                                <span class="pricing-badge pro">Pro</span>
+                                <h3 class="pricing-name">Profesional</h3>
+                                <div class="pricing-price">
+                                    <span class="price">$650</span>
+                                    <span class="period">/ mes</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Hasta 25 usuarios</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>15 GB almacenamiento</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Proyectos ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Facturación avanzada</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Todas las integraciones</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Soporte prioritario</span>
+                                </div>
+                            </div>
+                            <div class="pricing-stats">
+                                <div class="stat">
+                                    <span class="stat-value">8</span>
+                                    <span class="stat-label">Tenants</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">$5,200</span>
+                                    <span class="stat-label">MRR</span>
+                                </div>
+                            </div>
+                            <div class="pricing-actions">
+                                <button class="btn btn-sm btn-custom-secondary w-100" onclick="editPlan('pro')">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="pricing-card enterprise">
+                            <div class="pricing-header">
+                                <span class="pricing-badge enterprise">Enterprise</span>
+                                <h3 class="pricing-name">Enterprise</h3>
+                                <div class="pricing-price">
+                                    <span class="price">$1,500</span>
+                                    <span class="period">/ mes</span>
+                                </div>
+                            </div>
+                            <div class="pricing-features">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Usuarios ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>50 GB almacenamiento</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Proyectos ilimitados</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>White-label</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>API completa</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle"></i>
+                                    <span>Soporte dedicado 24/7</span>
+                                </div>
+                            </div>
+                            <div class="pricing-stats">
+                                <div class="stat">
+                                    <span class="stat-value">3</span>
+                                    <span class="stat-label">Tenants</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-value">$4,500</span>
+                                    <span class="stat-label">MRR</span>
+                                </div>
+                            </div>
+                            <div class="pricing-actions">
+                                <button class="btn btn-sm btn-custom-secondary w-100" onclick="editPlan('enterprise')">
+                                    <i class="bi bi-pencil"></i> Editar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Comparison Table -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h5 class="card-title"><i class="bi bi-table"></i> Comparativa de Características</h5>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table-custom comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th class="text-center">Free Trial</th>
+                                    <th class="text-center">Básico</th>
+                                    <th class="text-center highlight">Profesional</th>
+                                    <th class="text-center">Enterprise</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Usuarios</strong></td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center highlight">25</td>
+                                    <td class="text-center">Ilimitados</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Almacenamiento</strong></td>
+                                    <td class="text-center">1 GB</td>
+                                    <td class="text-center">5 GB</td>
+                                    <td class="text-center highlight">15 GB</td>
+                                    <td class="text-center">50 GB</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Proyectos</strong></td>
+                                    <td class="text-center"><i class="bi bi-infinity text-primary"></i></td>
+                                    <td class="text-center"><i class="bi bi-infinity text-primary"></i></td>
+                                    <td class="text-center highlight"><i class="bi bi-infinity text-primary"></i></td>
+                                    <td class="text-center"><i class="bi bi-infinity text-primary"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Clientes</strong></td>
+                                    <td class="text-center">50</td>
+                                    <td class="text-center">200</td>
+                                    <td class="text-center highlight">500</td>
+                                    <td class="text-center">Ilimitados</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Facturación</strong></td>
+                                    <td class="text-center">Básica</td>
+                                    <td class="text-center">Completa</td>
+                                    <td class="text-center highlight">Avanzada</td>
+                                    <td class="text-center">Enterprise</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Integraciones</strong></td>
+                                    <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center highlight">Todas</td>
+                                    <td class="text-center">Todas + API</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>White-label</strong></td>
+                                    <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                                    <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                                    <td class="text-center highlight"><i class="bi bi-x text-danger"></i></td>
+                                    <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Soporte</strong></td>
+                                    <td class="text-center">Email</td>
+                                    <td class="text-center">Email</td>
+                                    <td class="text-center highlight">Prioritario</td>
+                                    <td class="text-center">Dedicado 24/7</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SLA</strong></td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-center">99%</td>
+                                    <td class="text-center highlight">99.5%</td>
+                                    <td class="text-center">99.9%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal: Editar Plan -->
+    <div class="modal fade modal-custom" id="planModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="planModalTitle">Editar Plan</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <h6 class="form-section-title">Información del Plan</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Nombre del Plan <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="planName" value="Profesional">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Código Interno</label>
+                            <input type="text" class="form-control form-control-custom" id="planCode" value="pro" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Precio Mensual <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control form-control-custom" id="planPrice" value="650">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Precio Anual</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control form-control-custom" id="planPriceYearly" value="6500">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Descuento Anual</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-custom" id="planDiscount" value="17">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <h6 class="form-section-title">Límites del Plan</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Máx. Usuarios</label>
+                            <input type="number" class="form-control form-control-custom" id="planMaxUsers" value="25">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Almacenamiento (GB)</label>
+                            <input type="number" class="form-control form-control-custom" id="planStorage" value="15">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label-custom">Máx. Clientes</label>
+                            <input type="number" class="form-control form-control-custom" id="planMaxClients" value="500">
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <h6 class="form-section-title">Características</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="featureProjects" checked>
+                                <label class="form-check-label" for="featureProjects">Proyectos ilimitados</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="featureInvoicing" checked>
+                                <label class="form-check-label" for="featureInvoicing">Facturación avanzada</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="featureIntegrations" checked>
+                                <label class="form-check-label" for="featureIntegrations">Todas las integraciones</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="featureSupport" checked>
+                                <label class="form-check-label" for="featureSupport">Soporte prioritario</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="featureApi">
+                                <label class="form-check-label" for="featureApi">Acceso API</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="featureWhitelabel">
+                                <label class="form-check-label" for="featureWhitelabel">White-label</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label-custom">Descripción</label>
+                            <textarea class="form-control form-control-custom" id="planDescription" rows="2">Ideal para agencias en crecimiento que necesitan todas las funcionalidades.</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="savePlan()">
+                        <i class="bi bi-check-lg me-1"></i> Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/toast.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+    <script>
+        let currentPlan = null;
+
+        function openNewPlanModal() {
+            currentPlan = null;
+            document.getElementById('planModalTitle').textContent = 'Nuevo Plan';
+            
+            // Clear form
+            document.getElementById('planName').value = '';
+            document.getElementById('planCode').value = '';
+            document.getElementById('planCode').removeAttribute('readonly');
+            document.getElementById('planPrice').value = '';
+            document.getElementById('planPriceYearly').value = '';
+            document.getElementById('planDiscount').value = '0';
+            document.getElementById('planMaxUsers').value = '10';
+            document.getElementById('planStorage').value = '5';
+            document.getElementById('planMaxClients').value = '100';
+            document.getElementById('planDescription').value = '';
+            
+            // Uncheck all features
+            document.querySelectorAll('#planModal .form-check-input').forEach(cb => cb.checked = false);
+            
+            new bootstrap.Modal(document.getElementById('planModal')).show();
+        }
+
+        function editPlan(planCode) {
+            currentPlan = planCode;
+            document.getElementById('planModalTitle').textContent = 'Editar Plan';
+            document.getElementById('planCode').setAttribute('readonly', true);
+            
+            // Load plan data based on code (simulated)
+            const planData = {
+                free: { name: 'Free Trial', price: 0, yearly: 0, users: 3, storage: 1, clients: 50 },
+                basic: { name: 'Básico', price: 250, yearly: 2500, users: 10, storage: 5, clients: 200 },
+                pro: { name: 'Profesional', price: 650, yearly: 6500, users: 25, storage: 15, clients: 500 },
+                enterprise: { name: 'Enterprise', price: 1500, yearly: 15000, users: 999, storage: 50, clients: 9999 }
+            };
+            
+            const data = planData[planCode];
+            document.getElementById('planName').value = data.name;
+            document.getElementById('planCode').value = planCode;
+            document.getElementById('planPrice').value = data.price;
+            document.getElementById('planPriceYearly').value = data.yearly;
+            document.getElementById('planMaxUsers').value = data.users;
+            document.getElementById('planStorage').value = data.storage;
+            document.getElementById('planMaxClients').value = data.clients;
+            
+            new bootstrap.Modal(document.getElementById('planModal')).show();
+        }
+
+        function savePlan() {
+            const name = document.getElementById('planName').value;
+            
+            if (!name) {
+                showToast('Error', 'El nombre del plan es requerido', 'error');
+                return;
+            }
+            
+            bootstrap.Modal.getInstance(document.getElementById('planModal')).hide();
+            showToast('Guardado', 'El plan ha sido actualizado correctamente', 'success');
+        }
+    </script>
+</body>
+
+</html>

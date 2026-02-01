@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="YPServicesERP - Panel de Administración">
+    <meta name="author" content="YP Services">
+    <title>Admin Dashboard - YPServicesERP</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- YPServicesERP Styles -->
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="admin.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar admin-sidebar" id="sidebar">
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" title="Colapsar menú">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="logo-icon admin">YP</div>
+                    <div class="logo-text">YPServices<span>Admin</span></div>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Administración</div>
+                    <a href="index.html" class="nav-item active" data-title="Dashboard">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="tenants.html" class="nav-item" data-title="Tenants">
+                        <i class="bi bi-buildings"></i>
+                        <span>Tenants</span>
+                        <span class="badge">24</span>
+                    </a>
+                    <a href="plans.html" class="nav-item" data-title="Planes">
+                        <i class="bi bi-box-seam"></i>
+                        <span>Planes</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Usuarios">
+                        <i class="bi bi-people"></i>
+                        <span>Usuarios</span>
+                        <span class="badge">156</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Facturación">
+                        <i class="bi bi-credit-card"></i>
+                        <span>Facturación</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Sistema</div>
+                    <a href="#" class="nav-item" data-title="Configuración">
+                        <i class="bi bi-gear"></i>
+                        <span>Configuración</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="Logs">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Logs</span>
+                    </a>
+                    <a href="#" class="nav-item" data-title="API">
+                        <i class="bi bi-braces"></i>
+                        <span>API Keys</span>
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Acceso Rápido</div>
+                    <a href="../index.html" class="nav-item" data-title="Ver ERP">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        <span>Ver ERP Demo</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar admin">SA</div>
+                    <div class="user-info">
+                        <div class="user-name">Super Admin</div>
+                        <div class="user-role">Administrador Global</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="menu-toggle" id="menuToggle"><i class="bi bi-list"></i></button>
+                        <div>
+                            <h1 class="page-title">Dashboard Administración</h1>
+                            <nav class="breadcrumb-nav d-none d-sm-flex align-items-center gap-2">
+                                <a href="index.html">Admin</a>
+                                <i class="bi bi-chevron-right small"></i>
+                                <span>Dashboard</span>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="header-btn d-none d-md-flex">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <button class="header-btn" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Welcome Banner -->
+                <div class="admin-welcome-banner mb-4">
+                    <div class="welcome-content">
+                        <h2>Bienvenido al Panel de Administración</h2>
+                        <p>Gestiona todos los tenants, planes y configuraciones del sistema desde aquí.</p>
+                    </div>
+                    <div class="welcome-stats">
+                        <div class="welcome-stat">
+                            <span class="stat-number">$12,450</span>
+                            <span class="stat-label">MRR Actual</span>
+                        </div>
+                        <div class="welcome-stat">
+                            <span class="stat-number text-success">+18%</span>
+                            <span class="stat-label">vs mes anterior</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-buildings"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 12%</span>
+                            </div>
+                            <div class="kpi-label">Total Tenants</div>
+                            <div class="kpi-value">24</div>
+                            <div class="kpi-sublabel">3 nuevos este mes</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-people"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 8%</span>
+                            </div>
+                            <div class="kpi-label">Usuarios Activos</div>
+                            <div class="kpi-value">156</div>
+                            <div class="kpi-sublabel">142 conectados hoy</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-currency-dollar"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 18%</span>
+                            </div>
+                            <div class="kpi-label">MRR</div>
+                            <div class="kpi-value">$12,450</div>
+                            <div class="kpi-sublabel">ARR: $149,400</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon info"><i class="bi bi-percent"></i></div>
+                            </div>
+                            <div class="kpi-label">Churn Rate</div>
+                            <div class="kpi-value">2.1%</div>
+                            <div class="kpi-sublabel">Meta: &lt; 5%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Revenue Chart -->
+                    <div class="col-lg-8">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-graph-up"></i> Ingresos Mensuales (MRR)</h5>
+                                <select class="filter-select" style="width: auto;">
+                                    <option>Últimos 6 meses</option>
+                                    <option>Último año</option>
+                                </select>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-placeholder">
+                                    <div class="chart-bars">
+                                        <div class="chart-bar" style="height: 45%;" data-value="$8,200">
+                                            <span class="bar-label">Ago</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 52%;" data-value="$9,100">
+                                            <span class="bar-label">Sep</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 60%;" data-value="$9,800">
+                                            <span class="bar-label">Oct</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 68%;" data-value="$10,500">
+                                            <span class="bar-label">Nov</span>
+                                        </div>
+                                        <div class="chart-bar" style="height: 78%;" data-value="$11,200">
+                                            <span class="bar-label">Dic</span>
+                                        </div>
+                                        <div class="chart-bar active" style="height: 90%;" data-value="$12,450">
+                                            <span class="bar-label">Ene</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plan Distribution -->
+                    <div class="col-lg-4">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-pie-chart"></i> Distribución por Plan</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="plan-distribution">
+                                    <div class="plan-item">
+                                        <div class="plan-info">
+                                            <span class="plan-color enterprise"></span>
+                                            <span class="plan-name">Enterprise</span>
+                                        </div>
+                                        <div class="plan-stats">
+                                            <span class="plan-count">3</span>
+                                            <span class="plan-revenue">$4,500/mes</span>
+                                        </div>
+                                        <div class="plan-bar">
+                                            <div class="plan-progress enterprise" style="width: 36%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="plan-item">
+                                        <div class="plan-info">
+                                            <span class="plan-color pro"></span>
+                                            <span class="plan-name">Profesional</span>
+                                        </div>
+                                        <div class="plan-stats">
+                                            <span class="plan-count">8</span>
+                                            <span class="plan-revenue">$5,200/mes</span>
+                                        </div>
+                                        <div class="plan-bar">
+                                            <div class="plan-progress pro" style="width: 42%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="plan-item">
+                                        <div class="plan-info">
+                                            <span class="plan-color basic"></span>
+                                            <span class="plan-name">Básico</span>
+                                        </div>
+                                        <div class="plan-stats">
+                                            <span class="plan-count">10</span>
+                                            <span class="plan-revenue">$2,500/mes</span>
+                                        </div>
+                                        <div class="plan-bar">
+                                            <div class="plan-progress basic" style="width: 20%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="plan-item">
+                                        <div class="plan-info">
+                                            <span class="plan-color free"></span>
+                                            <span class="plan-name">Free Trial</span>
+                                        </div>
+                                        <div class="plan-stats">
+                                            <span class="plan-count">3</span>
+                                            <span class="plan-revenue">$0/mes</span>
+                                        </div>
+                                        <div class="plan-bar">
+                                            <div class="plan-progress free" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Tenants -->
+                    <div class="col-lg-6">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-buildings"></i> Tenants Recientes</h5>
+                                <a href="tenants.html" class="btn btn-link btn-sm p-0">Ver todos</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table-custom">
+                                    <thead>
+                                        <tr>
+                                            <th>Empresa</th>
+                                            <th>Plan</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="table-avatar">TC</div>
+                                                    <div>
+                                                        <span class="fw-semibold d-block">TechCorp Solutions</span>
+                                                        <small class="text-muted">Hace 2 días</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="plan-badge pro">Pro</span></td>
+                                            <td><span class="status-badge active">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="table-avatar" style="background: var(--info);">DM</div>
+                                                    <div>
+                                                        <span class="fw-semibold d-block">Digital Marketing Pro</span>
+                                                        <small class="text-muted">Hace 5 días</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="plan-badge basic">Básico</span></td>
+                                            <td><span class="status-badge active">Activo</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="table-avatar" style="background: var(--warning);">IS</div>
+                                                    <div>
+                                                        <span class="fw-semibold d-block">InnoSoft Labs</span>
+                                                        <small class="text-muted">Hace 1 semana</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="plan-badge free">Trial</span></td>
+                                            <td><span class="status-badge pending">Trial</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="table-avatar" style="background: var(--success);">GE</div>
+                                                    <div>
+                                                        <span class="fw-semibold d-block">Global Enterprises</span>
+                                                        <small class="text-muted">Hace 2 semanas</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td><span class="plan-badge enterprise">Enterprise</span></td>
+                                            <td><span class="status-badge active">Activo</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Activity -->
+                    <div class="col-lg-6">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-activity"></i> Actividad del Sistema</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="activity-timeline">
+                                    <div class="activity-item">
+                                        <div class="activity-icon signup">
+                                            <i class="bi bi-person-plus"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text"><strong>TechCorp Solutions</strong> se registró</span>
+                                            <span class="activity-time">Hace 2 horas</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon upgrade">
+                                            <i class="bi bi-arrow-up-circle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text"><strong>Marketing Plus</strong> actualizó a Pro</span>
+                                            <span class="activity-time">Hace 5 horas</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon payment">
+                                            <i class="bi bi-credit-card"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text">Pago recibido de <strong>Global Enterprises</strong></span>
+                                            <span class="activity-time">Hace 8 horas</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon alert">
+                                            <i class="bi bi-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text">Pago fallido: <strong>StartUp Inc</strong></span>
+                                            <span class="activity-time">Hace 1 día</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon cancel">
+                                            <i class="bi bi-x-circle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <span class="activity-text"><strong>Old Company</strong> canceló suscripción</span>
+                                            <span class="activity-time">Hace 2 días</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="col-12">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h5 class="card-title"><i class="bi bi-bar-chart"></i> Métricas del Sistema</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-4">
+                                    <div class="col-md-3 col-6">
+                                        <div class="metric-card">
+                                            <div class="metric-icon">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                            <div class="metric-info">
+                                                <span class="metric-value">1,247</span>
+                                                <span class="metric-label">Facturas Generadas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="metric-card">
+                                            <div class="metric-icon">
+                                                <i class="bi bi-folder"></i>
+                                            </div>
+                                            <div class="metric-info">
+                                                <span class="metric-value">458</span>
+                                                <span class="metric-label">Proyectos Activos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="metric-card">
+                                            <div class="metric-icon">
+                                                <i class="bi bi-hdd"></i>
+                                            </div>
+                                            <div class="metric-info">
+                                                <span class="metric-value">12.4 GB</span>
+                                                <span class="metric-label">Almacenamiento Usado</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="metric-card">
+                                            <div class="metric-icon">
+                                                <i class="bi bi-lightning"></i>
+                                            </div>
+                                            <div class="metric-info">
+                                                <span class="metric-value">99.9%</span>
+                                                <span class="metric-label">Uptime</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container-custom" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/toast.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>

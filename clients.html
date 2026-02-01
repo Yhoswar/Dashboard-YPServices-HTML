@@ -22,6 +22,7 @@
 
     <!-- YPServicesERP Styles -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/clients.css" rel="stylesheet">
 </head>
 
 <body>
@@ -63,9 +64,17 @@
                         <span>Tareas</span>
                         <span class="badge bg-warning">5</span>
                     </a>
+                    <a href="quotes.html" class="nav-item" data-title="Cotizaciones">
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Cotizaciones</span>
+                    </a>
                     <a href="invoices.html" class="nav-item" data-title="Facturación">
                         <i class="bi bi-receipt"></i>
                         <span>Facturación</span>
+                    </a>
+                    <a href="subscriptions.html" class="nav-item" data-title="Suscripciones">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Suscripciones</span>
                     </a>
                     <a href="employees.html" class="nav-item" data-title="Empleados">
                         <i class="bi bi-person-badge-fill"></i>
@@ -82,6 +91,14 @@
                 </div>
                 <div class="nav-section">
                     <div class="nav-section-title">Sistema</div>
+                    <a href="services.html" class="nav-item" data-title="Servicios">
+                        <i class="bi bi-box-seam-fill"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <a href="calendar.html" class="nav-item" data-title="Calendario">
+                        <i class="bi bi-calendar3"></i>
+                        <span>Calendario</span>
+                    </a>
                     <a href="settings.html" class="nav-item" data-title="Configuración">
                         <i class="bi bi-gear-fill"></i>
                         <span>Configuración</span>
@@ -145,32 +162,85 @@
                         </div>
                     </div>
                     <div class="col-6 col-md-auto">
-                        <select class="filter-select w-100">
-                            <option>Todos</option>
-                            <option>Activo</option>
-                            <option>Inactivo</option>
+                        <select class="filter-select w-100" id="filterStatus">
+                            <option value="">Todos los estados</option>
+                            <option value="active">Activo</option>
+                            <option value="inactive">Inactivo</option>
                         </select>
                     </div>
-                    <div class="col-6 col-md-auto ms-md-auto">
-                        <button class="btn btn-custom-primary w-100" data-bs-toggle="modal"
-                            data-bs-target="#clientModal">
-                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nuevo</span>
-                        </button>
+                    <div class="col-6 col-md-auto">
+                        <select class="filter-select w-100" id="filterType">
+                            <option value="">Todos los tipos</option>
+                            <option value="company">Empresa</option>
+                            <option value="individual">Persona</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-auto ms-md-auto">
+                        <a href="client.html" class="btn btn-custom-primary w-100">
+                            <i class="bi bi-plus-lg"></i> <span class="d-none d-sm-inline">Nuevo Cliente</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon primary"><i class="bi bi-people"></i></div>
+                                <span class="kpi-trend up"><i class="bi bi-arrow-up"></i> 8%</span>
+                            </div>
+                            <div class="kpi-label">Total Clientes</div>
+                            <div class="kpi-value">12</div>
+                            <div class="kpi-sublabel">2 nuevos este mes</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon success"><i class="bi bi-check-circle"></i></div>
+                            </div>
+                            <div class="kpi-label">Activos</div>
+                            <div class="kpi-value">10</div>
+                            <div class="kpi-sublabel">Con proyectos en curso</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon info"><i class="bi bi-building"></i></div>
+                            </div>
+                            <div class="kpi-label">Empresas</div>
+                            <div class="kpi-value">8</div>
+                            <div class="kpi-sublabel">67% del total</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <div class="kpi-icon warning"><i class="bi bi-currency-dollar"></i></div>
+                            </div>
+                            <div class="kpi-label">Facturación Total</div>
+                            <div class="kpi-value">$124,500</div>
+                            <div class="kpi-sublabel">Último año</div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Table -->
                 <div class="content-card">
                     <div class="card-header">
-                        <h5 class="card-title"><i class="bi bi-people-fill"></i> Lista de Clientes</h5>
+                        <h5 class="card-title"><i class="bi bi-people"></i> Lista de Clientes</h5>
+                        <span class="text-muted small">12 clientes</span>
                     </div>
                     <div class="table-responsive">
                         <table class="table-custom">
                             <thead>
                                 <tr>
                                     <th>Cliente</th>
-                                    <th class="d-none d-lg-table-cell">Teléfono</th>
-                                    <th class="d-none d-md-table-cell">Proyectos</th>
+                                    <th class="d-none d-md-table-cell">Contacto Principal</th>
+                                    <th class="d-none d-lg-table-cell">Contactos</th>
+                                    <th class="d-none d-lg-table-cell">Proyectos</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -178,96 +248,218 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="table-avatar">JD</div>
+                                        <div class="client-cell">
+                                            <div class="table-avatar">TS</div>
                                             <div>
-                                                <span class="table-user-name">Juan Domínguez</span>
-                                                <span class="table-user-email d-block d-lg-none">+1 234 567 890</span>
+                                                <a href="client.html?id=1" class="fw-semibold text-primary d-block">TechStore Inc.</a>
+                                                <small class="text-muted"><i class="bi bi-building"></i> Empresa</small>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="d-none d-lg-table-cell">+1 234 567 890</td>
-                                    <td class="d-none d-md-table-cell">3</td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="contact-mini">
+                                            <span class="contact-name">Juan Domínguez</span>
+                                            <span class="contact-email">juan@techstore.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="contacts-count" title="3 contactos">
+                                            <i class="bi bi-people"></i> 3
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="projects-count">4</span>
+                                    </td>
                                     <td><span class="status-badge active">Activo</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <a href="client.html" class="action-btn" title="Ver perfil"><i
-                                                    class="bi bi-eye"></i></a>
-                                            <button class="action-btn"
-                                                onclick="openEditModal('client','Juan Domínguez')"><i
-                                                    class="bi bi-pencil"></i></button>
-                                            <button class="action-btn delete d-none d-sm-inline-flex"
-                                                onclick="openDeleteModal('cliente','Juan Domínguez')"><i
-                                                    class="bi bi-trash"></i></button>
+                                            <a href="client.html?id=1" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar" onclick="openEditModal(1)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(1, 'TechStore Inc.')"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="table-avatar">MG</div>
+                                        <div class="client-cell">
+                                            <div class="table-avatar" style="background: var(--info);">MS</div>
                                             <div>
-                                                <span class="table-user-name">María González</span>
-                                                <span class="table-user-email d-block d-lg-none">+1 987 654 321</span>
+                                                <a href="client.html?id=2" class="fw-semibold text-primary d-block">Marketing Solutions</a>
+                                                <small class="text-muted"><i class="bi bi-building"></i> Empresa</small>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="d-none d-lg-table-cell">+1 987 654 321</td>
-                                    <td class="d-none d-md-table-cell">1</td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="contact-mini">
+                                            <span class="contact-name">María González</span>
+                                            <span class="contact-email">maria@mktgsolutions.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="contacts-count" title="2 contactos">
+                                            <i class="bi bi-people"></i> 2
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="projects-count">2</span>
+                                    </td>
                                     <td><span class="status-badge active">Activo</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <a href="client.html" class="action-btn" title="Ver perfil"><i
-                                                    class="bi bi-eye"></i></a>
-                                            <button class="action-btn"
-                                                onclick="openEditModal('client','María González')"><i
-                                                    class="bi bi-pencil"></i></button>
-                                            <button class="action-btn delete d-none d-sm-inline-flex"
-                                                onclick="openDeleteModal('cliente','María González')"><i
-                                                    class="bi bi-trash"></i></button>
+                                            <a href="client.html?id=2" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar" onclick="openEditModal(2)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(2, 'Marketing Solutions')"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="table-avatar">CP</div>
+                                        <div class="client-cell">
+                                            <div class="table-avatar" style="background: var(--secondary);">CP</div>
                                             <div>
-                                                <span class="table-user-name">Carlos Pérez</span>
-                                                <span class="table-user-email d-block d-lg-none">+1 555 123 456</span>
+                                                <a href="client.html?id=3" class="fw-semibold text-primary d-block">Carlos Pérez</a>
+                                                <small class="text-muted"><i class="bi bi-person"></i> Persona</small>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="d-none d-lg-table-cell">+1 555 123 456</td>
-                                    <td class="d-none d-md-table-cell">2</td>
-                                    <td><span class="status-badge inactive">Inactivo</span></td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="contact-mini">
+                                            <span class="contact-name">Carlos Pérez</span>
+                                            <span class="contact-email">carlos.perez@gmail.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="contacts-count" title="1 contacto">
+                                            <i class="bi bi-person"></i> 1
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="projects-count">1</span>
+                                    </td>
+                                    <td><span class="status-badge active">Activo</span></td>
                                     <td>
                                         <div class="d-flex gap-1">
-                                            <a href="client.html" class="action-btn" title="Ver perfil"><i
-                                                    class="bi bi-eye"></i></a>
-                                            <button class="action-btn"
-                                                onclick="openEditModal('client','Carlos Pérez')"><i
-                                                    class="bi bi-pencil"></i></button>
-                                            <button class="action-btn delete d-none d-sm-inline-flex"
-                                                onclick="openDeleteModal('cliente','Carlos Pérez')"><i
-                                                    class="bi bi-trash"></i></button>
+                                            <a href="client.html?id=3" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar" onclick="openEditModal(3)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(3, 'Carlos Pérez')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="client-cell">
+                                            <div class="table-avatar" style="background: var(--warning);">GL</div>
+                                            <div>
+                                                <a href="client.html?id=4" class="fw-semibold text-primary d-block">Global Logistics</a>
+                                                <small class="text-muted"><i class="bi bi-building"></i> Empresa</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="contact-mini">
+                                            <span class="contact-name">Ana Martínez</span>
+                                            <span class="contact-email">ana@globallogistics.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="contacts-count" title="5 contactos">
+                                            <i class="bi bi-people"></i> 5
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="projects-count">3</span>
+                                    </td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="client.html?id=4" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar" onclick="openEditModal(4)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(4, 'Global Logistics')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="client-cell">
+                                            <div class="table-avatar" style="background: var(--success);">FD</div>
+                                            <div>
+                                                <a href="client.html?id=5" class="fw-semibold text-primary d-block">Fashion Dreams</a>
+                                                <small class="text-muted"><i class="bi bi-building"></i> Empresa</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="contact-mini">
+                                            <span class="contact-name">Laura Torres</span>
+                                            <span class="contact-email">laura@fashiondreams.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="contacts-count" title="2 contactos">
+                                            <i class="bi bi-people"></i> 2
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="projects-count">2</span>
+                                    </td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="client.html?id=5" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar" onclick="openEditModal(5)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(5, 'Fashion Dreams')"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="client-cell">
+                                            <div class="table-avatar" style="background: var(--danger);">RS</div>
+                                            <div>
+                                                <a href="client.html?id=6" class="fw-semibold text-primary d-block">Roberto Sánchez</a>
+                                                <small class="text-muted"><i class="bi bi-person"></i> Persona</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-md-table-cell">
+                                        <div class="contact-mini">
+                                            <span class="contact-name">Roberto Sánchez</span>
+                                            <span class="contact-email">roberto.sanchez@email.com</span>
+                                        </div>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="contacts-count" title="1 contacto">
+                                            <i class="bi bi-person"></i> 1
+                                        </span>
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        <span class="projects-count">0</span>
+                                    </td>
+                                    <td><span class="status-badge pending">Inactivo</span></td>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <a href="client.html?id=6" class="action-btn" title="Ver"><i class="bi bi-eye"></i></a>
+                                            <button class="action-btn" title="Editar" onclick="openEditModal(6)"><i class="bi bi-pencil"></i></button>
+                                            <button class="action-btn delete" title="Eliminar" onclick="openDeleteModal(6, 'Roberto Sánchez')"><i class="bi bi-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div
-                        class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
-                        <small>Mostrando 1-3 de 45</small>
+                    <!-- Pagination -->
+                    <div class="card-body border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                        <small class="text-muted">Mostrando 1-6 de 12 clientes</small>
                         <nav>
                             <ul class="pagination pagination-custom mb-0">
-                                <li class="page-item disabled"><a class="page-link" href="#"><i
-                                            class="bi bi-chevron-left"></i></a></li>
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
+                                </li>
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#"><i
-                                            class="bi bi-chevron-right"></i></a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -276,98 +468,91 @@
         </main>
     </div>
 
-    <!-- Modal: Nuevo Cliente -->
-    <div class="modal fade modal-custom" id="clientModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Nuevo Cliente</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
-                            class="bi bi-x-lg"></i></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-3">
-                        <div class="col-6"><label class="form-label-custom">Nombre <span
-                                    class="text-danger">*</span></label><input type="text"
-                                class="form-control form-control-custom" placeholder="Nombre"></div>
-                        <div class="col-6"><label class="form-label-custom">Apellido <span
-                                    class="text-danger">*</span></label><input type="text"
-                                class="form-control form-control-custom" placeholder="Apellido"></div>
-                        <div class="col-12"><label class="form-label-custom">Email <span
-                                    class="text-danger">*</span></label><input type="email"
-                                class="form-control form-control-custom" placeholder="email@ejemplo.com"></div>
-                        <div class="col-12"><label class="form-label-custom">Teléfono</label><input type="tel"
-                                class="form-control form-control-custom" placeholder="+1 234 567 890"></div>
-                        <div class="col-12"><label class="form-label-custom">Empresa</label><input type="text"
-                                class="form-control form-control-custom" placeholder="Empresa"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i>
-                        Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Ver Detalles -->
-    <div class="modal fade modal-custom" id="viewModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="viewModalTitle">Detalles</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
-                            class="bi bi-x-lg"></i></button>
-                </div>
-                <div class="modal-body" id="viewModalContent"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom-primary" id="viewModalEditBtn"><i
-                            class="bi bi-pencil me-1"></i> Editar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal: Editar -->
-    <div class="modal fade modal-custom" id="editModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalTitle">Editar</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
-                            class="bi bi-x-lg"></i></button>
-                </div>
-                <div class="modal-body" id="editModalContent"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i>
-                        Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Modal: Confirmar Eliminación -->
     <div class="modal fade modal-custom" id="deleteModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Confirmar</h5>
-                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i
-                            class="bi bi-x-lg"></i></button>
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
                 </div>
                 <div class="modal-body text-center py-4">
                     <div class="delete-warning-icon mx-auto mb-3"><i class="bi bi-exclamation-triangle"></i></div>
-                    <h5 class="mb-2">¿Estás seguro?</h5>
-                    <p class="mb-0">Eliminar <strong class="text-danger" id="deleteItemName">este elemento</strong>.
-                        Esta acción no se puede deshacer.</p>
+                    <h5 class="mb-2">¿Eliminar este cliente?</h5>
+                    <p class="mb-0">El cliente <strong class="text-danger" id="deleteClientName">Nombre</strong> y todos sus contactos serán eliminados permanentemente.</p>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()"><i
-                            class="bi bi-trash me-1"></i> Eliminar</button>
+                    <button type="button" class="btn btn-custom-primary btn-custom-danger" onclick="confirmDelete()">
+                        <i class="bi bi-trash me-1"></i> Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Editar Cliente -->
+    <div class="modal fade modal-custom" id="editModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Cliente</h5>
+                    <button type="button" class="modal-close-btn" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Nombre / Razón Social <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-custom" id="editClientName" placeholder="Nombre del cliente">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">RFC / Tax ID</label>
+                            <input type="text" class="form-control form-control-custom" id="editClientTaxId" placeholder="RFC o identificación fiscal">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Tipo de Cliente</label>
+                            <select class="form-select form-select-custom" id="editClientType">
+                                <option value="company">Empresa</option>
+                                <option value="individual">Persona Física</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Estado</label>
+                            <select class="form-select form-select-custom" id="editClientStatus">
+                                <option value="active">Activo</option>
+                                <option value="inactive">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Contacto Principal</label>
+                            <input type="text" class="form-control form-control-custom" id="editContactName" placeholder="Nombre del contacto">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Email</label>
+                            <input type="email" class="form-control form-control-custom" id="editContactEmail" placeholder="email@empresa.com">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Teléfono</label>
+                            <input type="tel" class="form-control form-control-custom" id="editContactPhone" placeholder="+1 555 123 4567">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label-custom">Sitio Web</label>
+                            <input type="url" class="form-control form-control-custom" id="editClientWebsite" placeholder="https://ejemplo.com">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label-custom">Dirección</label>
+                            <textarea class="form-control form-control-custom" id="editClientAddress" rows="2" placeholder="Dirección completa"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-link me-auto" id="editFullLink">
+                        <i class="bi bi-box-arrow-up-right me-1"></i> Edición completa
+                    </a>
+                    <button type="button" class="btn btn-custom-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-custom-primary" onclick="saveClient()">
+                        <i class="bi bi-check-lg me-1"></i> Guardar Cambios
+                    </button>
                 </div>
             </div>
         </div>
@@ -383,8 +568,63 @@
     <script src="assets/js/sidebar.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/toast.js"></script>
-    <script src="assets/js/modals.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <script>
+        let currentClientId = null;
+
+        // Datos de ejemplo para simular carga
+        const clientsData = {
+            1: { name: 'TechStore Inc.', taxId: 'TSI123456ABC', type: 'company', status: 'active', contact: 'Juan Domínguez', email: 'juan@techstore.com', phone: '+1 555 123 4567', website: 'https://techstore.com', address: '456 Commerce Blvd, Suite 200, San Francisco, CA' },
+            2: { name: 'Marketing Solutions', taxId: 'MKS789012DEF', type: 'company', status: 'active', contact: 'María González', email: 'maria@mktgsolutions.com', phone: '+1 555 234 5678', website: 'https://mktgsolutions.com', address: '789 Marketing Ave, New York, NY' },
+            3: { name: 'Carlos Pérez', taxId: '', type: 'individual', status: 'active', contact: 'Carlos Pérez', email: 'carlos.perez@gmail.com', phone: '+1 555 345 6789', website: '', address: '' },
+            4: { name: 'Global Logistics', taxId: 'GL456789GHI', type: 'company', status: 'active', contact: 'Ana Martínez', email: 'ana@globallogistics.com', phone: '+1 555 456 7890', website: 'https://globallogistics.com', address: '123 Logistics Way, Chicago, IL' },
+            5: { name: 'Fashion Dreams', taxId: 'FD321654JKL', type: 'company', status: 'active', contact: 'Laura Torres', email: 'laura@fashiondreams.com', phone: '+1 555 567 8901', website: 'https://fashiondreams.com', address: '555 Fashion Blvd, Los Angeles, CA' },
+            6: { name: 'Roberto Sánchez', taxId: '', type: 'individual', status: 'inactive', contact: 'Roberto Sánchez', email: 'roberto.sanchez@email.com', phone: '+1 555 678 9012', website: '', address: '' }
+        };
+
+        function openDeleteModal(id, name) {
+            currentClientId = id;
+            document.getElementById('deleteClientName').textContent = name;
+            new bootstrap.Modal(document.getElementById('deleteModal')).show();
+        }
+
+        function confirmDelete() {
+            bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
+            showToast('Eliminado', 'El cliente ha sido eliminado correctamente', 'success');
+        }
+
+        function openEditModal(id) {
+            currentClientId = id;
+            const client = clientsData[id];
+            
+            if (client) {
+                document.getElementById('editClientName').value = client.name;
+                document.getElementById('editClientTaxId').value = client.taxId;
+                document.getElementById('editClientType').value = client.type;
+                document.getElementById('editClientStatus').value = client.status;
+                document.getElementById('editContactName').value = client.contact;
+                document.getElementById('editContactEmail').value = client.email;
+                document.getElementById('editContactPhone').value = client.phone;
+                document.getElementById('editClientWebsite').value = client.website;
+                document.getElementById('editClientAddress').value = client.address;
+                document.getElementById('editFullLink').href = 'client.html?id=' + id;
+            }
+            
+            new bootstrap.Modal(document.getElementById('editModal')).show();
+        }
+
+        function saveClient() {
+            const name = document.getElementById('editClientName').value;
+            if (!name) {
+                showToast('Error', 'El nombre del cliente es requerido', 'error');
+                return;
+            }
+            
+            bootstrap.Modal.getInstance(document.getElementById('editModal')).hide();
+            showToast('Guardado', 'Los cambios han sido guardados correctamente', 'success');
+        }
+    </script>
 </body>
 
 </html>

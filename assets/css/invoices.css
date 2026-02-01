@@ -415,3 +415,633 @@
         print-color-adjust: exact !important;
     }
 }
+/* ========================================
+   INVOICE HEADER SECTION (Edit Mode)
+======================================== */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.invoice-header-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.invoice-header-section .invoice-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'SFMono-Regular', Consolas, monospace;
+    opacity: 1;
+}
+
+.invoice-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.invoice-status.pending {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+}
+
+.invoice-status.paid {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.invoice-status.partial {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+}
+
+.invoice-status.overdue {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.invoice-status.void {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--text-muted);
+}
+
+.invoice-status.draft {
+    background: rgba(107, 114, 128, 0.1);
+    color: var(--text-muted);
+}
+
+/* Invoice Meta (Edit Mode) */
+.invoice-header-section .invoice-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    background: transparent;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.invoice-header-section .invoice-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: left;
+    flex: none;
+    min-width: auto;
+}
+
+/* ========================================
+   PAYMENT STATUS INDICATOR
+======================================== */
+.payment-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+}
+
+.payment-status-indicator.pending {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.payment-status-indicator.paid {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.payment-status-indicator.partial {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.payment-status-indicator .status-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.payment-status-indicator.pending .status-icon {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+.payment-status-indicator.paid .status-icon {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+.payment-status-indicator.partial .status-icon {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--info);
+}
+
+.payment-status-indicator .status-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-status-indicator .status-label {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.payment-status-indicator .status-amount {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   PAYMENT HISTORY
+======================================== */
+.payment-empty {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.payment-empty i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+    display: block;
+}
+
+.payment-empty p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.payment-list {
+    padding: 0.5rem;
+}
+
+.payment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.payment-item:hover {
+    background: var(--bg-input);
+}
+
+.payment-item .payment-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.payment-item .payment-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.payment-item .payment-amount {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.payment-item .payment-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.125rem;
+}
+
+/* ========================================
+   REFERENCES
+======================================== */
+.reference-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+}
+
+.reference-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.reference-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+}
+
+.reference-icon.quote {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+}
+
+.reference-icon.project {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+}
+
+.reference-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reference-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.reference-link {
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.reference-link:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   BANK INFO CARD
+======================================== */
+.bank-info-card {
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}
+
+.bank-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.375rem 0;
+    font-size: 0.875rem;
+}
+
+.bank-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bank-label {
+    color: var(--text-muted);
+}
+
+.bank-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   TOTALS SECTION (Edit Mode)
+======================================== */
+.totals-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 0;
+}
+
+.totals-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.totals-row.total {
+    padding-top: 0.875rem;
+    margin-top: 0.25rem;
+    border-top: 2px solid var(--border-color);
+    border-bottom: none;
+}
+
+.totals-row.total .totals-label,
+.totals-row.total .totals-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.totals-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.5rem 0;
+}
+
+.totals-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.totals-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   PAYMENT SUMMARY (Modal)
+======================================== */
+.payment-summary-card {
+    background: var(--bg-input);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}
+
+.payment-summary-card .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+}
+
+.payment-summary-card .summary-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.payment-summary-card .summary-row.highlight {
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    border-top: 2px solid var(--border-color);
+    border-bottom: none;
+}
+
+/* ========================================
+   ITEMS TABLE (Edit Mode)
+======================================== */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items-table thead th {
+    background: var(--bg-input);
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    border: none;
+}
+
+.items-table thead th:first-child {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.items-table thead th:last-child {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.items-table tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.items-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.item-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.item-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.item-remove {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-remove:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+}
+
+.add-item-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px dashed var(--border-color);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.add-item-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+/* ========================================
+   CLIENT CARD (Edit Mode)
+======================================== */
+.client-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.client-avatar-lg {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.client-name {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+}
+
+.client-company {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.client-details p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.client-details p i {
+    color: var(--text-muted);
+    width: 16px;
+}
+
+/* ========================================
+   CLIENT OPTION (Modal)
+======================================== */
+.client-option {
+    background: var(--bg-input);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.client-option:hover {
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   ACTIVITY TIMELINE
+======================================== */
+.activity-timeline {
+    padding: 1rem 1.25rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-item:first-child {
+    padding-top: 0;
+}
+
+.activity-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.activity-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.activity-text {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.activity-time {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* ========================================
+   RESPONSIVE (Edit Mode)
+======================================== */
+@media (max-width: 768px) {
+    .invoice-header-section {
+        padding: 1rem;
+    }
+
+    .invoice-header-section .invoice-number {
+        font-size: 1rem;
+    }
+
+    .invoice-header-section .invoice-meta {
+        gap: 1rem;
+    }
+
+    .invoice-header-section .invoice-meta-item {
+        min-width: calc(50% - 0.5rem);
+    }
+
+    .payment-status-indicator {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .items-table thead th,
+    .items-table tbody td {
+        padding: 0.5rem;
+    }
+
+    .activity-timeline {
+        padding: 0.75rem 1rem;
+    }
+
+    .activity-icon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        font-size: 0.875rem;
+    }
+
+    .action-buttons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
